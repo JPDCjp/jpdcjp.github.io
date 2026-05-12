@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.P. Durango | Contact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            background: white;
+            color: black;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: #1a1a1a;
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #2e7d32;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .logo a:hover {
+            color: #2e7d32;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .subhead {
+            color: #2e7d32;
+            margin-bottom: 2rem;
+            border-left: 3px solid #2e7d32;
+            padding-left: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.3rem;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 250px;
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .contact-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-value {
+            word-break: break-all;
+        }
+
+        .contact-value a {
+            color: #1a1a1a;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .contact-value a:hover {
+            color: #2e7d32;
+            border-bottom-color: #2e7d32;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            background: white;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: #2e7d32;
+            color: white;
+            border-color: #2e7d32;
+        }
+
+        .references {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .ref-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ref-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .ref-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .ref-title {
+            color: #2e7d32;
+            font-size: 0.9rem;
+        }
+
+        .ref-contact {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        .cv-download {
+            background: #2e7d32;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .cv-download:hover {
+            background: #1b5e20;
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo"><a href="index.html">J.P. Durango</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Contact</h1>
+    <div class="subhead">Get in touch for collaborations, questions, or fieldwork opportunities</div>
+
+    <div class="contact-grid">
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-label">📧 Email (personal)</div>
+                <div class="contact-value"><a href="mailto:idurangocardona@gmail.com">idurangocardona@gmail.com</a></div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">🏛️ Institutional email</div>
+                <div class="contact-value"><a href="mailto:jduran11@eafit.edu.co">jduran11@eafit.edu.co</a></div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">📞 Cell phone</div>
+                <div class="contact-value">(+57) 3104677111</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">📍 Location</div>
+                <div class="contact-value">Medellín, Antioquia, Colombia</div>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-label">🔗 Academic profiles</div>
+                <div class="social-links">
+                    <a href="#" class="social-link">GitHub</a>
+                    <a href="#" class="social-link">ORCID</a>
+                    <a href="#" class="social-link">Google Scholar</a>
+                    <a href="#" class="social-link">ResearchGate</a>
+                </div>
+                <div class="placeholder-note" style="font-size: 0.8rem; margin-top: 1rem; background: transparent; padding: 0;">
+                    ⚠️ Replace <code>#</code> with your actual profile URLs
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV Download -->
+    <div style="text-align: center; margin: 1.5rem 0;">
+        <a href="cv-jp-durango.pdf" download class="cv-download">📄 Download CV (PDF)</a>
+    </div>
+
+    <!-- Professional references -->
+    <h2>Professional references</h2>
+    <div class="references">
+        <div class="ref-item">
+            <div class="ref-name">Juan Camilo Arredondo Salgar</div>
+            <div class="ref-title">Profesor | Investigador | Biólogo | PhD</div>
+            <div class="ref-contact">📞 +57 301 3756103</div>
+        </div>
+        <div class="ref-item">
+            <div class="ref-name">Danny Zulay Urrego Cárdenas</div>
+            <div class="ref-title">Profesora | Investigadora | Bióloga | PhD student</div>
+            <div class="ref-contact">📞 +57 301 6381248</div>
+        </div>
+    </div>
+
+    <!-- Personal info summary -->
+    <h2>Personal information</h2>
+    <ul>
+        <li><strong>Date of birth:</strong> 26 June 1998</li>
+        <li><strong>Birthplace:</strong> Bello, Antioquia, Colombia</li>
+        <li><strong>Currently based:</strong> Medellín, Antioquia, Colombia</li>
+    </ul>
+</div>
+
+<div class="footer">
+    © 2026 Juan Pablo Durango — Herpetologist | Based in Medellín, Colombia
+</div>
+
+</body>
+</html>

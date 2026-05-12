@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.P. Durango | Research & Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            background: white;
+            color: black;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: #1a1a1a;
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #2e7d32;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .logo a:hover {
+            color: #2e7d32;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .subhead {
+            color: #2e7d32;
+            margin-bottom: 2rem;
+            border-left: 3px solid #2e7d32;
+            padding-left: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.3rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin: 1.2rem 0 0.5rem 0;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .job-entry {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .job-date {
+            color: #2e7d32;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .job-location {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .skill-cat {
+            background: #f5f5f5;
+            padding: 0.8rem;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .skill-cat h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo"><a href="index.html">J.P. Durango</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Research & Field Experience</h1>
+    <div class="subhead">Herpetofauna surveys • Molecular techniques • Environmental consulting • Bioacoustics</div>
+
+    <!-- Skills summary -->
+    <h2>Technical skills</h2>
+    <div class="skills-grid">
+        <div class="skill-cat">
+            <h4>🧬 Molecular</h4>
+            <ul style="margin:0; padding-left:1rem;">
+                <li>DNA extraction & amplification (PCR)</li>
+                <li>Quantification & sequencing (Oxford Nanopore)</li>
+            </ul>
+        </div>
+        <div class="skill-cat">
+            <h4>🌿 Field methods</h4>
+            <ul style="margin:0; padding-left:1rem;">
+                <li>Pitfall & drift fence traps</li>
+                <li>Acoustic monitoring (auditory transects)</li>
+                <li>Snake handling & relocation</li>
+            </ul>
+        </div>
+        <div class="skill-cat">
+            <h4>💻 Computational</h4>
+            <ul style="margin:0; padding-left:1rem;">
+                <li>R, Python, shell scripting</li>
+                <li>Raven Pro, Audacity, QGIS, ArcGIS</li>
+                <li>Geneious, BEAST, Garli</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Professional experience (most recent first) -->
+    <h2>Professional experience</h2>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — eQual SAS</div>
+        <div class="job-date">03/2026 – 04/2026</div>
+        <div class="job-location">Chiniú, Córdoba, Colombia</div>
+        <div>Caracterización y línea base de la comunidad de Anfibios y Reptiles para el Estudio de Impacto Ambiental de una subestación eléctrica.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — CGA SAS</div>
+        <div class="job-date">03/2026 – 04/2026</div>
+        <div class="job-location">Arauca, Arauca, Colombia</div>
+        <div>Caracterización de la comunidad de Anfibios y Reptiles de un aeropuerto para la actualización de su plan de manejo ambiental.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — Universidad EAFIT</div>
+        <div class="job-date">12/2025 – 01/2026</div>
+        <div class="job-location">Segovia, Antioquia, Colombia</div>
+        <div>Caracterización de la comunidad de Anfibios y Reptiles de predios privados para el registro como Reserva Natural de la Sociedad Civil.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — INGEOVITAL ESTUDIOS AMBIENTALES S.A.S.</div>
+        <div class="job-date">2025 – 2026</div>
+        <div class="job-location">Remedios/Segovia, Antioquia, Colombia</div>
+        <div>Caracterización de la comunidad de Anfibios y Reptiles de proyectos mineros para compensación por pérdida de biodiversidad.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Joven investigador — Universidad EAFIT</div>
+        <div class="job-date">2025 – 2026</div>
+        <div class="job-location">Medellín, Antioquia, Colombia</div>
+        <div>Extracción, amplificación (PCR), cuantificación y secuenciación con Oxford Nanopore Technologies de ADN de pequeños mamíferos, plantas y anfibios. Consolidación de la Red de espacios y actores territoriales del Museo de Historia Natural y Cultural de Colombia.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — + Verde S.A.S. BIC</div>
+        <div class="job-date">03/2025 – 03/2025</div>
+        <div class="job-location">San Cayetano, Norte de Santander, Colombia</div>
+        <div>Caracterización de la comunidad de Anfibios y Reptiles en un estudio de impacto ambiental para licenciamiento ambiental.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — Marine & Port Consultants S.A.S.</div>
+        <div class="job-date">2025</div>
+        <div class="job-location">Guapi, Cauca, Colombia</div>
+        <div>Captura y reubicación de fauna para desmovilización de proyecto de infraestructura.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — CONSGA S.A.S.</div>
+        <div class="job-date">07/2024 – 08/2024</div>
+        <div class="job-location">Palestina, Santander, Colombia</div>
+        <div>Caracterización de la comunidad de Anfibios y Reptiles de un proyecto de infraestructura para compensación por pérdida de biodiversidad.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Practicante — De Costa a Costa</div>
+        <div class="job-date">2023</div>
+        <div class="job-location">Bahía Solano, Chocó, Colombia</div>
+        <div>Prácticas educativas de ecoturismo con énfasis en avistamiento de ballenas. Caminatas guiadas con interpretación de la naturaleza en Anfibios y Reptiles. Inventario básico de Fauna y Flora.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — CyC CONSULTORES AMBIENTALES S.A.S.</div>
+        <div class="job-date">09/2022 – 09/2022</div>
+        <div class="job-location">Remoto – Medellín</div>
+        <div>Servicio especializado de análisis de datos acústicos de murciélagos para planes de manejo ambiental.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — ITM</div>
+        <div class="job-date">08/2021 – 12/2021</div>
+        <div class="job-location">Remoto – Medellín</div>
+        <div>Servicio especializado de análisis de datos acústicos de murciélagos para planes de manejo ambiental.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Asesoría técnica biológica — Universidad EAFIT</div>
+        <div class="job-date">01/2021 – 02/2021</div>
+        <div class="job-location">Amalfi, Antioquia, Colombia</div>
+        <div>Caracterización de la comunidad de Anfibios y Reptiles para el establecimiento de áreas de conservación.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Prestador de servicios educativos — ITM</div>
+        <div class="job-date">09/2019 – 10/2020</div>
+        <div class="job-location">Medellín, Antioquia, Colombia</div>
+        <div>Prácticas educativas (cursos, talleres, visitas guiadas) con énfasis en primera infancia y adultos mayores.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Monitoría — Proyecto STEP</div>
+        <div class="job-date">02/2020 – 03/2020</div>
+        <div class="job-location">Bahía Solano, Chocó, Colombia</div>
+        <div>Asistente de campo en caracterización de herpetofauna para turismo científico.</div>
+    </div>
+
+    <div class="job-entry">
+        <div class="job-title">Monitoría — Clubes de Ciencia Colombia</div>
+        <div class="job-date">06/2018 – 06/2018</div>
+        <div class="job-location">Medellín, Antioquia, Colombia</div>
+        <div>Acompañamiento en desarrollo de actividades de laboratorio con estudiantes de bachillerato.</div>
+    </div>
+
+    <h2>Research groups & seedbeds</h2>
+    <ul>
+        <li><strong>Semillero de Investigación Biodiversidad</strong> — Universidad EAFIT (06/2018 – present)</li>
+        <li><strong>Semillero de Investigación Reinventando Museo</strong> — Ciencias Naturales de La Salle-ITM (06/2018 – present)</li>
+    </ul>
+
+    <h2>Languages</h2>
+    <ul>
+        <li><strong>Spanish</strong> — Native</li>
+        <li><strong>English</strong> — C1 (IELTS)</li>
+    </ul>
+</div>
+
+<div class="footer">
+    © 2026 Juan Pablo Durango — Herpetologist | Based in Medellín, Colombia
+</div>
+
+</body>
+</html>
