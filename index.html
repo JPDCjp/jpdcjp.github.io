@@ -133,20 +133,113 @@
 
 /* Justificar todos los textos */
 p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .contact-body, .research-overview p {text-align: justify;}
+
+/* ===== SUBMENÚS ===== */
+.nav-menu li {
+    position: relative;
+    list-style: none;
+}
+
+.nav-menu li:hover .sub-menu {
+    display: block;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-top: none;
+    padding: 8px 0;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.sub-menu li {
+    display: block;
+    padding: 4px 16px;
+}
+
+.sub-menu li a {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    padding: 4px 0;
+    transition: background 0.2s;
+}
+
+.sub-menu li a:hover {
+    background: #f0f0ef;
+    text-decoration: none;
+}
+
+@media (max-width: 640px) {
+    .sub-menu {
+        position: static;
+        border: none;
+        box-shadow: none;
+        padding-left: 16px;
+    }
+    .nav-menu li:hover .sub-menu {
+        display: block;
+    }
+}
+
     </style>
 </head>
 <body>
 
 <nav class="nav">
     <span class="nav-brand">Juan-P. Durango</span>
-    <ul class="nav-menu">
-        <li><a onclick="show('home')">Home</a></li>
-        <li><a onclick="show('about')">About</a></li>
-        <li><a onclick="show('pubs')">Publications</a></li>
-        <li><a onclick="show('research')">Research</a></li>
-        <li><a onclick="show('gallery')">Gallery</a></li>
-        <li><a onclick="show('contact')">Contact</a></li>
-    </ul>
+<ul class="nav-menu">
+    <li>
+        <a onclick="show('home')">Home</a>
+        <!-- Submenú vacío (preparado para futuro) -->
+        <ul class="sub-menu">
+            <li><a href="#">—</a></li>
+        </ul>
+    </li>
+    <li>
+        <a onclick="show('about')">About</a>
+        <ul class="sub-menu">
+            <li><a href="#">—</a></li>
+        </ul>
+    </li>
+        <li>
+        <a onclick="show('pubs')">Output</a>
+        <ul class="sub-menu">
+            <li><a onclick="show('pubs'); scrollToSection('in-prep')">Publications</a></li>
+            <li><a onclick="show('pubs'); scrollToSection('conf-pres')">Conference presentations</a></li>
+            <li><a onclick="show('pubs'); scrollToSection('taxa-described')">Taxa described</a></li>
+        </ul>
+    </li>
+           <li>
+        <a onclick="show('research')">Research</a>
+        <ul class="sub-menu">
+            <li><a onclick="show('research'); scrollToSection('focal-bioacoustics')">Bioacoustics</a></li>
+            <li><a onclick="show('research'); scrollToSection('focal-taxonomy')">Taxonomy & Collections</a></li>
+            <li><a onclick="show('research'); scrollToSection('focal-communication')">Science Communication</a></li>
+        </ul>
+    </li>
+    <li>
+        <a onclick="show('gallery')">Gallery</a>
+        <ul class="sub-menu">
+            <li><a href="#">—</a></li>
+        </ul>
+    </li>
+    <li>
+        <a onclick="show('contact')">Contact</a>
+        <ul class="sub-menu">
+            <li><a href="#">—</a></li>
+        </ul>
+    </li>
+</ul>
 </nav>
 
 <!-- HOME -->
@@ -198,7 +291,7 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
         <div class="home-divider-v" style="background: #cccccc; width: 1px;"></div>
         <div class="home-col2" style="padding: 32px 32px;">
             <div class="sidebar-block" style="margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid #eeeeee;">
-                <div class="sidebar-label" style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #555; margin-bottom: 10px;">Research output</div>
+                <div class="sidebar-label" style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #555; margin-bottom: 10px;">Output</div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px;">
                     <div><div class="sidebar-stat" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #000; line-height: 1; margin-bottom: 2px;">9</div><div class="sidebar-stat-label" style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #555;">Publications</div></div>
                     <div><div class="sidebar-stat" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #000; line-height: 1; margin-bottom: 2px;">5</div><div class="sidebar-stat-label" style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #555;">Citations</div></div>
@@ -258,38 +351,85 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     </div>
 </div>
 
-<!-- PUBLICATIONS (completo) -->
-<div id="pubs" class="page">
-    <div class="pub-head">Publications</div>
+<!-- OUTPUT (completo) -->
 
-    <!-- ========== 2026 ========== -->
+<div id="pubs" class="page">
+    <div class="pub-head">Output</div>
+	<div class="research-overview">
+    <p>My academic contributions are listed below, including articles published in indexed journals, manuscripts in preparation, 
+	conference presentations and Taxa I've described. These works are organized chronologically and reflect my interests</div>
+	<div id="publications" class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Publications</div>
+	
+    <!-- ============================================================ -->
+    <!-- 1. IN PREPARATION (sin imagen)                                 -->
+    <!-- ============================================================ -->
+    <div id="in-prep" class="pub-year-large">In prep</div>
+
+    <div class="pub-ref">
+        <strong>Durango, J.P.</strong>, & Arredondo, J.C. (In prep.) Advertisement call, tadpole morphology and other natural history notes of <em>Leucostethus dysprosium</em> (Rivero and Serna, 2000)
+    </div>
+
+    <div class="pub-ref">
+        <strong>Durango, J.P.</strong>, & Grant, T. (In prep). The systematics of <em>Colostethus pratti</em> (Anura, Dendrobatoidea).
+    </div>
+
+    <div class="pub-ref">
+        Garzón-Franco, E., <strong>Durango, J.P.</strong>, Vargas-Ramirez, Y.C., & Lozano-Arias, J.M. (In prep.) A new species related to <em>Pristimantis labiosus</em> (Anura, Craugastoridae), from Chocó, Colombia.
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 2. AÑO 2026 (con imagen de portada)                           -->
+    <!-- ============================================================ -->
     <div class="pub-year-large">2026</div>
 
-    <div class="pub-ref">
-        9. <strong>Durango, J.P.</strong> & Arredondo, J.C. (2026) On the type locality of <em>Andinobates opisthomelas</em> and <em>Colostethus pratti</em>, with a redescription of <em>A. opisthomelas</em> based on newly collected topotypes. <em>South American Journal of Herpetology</em>, 38(1): 45–60. 
-        <a href="https://doi.org/10.2994/SAJH-D-24-00004.1">DOI</a> 
-        <a href="assets/pdfs/papers/2026_Durango_SAJH.pdf">PDF</a>
-    </div>
+    <!-- Contenedor con overflow hidden para la imagen flotante -->
+    <div style="overflow: hidden; margin-bottom: 1rem;">
 
-    <div class="pub-ref">
-        8. Garzón-Franco, E., <strong>Durango, J.P.</strong>, Ospina-Sarria, J.J. & Arredondo, J.C. (2026) A new species of <em>Pristimantis</em> (Anura: Strabomantidae) from the western slope of the Serranía del Baudó, Chocó, Colombia. <em>Zootaxa</em>, 5757(4): 301–323. 
-        <a href="https://doi.org/10.11646/zootaxa.5757.4.1">DOI</a> 
-        <a href="assets/pdfs/papers/2026_Garzon_Zootaxa.pdf">PDF</a>
-    </div>
+        <!-- Imagen de portada (flota a la derecha) -->
+        <!-- Imagen de portada (flota a la derecha) con caption -->
+        <div style="float: right; width: 160px; margin: 0 0 16px 20px;">
+            <a href="assets/images/thumbnails/SAJH_cover_2026.jpg" target="_blank">
+                <img src="assets/images/thumbnails/SAJH_cover_2026.jpg" 
+                     alt="Portada South American Journal of Herpetology" 
+                     style="width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+            </a>
+            <div style="font-size: 10px; color: #555; text-align: center; margin-top: 4px; line-height: 1.4;">
+                Cover: SAJH<br>Vol. 38(1), 2026
+            </div>
+        </div>
+        <!-- Publicación 9 -->
+        <div class="pub-ref" style="margin-bottom: 1rem;">
+            9. <strong>Durango, J.P.</strong> & Arredondo, J.C. (2026) On the type locality of <em>Andinobates opisthomelas</em> and <em>Colostethus pratti</em>, with a redescription of <em>A. opisthomelas</em> based on newly collected topotypes. <em>South American Journal of Herpetology</em>, 38(1): 45–60. 
+            <a href="https://doi.org/10.2994/SAJH-D-24-00004.1">DOI</a> 
+            <a href="assets/pdfs/papers/2026_Durango_SAJH.pdf">PDF</a>
+        </div>
 
-    <div class="pub-ref">
-        7. Lozano-Arias, J.M., Gómez-Mesa, L., <strong>Durango, J.P.</strong> & Garzón-Franco, E. (2026) Hidden in the leaf litter: rediscovery and morphological variation of the largescale lizard <em>Alopoglossus grandisquamatus</em> (Rueda, 1985) (Squamata: Alopoglossidae). <em>Zootaxa</em>, 5757(4): 369–381. 
-        <a href="https://doi.org/10.11646/zootaxa.5757.4.5">DOI</a> 
-        <a href="assets/pdfs/papers/2026_LozanoArias_Zootaxa.pdf">PDF</a>
-    </div>
+        <!-- Publicación 8 -->
+        <div class="pub-ref" style="margin-bottom: 1rem;">
+            8. Garzón-Franco, E., <strong>Durango, J.P.</strong>, Ospina-Sarria, J.J. & Arredondo, J.C. (2026) A new species of <em>Pristimantis</em> (Anura: Strabomantidae) from the western slope of the Serranía del Baudó, Chocó, Colombia. <em>Zootaxa</em>, 5757(4): 301–323. 
+            <a href="https://doi.org/10.11646/zootaxa.5757.4.1">DOI</a> 
+            <a href="assets/pdfs/papers/2026_Garzon_Zootaxa.pdf">PDF</a>
+        </div>
 
-    <div class="pub-ref">
-        6. Garzón-Franco, E., <strong>Durango, J.P.</strong> & Arredondo, J.C. (2026) Predation of the Chocoan robber frog <em>Strabomantis anomalus</em> (Strabomantidae) by a Cat-eyed snake <em>Leptodeira ornata</em> (Dipsadidae) in the Colombian Chocó. <em>Revista Latinoamericana de Herpetología</em>, 9(1): e1388, 173–176. 
-        <a href="https://doi.org/10.22201/fc.25942158e.2026.1.1388">DOI</a> 
-        <a href="assets/pdfs/papers/2026_GarzonFranco_RLH.pdf">PDF</a>
-    </div>
+        <!-- Publicación 7 -->
+        <div class="pub-ref" style="margin-bottom: 1rem;">
+            7. Lozano-Arias, J.M., Gómez-Mesa, L., <strong>Durango, J.P.</strong> & Garzón-Franco, E. (2026) Hidden in the leaf litter: rediscovery and morphological variation of the largescale lizard <em>Alopoglossus grandisquamatus</em> (Rueda, 1985) (Squamata: Alopoglossidae). <em>Zootaxa</em>, 5757(4): 369–381. 
+            <a href="https://doi.org/10.11646/zootaxa.5757.4.5">DOI</a> 
+            <a href="assets/pdfs/papers/2026_LozanoArias_Zootaxa.pdf">PDF</a>
+        </div>
 
-    <!-- ========== 2025 ========== -->
+        <!-- Publicación 6 -->
+        <div class="pub-ref" style="margin-bottom: 0;">
+            6. Garzón-Franco, E., <strong>Durango, J.P.</strong> & Arredondo, J.C. (2026) Predation of the Chocoan robber frog <em>Strabomantis anomalus</em> (Strabomantidae) by a Cat-eyed snake <em>Leptodeira ornata</em> (Dipsadidae) in the Colombian Chocó. <em>Revista Latinoamericana de Herpetología</em>, 9(1): e1388, 173–176. 
+            <a href="https://doi.org/10.22201/fc.25942158e.2026.1.1388">DOI</a> 
+            <a href="assets/pdfs/papers/2026_GarzonFranco_RLH.pdf">PDF</a>
+        </div>
+
+    </div> <!-- fin contenedor 2026 -->
+
+    <!-- ============================================================ -->
+    <!-- 3. AÑO 2025 (sin imagen)                                      -->
+    <!-- ============================================================ -->
     <div class="pub-year-large">2025</div>
 
     <div class="pub-ref">
@@ -304,7 +444,9 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
         <a href="assets/pdfs/papers/2025_VargasRamírez_RLH.pdf">PDF</a>
     </div>
 
-    <!-- ========== 2024 ========== -->
+    <!-- ============================================================ -->
+    <!-- 4. AÑO 2024 (sin imagen)                                      -->
+    <!-- ============================================================ -->
     <div class="pub-year-large">2024</div>
 
     <div class="pub-ref">
@@ -319,7 +461,9 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
         <a href="assets/pdfs/papers/2024_Durango_R&A.pdf">PDF</a>
     </div>
 
-    <!-- ========== 2022 ========== -->
+    <!-- ============================================================ -->
+    <!-- 5. AÑO 2022 (sin imagen)                                      -->
+    <!-- ============================================================ -->
     <div class="pub-year-large">2022</div>
 
     <div class="pub-ref">
@@ -328,31 +472,108 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
         <a href="assets/pdfs/papers/2022_Durango_R&A.pdf">PDF</a>
     </div>
 
-    <div class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Conference presentations</div>
-    <div style="margin-top:24px">
-        <div class="pub-year-large" style="margin-top:16px">2025</div>
-        <div class="sidebar-item" style="margin:8px 0 8px 20px; display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-start;">
-			<div style="flex:1; min-width: 200px;"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong><br>Poster: Ciencia criolla: importancia de una visión local en la sistemática del complejo <br><em>Colostethus pratti</em><br><a href="assets/pdfs/posters/2025_4CCH_Poster_Colostethuspratti.pdf" target="_blank" style="color:#000000; text-decoration:underline;">PDF</a></div>
-            <div style="flex-shrink: 0;"><a href="assets/pdfs/posters/2025_4CCH_Poster_Colostethuspratti.pdf" target="_blank"><img src="assets/images/thumbnails/2025_4CCH_Poster_Colostethuspratti.jpg" alt="Thumbnail poster" style="width: 100px; height: auto; border-radius: 4px;"></a></div> 
+    <!-- ============================================================ -->
+    <!-- 6. CONFERENCE PRESENTATIONS (con imagen del póster)          -->
+    <!-- ============================================================ -->
+    <div id="conf-pres" class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Conference presentations</div>
+        <!-- Todo el texto de la sección (todos los años y items) fluye alrededor -->
+        <div style="margin-left: 0;">
+            <div class="pub-year-large" style="margin-top:0;">2025</div>
+			    <!-- Contenedor principal con la imagen flotante a la derecha -->
+    <div style="overflow: hidden; margin-top: 24px;">
+        <!-- Bloque flotante: imagen + caption -->
+        <div style="float: right; width: 150px; margin: 0 0 10px 20px;">
+            <a href="assets/pdfs/posters/2025_4CCH_Poster_Colostethuspratti.pdf" target="_blank">
+                <img src="assets/images/thumbnails/2025_4CCH_Poster_Colostethuspratti.jpg" 
+                     alt="Thumbnail poster" 
+                     style="width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+            </a>
+            <div style="font-size: 10px; color: #555; text-align: center; margin-top: 4px; line-height: 1.4;">
+                Póster: IV CCH 2025
+            </div>
         </div>
-        <div class="sidebar-item" style="margin:0 0 8px 20px"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong><br>Oral: Desarrollo larval y datos adicionales de historia natural de <em>Leucostethus dysprosium</em></div>
-        <div class="sidebar-item" style="margin:0 0 16px 20px"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong><br>Oral: Delimitación y redescripción de <em>Andinobates opisthomelas</em></div>
+            <div class="sidebar-item" style="margin:8px 0 8px 0;">
+                <strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong><br>
+                Poster: Ciencia criolla: importancia de una visión local en la sistemática del complejo <em>Colostethus pratti</em>
+                <a href="assets/pdfs/posters/2025_4CCH_Poster_Colostethuspratti.pdf" target="_blank" style="color:#000000; text-decoration:underline;">PDF</a>
+            </div>
+            <div class="sidebar-item" style="margin:0 0 8px 0;"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong><br>Oral: Desarrollo larval y datos adicionales de historia natural de <em>Leucostethus dysprosium</em></div>
+            <div class="sidebar-item" style="margin:0 0 16px 0;"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong><br>Oral: Delimitación y redescripción de <em>Andinobates opisthomelas</em></div>
 
-        <div class="pub-year-large" style="margin-top:16px">2024</div>
-        <div class="sidebar-item" style="margin:8px 0 16px 20px"><strong>II Congreso Colombiano de Bioacústica y Ecoacústica — Medellín</strong><br>Staff — Asistente de organización</div>
+            <div class="pub-year-large" style="margin-top:16px">2024</div>
+            <div class="sidebar-item" style="margin:8px 0 16px 0;"><strong>II Congreso Colombiano de Bioacústica y Ecoacústica — Medellín</strong><br>Staff — Asistente de organización</div>
 
-        <div class="pub-year-large" style="margin-top:16px">2022</div>
-        <div class="sidebar-item" style="margin:8px 0 16px 20px"><strong>III Congreso Colombiano de Herpetología — Cali</strong><br>Oral: Clarificación de la localidad tipo de <em>Andinobates opisthomelas</em> y <em>Colostethus pratti</em></div>
+            <div class="pub-year-large" style="margin-top:16px">2022</div>
+            <div class="sidebar-item" style="margin:8px 0 16px 0;"><strong>III Congreso Colombiano de Herpetología — Cali</strong><br>Oral: Clarificación de la localidad tipo de <em>Andinobates opisthomelas</em> y <em>Colostethus pratti</em></div>
 
-        <div class="pub-year-large" style="margin-top:16px">2018</div>
-        <div class="sidebar-item" style="margin:8px 0 8px 20px"><strong>Feria de Semilleros de Investigación — Universidad EAFIT, Medellín</strong><br>Poster</div>
-        <div class="sidebar-item" style="margin:0 0 8px 20px"><strong>XVII Encuentro Departamental de Semilleros — Envigado</strong><br>Poster</div>
+            <div class="pub-year-large" style="margin-top:16px">2018</div>
+            <div class="sidebar-item" style="margin:8px 0 8px 0;"><strong>Feria de Semilleros de Investigación — Universidad EAFIT, Medellín</strong><br>Poster</div>
+            <div class="sidebar-item" style="margin:0 0 8px 0;"><strong>XVII Encuentro Departamental de Semilleros — Envigado</strong><br>Poster</div>
 
-        <div class="pub-year-large" style="margin-top:16px">2017</div>
-        <div class="sidebar-item" style="margin:8px 0 8px 20px"><strong>XVI Encuentro Departamental de Semilleros — Medellín</strong><br>Poster</div>
+            <div class="pub-year-large" style="margin-top:16px">2017</div>
+            <div class="sidebar-item" style="margin:8px 0 8px 0;"><strong>XVI Encuentro Departamental de Semilleros — Medellín</strong><br>Poster</div>
+        </div>
     </div>
-</div>
 
+    <!-- ============================================================ -->
+    <!-- 7. TAXA DESCRIBED (organizado por géneros)                    -->
+    <!-- ============================================================ -->
+    <div id="taxa-described" class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Taxa described</div>
+
+    <!-- ========== GÉNERO: Pristimantis ========== -->
+    <div class="pub-year-large" style="margin-top:24px;"><em>Pristimantis</em> Jiménez de la Espada, 1870</div>
+
+    <!-- Contenedor con imagen flotante para este género -->
+    <div style="overflow: hidden; margin-bottom: 1.5rem;">
+
+        <!-- Bloque flotante: imagen + caption -->
+        <div style="float: right; width: 200px; margin: 0 0 10px 20px;">
+            <a href="assets/images/taxa/Pristimantis-mecada.jpg" target="_blank">
+                <img src="assets/images/taxa/Pristimantis-mecada.jpg" 
+                     alt="Pristimantis mecada" 
+                     style="width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+            </a>
+            <div style="font-size: 10px; color: #555; text-align: center; margin-top: 4px; line-height: 1.4;">
+                <em>Pristimantis mecada</em><br>From: Huina, Bahia solano, Chocó, Colombia
+            </div>
+        </div>
+
+        <!-- Lista de especies de este género (el texto fluye alrededor de la imagen) -->
+        <div style="margin: 8px 0 16px 0;">
+            <strong><em>Pristimantis mecada</em></strong> — Garzón-Franco, Durango, Ospina-Sarria, and Arredondo-Salgar, 2026
+            <span style="font-size:10px;color:#555;display:block;margin-top:2px;">Holotype: EAFIT-Am 0050, Mecana, Bahía solano, Chocó, Colombia</span>
+        </div>
+
+        <!-- Aquí puedes añadir más especies de Pristimantis en el futuro, siguiendo el mismo patrón -->
+        <!-- Ejemplo:
+        <div style="margin: 8px 0 16px 0;">
+            <strong><em>Pristimantis otraespecie</em></strong> — Autores, 2027
+            <span style="font-size:10px;color:#555;display:block;margin-top:2px;">Holotype: ...</span>
+        </div>
+        -->  <!-- ========== CÓMO AÑADIR UN NUEVO GÉNERO EN EL FUTURO ========== -->
+    <!-- Copia este bloque y pégalo justo después del cierre del contenedor anterior.
+         Cambia "Pristimantis" por el nombre del nuevo género, y ajusta la imagen y las especies. -->
+    <!--
+    <div class="pub-year-large" style="margin-top:24px;">NuevoGénero</div>
+    <div style="overflow: hidden; margin-bottom: 1.5rem;">
+        <div style="float: right; width: 200px; margin: 0 0 10px 20px;">
+            <a href="ruta/de/la/imagen.jpg" target="_blank">
+                <img src="ruta/de/la/imagen.jpg" alt="Descripción" style="width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+            </a>
+            <div style="font-size: 10px; color: #555; text-align: center; margin-top: 4px; line-height: 1.4;">
+                Caption de la imagen
+            </div>
+        </div>
+        <div style="margin: 8px 0 16px 0;">
+            <strong><em>NuevoGénero especie</em></strong> — Autores, año
+            <span style="font-size:10px;color:#555;display:block;margin-top:2px;">Detalles del holotipo</span>
+        </div>
+        <!-- más especies... -->
+
+    </div> <!-- fin contenedor Pristimantis -->
+
+</div> <!-- fin #pubs -->
+	
 <!-- RESEARCH -->
 <div id="research" class="page">
     <div class="research-head">Research</div>
@@ -371,8 +592,8 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     </div>
 
     <!-- Focal area 1 -->
-    <div class="research-focal">
-        <div class="research-focal-title">Bioacoustics as a tool for taxonomy and systematics</div>
+    <div id="focal-bioacoustics" class="research-focal">
+    <div class="research-focal-title">Bioacoustics as a tool for taxonomy and systematics</div>
         <div class="research-focal-content">
             <div class="research-focal-text">
                 <p>Advertisement calls are species-specific signals shaped by sexual selection and reproductive isolation, 
@@ -399,8 +620,8 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     </div>
 
     <!-- Focal area 2 -->
-    <div class="research-focal">
-        <div class="research-focal-title">Taxonomy, Biological Collections, and the Importance of Historical Research </div>
+    <div id="focal-taxonomy" class="research-focal">
+    <div class="research-focal-title">Taxonomy, Biological Collections, and the Importance of Historical Research</div>
         <div class="research-focal-content">
 		<div class="research-focal-image">
                 <img src="assets/images/research/IMG-2025121.jpg" alt="Specimen examination">
@@ -427,8 +648,8 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     </div>
 
     <!-- Focal area 3 (si quieres, agrégala) -->
-    <div class="research-focal">
-        <div class="research-focal-title">Science Communication and Public Engagement</div>
+    <div id="focal-communication" class="research-focal">
+    <div class="research-focal-title">Science Communication and Public Engagement</div>
         <div class="research-focal-content">
             <div class="research-focal-text">
                 <p>"Science is a way of thinking much more than it is a body of knowledge." — Carl Sagan</p>
@@ -597,6 +818,29 @@ function initCarousel(slidesId, captionId, carouselKey) {
 // Ejecutar la carga de ambos carruseles al iniciar la página
 loadCarousel('carousel-illu', DIR_ILLU, 'caption-illu', 'illu');
 loadCarousel('carousel-photo', DIR_PHOTO, 'caption-photo', 'photo');
+
+
+function scrollToSection(id) {
+    // Damos un margen inicial para que la página cambie de pestaña
+    setTimeout(function() {
+        let intentos = 0;
+        const maxIntentos = 8; // Intentará durante ~2.4 segundos
+        const intervalo = setInterval(function() {
+            const el = document.getElementById(id);
+            if (el) {
+                // Si encuentra el elemento, hace scroll y detiene el intervalo
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                clearInterval(intervalo);
+            } else if (intentos >= maxIntentos) {
+                // Si ya pasaron todos los intentos, detiene el intervalo para no saturar
+                clearInterval(intervalo);
+                console.warn('Elemento con id "' + id + '" no encontrado después de varios intentos.');
+            }
+            intentos++;
+        }, 300); // Reintenta cada 300 milisegundos
+    }, 400);
+}
+
 </script>
 </body>
 </html>
