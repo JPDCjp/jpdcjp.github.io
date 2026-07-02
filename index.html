@@ -121,9 +121,12 @@
 .carousel-container {position: relative;display: flex;align-items: center;justify-content: center;}
 .carousel-slides {width: 80%;overflow: hidden;display: flex;scroll-behavior: smooth;gap: 0;align-items: center;}
 .carousel-slides img {width: 100%;flex: 0 0 100%;object-fit: contain;background: #f5f5f5; border-radius: 4px;border: 1px solid #eeeeee;}
+
+.carousel-slides {scroll-snap-type: x mandatory;}
 .carousel-btn {background: #ffffff;border: 1px solid #cccccc;font-size: 24px;font-weight: bold;cursor: pointer;padding: 8px 16px;margin: 0 10px;border-radius: 4px;transition: background 0.2s;}
 .carousel-btn:hover {background: #e0e0e0;}
 .carousel-caption {text-align: center;font-size: 10px;color: #555;margin-top: 12px;}
+.carousel-slides img {scroll-snap-align: start; flex: 0 0 100%;}
 @media (max-width: 640px) {.carousel-slides {width: 70%;}}
 .videos-panel {margin-bottom: 48px;}
 .video-card {flex: 1;min-width: 250px;max-width: 400px;}
@@ -201,15 +204,9 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     <li>
         <a onclick="show('home')">Home</a>
         <!-- Submenú vacío (preparado para futuro) -->
-        <ul class="sub-menu">
-            <li><a href="#">—</a></li>
-        </ul>
     </li>
     <li>
         <a onclick="show('about')">About</a>
-        <ul class="sub-menu">
-            <li><a href="#">—</a></li>
-        </ul>
     </li>
         <li>
         <a onclick="show('pubs')">Output</a>
@@ -217,6 +214,7 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
             <li><a onclick="show('pubs'); scrollToSection('in-prep')">Publications</a></li>
             <li><a onclick="show('pubs'); scrollToSection('conf-pres')">Conference presentations</a></li>
             <li><a onclick="show('pubs'); scrollToSection('taxa-described')">Taxa described</a></li>
+			<li><a onclick="show('pubs'); scrollToSection('peer-review')">Peer Review Work</a></li>
         </ul>
     </li>
            <li>
@@ -228,16 +226,15 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
         </ul>
     </li>
     <li>
-        <a onclick="show('gallery')">Gallery</a>
-        <ul class="sub-menu">
-            <li><a href="#">—</a></li>
-        </ul>
-    </li>
+    <a onclick="show('gallery')">Gallery</a>
+    <ul class="sub-menu">
+        <li><a onclick="show('gallery'); scrollToSection('gallery-videos')">Videos</a></li>
+        <li><a onclick="show('gallery'); scrollToSection('gallery-illustrations')">Illustrations</a></li>
+        <li><a onclick="show('gallery'); scrollToSection('gallery-photos')">Photos</a></li>
+    </ul>
+</li>
     <li>
         <a onclick="show('contact')">Contact</a>
-        <ul class="sub-menu">
-            <li><a href="#">—</a></li>
-        </ul>
     </li>
 </ul>
 </nav>
@@ -357,7 +354,7 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     <div class="pub-head">Output</div>
 	<div class="research-overview">
     <p>My academic contributions are listed below, including articles published in indexed journals, manuscripts in preparation, 
-	conference presentations and Taxa I've described. These works are organized chronologically and reflect my interests</div>
+	conference presentations and taxa I've described. These works are organized chronologically and reflect my interests</div>
 	<div id="publications" class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Publications</div>
 	
     <!-- ============================================================ -->
@@ -572,6 +569,18 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
 
     </div> <!-- fin contenedor Pristimantis -->
 
+    <!-- ============================================================ -->
+    <!-- 8. PEER REVIEW                                                 -->
+    <!-- ============================================================ -->
+    <div id="peer-review" class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Peer Review Work</div>
+
+    <div style="margin: 16px 0 0 0; font-size: 16px; line-height: 1.8; color: #000000;">
+        <p style="margin-bottom: 8px;">He actuado como revisor para las siguientes revistas científicas:</p>
+        <ul style="list-style-type: disc; padding-left: 24px; margin-bottom: 8px;">
+
+            <li><em>Herpetology Notes</em></li>
+        </ul>
+    </div>
 </div> <!-- fin #pubs -->
 	
 <!-- RESEARCH -->
@@ -581,85 +590,85 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     <!-- Overview -->
     <div class="research-overview">
         <p>The acoustic environment of tropical forests is among the richest and most biologically complex on Earth. 
-		A significant portion of this soundscape is produced by anurans — the group that includes all frogs and toads. 
-		The most common type of vocalization in this group is the advertisement call, a signal males produce to 
-		attract mates and deter rivals. Because females of a given species preferentially respond to the calls of 
-		conspecific males, advertisement calls act as prezygotic barriers — mechanisms that prevent reproduction 
-		between individuals of different species before fertilization can occur, and therefore play a central role 
-		in the origin and maintenance of species boundaries. The central focus of my research so far is to understand how these 
-		vocalizations can be leveraged to address fundamental questions in taxonomy, systematics, and natural history. 
-		My ongoing research falls (but it is not limited) into the following focal areas:</p>
+        A significant portion of this soundscape is produced by anurans — the group that includes all frogs and toads. 
+        The most common type of vocalization in this group is the advertisement call, a signal males produce to 
+        attract mates and deter rivals. Because females of a given species preferentially respond to the calls of 
+        conspecific males, advertisement calls act as prezygotic barriers — mechanisms that prevent reproduction 
+        between individuals of different species before fertilization can occur, and therefore play a central role 
+        in the origin and maintenance of species boundaries. The central focus of my research so far is to understand how these 
+        vocalizations can be leveraged to address fundamental questions in taxonomy, systematics, and natural history. 
+        My ongoing research falls (but it is not limited) into the following focal areas:</p>
     </div>
 
-    <!-- Focal area 1 -->
+    <!-- Focal area 1: Bioacoustics -->
     <div id="focal-bioacoustics" class="research-focal">
-    <div class="research-focal-title">Bioacoustics as a tool for taxonomy and systematics</div>
-        <div class="research-focal-content">
+        <div class="research-focal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; font-style: normal; text-transform: uppercase; color: #000; margin-bottom: 24px; border-left: 4px solid #000; padding-left: 20px;">Bioacoustics as a tool for taxonomy and systematics</div>
+        <div style="display: flow-root;">
+            <div style="float: right; width: 300px; margin: 0 0 16px 20px;">
+                <img src="assets/images/research/IMG-20220922.jpg" alt="Bioacoustics fieldwork" style="width: 100%; border-radius: 4px; border: 1px solid #eeeeee;">
+                <div class="image-caption">Recording frog calls in Huina, Bahía Solano, Chocó, Colombia.</div>
+            </div>
             <div class="research-focal-text">
                 <p>Advertisement calls are species-specific signals shaped by sexual selection and reproductive isolation, 
-				making them powerful to delimit species boundaries, uncover cryptic diversity, and infer evolutionary relationships.
-				A critical first step in applying bioacoustics to systematics 
-				is the formal description of calls for species whose vocalizations remain unknown. Much of my work is dedicated 
-				to filling these gaps — documenting the advertisement calls of poorly known Colombian anurans and establishing 
-				the acoustic baselines necessary to use sound as a diagnostic character. Building on these descriptions, I have 
-				contributed to the formal description of new species in which acoustic data, alongside morphological evidence, provide key 
-				characters that define and diagnose the new taxa. This integrative approach reflects my broader interest in using 
-				bioacoustics not merely as a survey tool, but as a rigorous source of taxonomic evidence.</p>
-				
-				<p>A work done with collegues on the granular glassfrog <em>Cochranella granulosa</em> revealed geographic call variation across its 
-				distribution in Colombia, thus suggesting hiden diversity highlighting and higlinding the importance of integrating 
-				acoustic data into taxonomic revisions. I have also described advertisement calls for understudied species such as 
-				<em>Serranobatrachus sanctaemartae</em> and distress calls for <em>Smilisca phaeota</em>. These contributions provide 
-				baseline data for future taxonomic and evolutionary research and monitoring and conservation efforts.</p>
-            </div>
-            <div class="research-focal-image">
-                <img src="assets/images/research/IMG-20220922.jpg" alt="Bioacoustics fieldwork">
-                <div class="image-caption">Recording frog calls in Huina, Bahía Solano, Chocó, Colombia.</div>
+                making them powerful to delimit species boundaries, uncover cryptic diversity, and infer evolutionary relationships.
+                A critical first step in applying bioacoustics to systematics 
+                is the formal description of calls for species whose vocalizations remain unknown. Much of my work is dedicated 
+                to filling these gaps — documenting the advertisement calls of poorly known Colombian anurans and establishing 
+                the acoustic baselines necessary to use sound as a diagnostic character. Building on these descriptions, I have 
+                contributed to the formal description of new species in which acoustic data, alongside morphological evidence, provide key 
+                characters that define and diagnose the new taxa. This integrative approach reflects my broader interest in using 
+                bioacoustics not merely as a survey tool, but as a rigorous source of taxonomic evidence.</p>
+                
+                <p>A work done with collegues on the granular glassfrog <em>Cochranella granulosa</em> revealed geographic call variation across its 
+                distribution in Colombia, thus suggesting hiden diversity highlighting and higlinding the importance of integrating 
+                acoustic data into taxonomic revisions. I have also described advertisement calls for understudied species such as 
+                <em>Serranobatrachus sanctaemartae</em> and distress calls for <em>Smilisca phaeota</em>. These contributions provide 
+                baseline data for future taxonomic and evolutionary research and monitoring and conservation efforts.</p>
             </div>
         </div>
     </div>
 
-    <!-- Focal area 2 -->
+    <!-- Focal area 2: Taxonomy -->
     <div id="focal-taxonomy" class="research-focal">
-    <div class="research-focal-title">Taxonomy, Biological Collections, and the Importance of Historical Research</div>
-        <div class="research-focal-content">
-		<div class="research-focal-image">
-                <img src="assets/images/research/IMG-2025121.jpg" alt="Specimen examination">
+        <div class="research-focal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; font-style: normal; text-transform: uppercase; color: #000; margin-bottom: 24px; border-left: 4px solid #000; padding-left: 20px;">Taxonomy, Biological Collections, and the Importance of Historical Research</div>
+        <div style="display: flow-root;">
+            <div style="float: left; width: 300px; margin: 0 20px 16px 0;">
+                <img src="assets/images/research/IMG-2025121.jpg" alt="Specimen examination" style="width: 100%; border-radius: 4px; border: 1px solid #eeeeee;">
                 <div class="image-caption">Work in collections revisiting material.</div>
             </div>
             <div class="research-focal-text">
                 <p>Sound characters alone cannot resolve taxonomic problems if the foundational question of which species 
-				we are talking about remains unanswered. A persistent challenge in tropical biodiversity science is the existence 
-				of multiple overlapping shortfalls: the Linnean shortfall — the vast number of species still awaiting formal 
-				description — and the Wallacean shortfall — our incomplete knowledge of where known species actually occur. 
-				Underlying both is a subtler and often overlooked problem: the taxonomic impediment. The global shortage of trained 
-				taxonomists means that the pace at which new species are being described is far outstripped by the rate at which 
-				biodiversity is being lost, and that even described species frequently remain poorly understood for decades.</p>
-				<p>I am part of a new generation of researchers committed to practicing taxonomy as a rigorous, integrative science 
-				— and equally committed to inspiring others to pursue it. Taxonomy is not a relic of 19th-century natural history; 
-				it is the indispensable foundation upon which all of biology rests, and it urgently needs practitioners. Central to 
-				this vision is the role of biological collections — not only as repositories of historical specimens, but as active 
-				scientific infrastructure. Enriching collections in developing countries, where a disproportionate share of global 
-				biodiversity is concentrated, is not merely a curatorial concern: it is a prerequisite for rigorous, locally grounded 
-				taxonomy that does not depend entirely on specimens housed in institutions thousands of kilometers away. By improving 
-				taxonomic knowledge, I aim to support conservation decisions and biodiversity management in megadiverse regions.</p>
+                we are talking about remains unanswered. A persistent challenge in tropical biodiversity science is the existence 
+                of multiple overlapping shortfalls: the Linnean shortfall — the vast number of species still awaiting formal 
+                description — and the Wallacean shortfall — our incomplete knowledge of where known species actually occur. 
+                Underlying both is a subtler and often overlooked problem: the taxonomic impediment. The global shortage of trained 
+                taxonomists means that the pace at which new species are being described is far outstripped by the rate at which 
+                biodiversity is being lost, and that even described species frequently remain poorly understood for decades.</p>
+                <p>I am part of a new generation of researchers committed to practicing taxonomy as a rigorous, integrative science 
+                — and equally committed to inspiring others to pursue it. Taxonomy is not a relic of 19th-century natural history; 
+                it is the indispensable foundation upon which all of biology rests, and it urgently needs practitioners. Central to 
+                this vision is the role of biological collections — not only as repositories of historical specimens, but as active 
+                scientific infrastructure. Enriching collections in developing countries, where a disproportionate share of global 
+                biodiversity is concentrated, is not merely a curatorial concern: it is a prerequisite for rigorous, locally grounded 
+                taxonomy that does not depend entirely on specimens housed in institutions thousands of kilometers away. By improving 
+                taxonomic knowledge, I aim to support conservation decisions and biodiversity management in megadiverse regions.</p>
             </div>
         </div>
     </div>
 
-    <!-- Focal area 3 (si quieres, agrégala) -->
+    <!-- Focal area 3: Science Communication -->
     <div id="focal-communication" class="research-focal">
-    <div class="research-focal-title">Science Communication and Public Engagement</div>
-        <div class="research-focal-content">
+        <div class="research-focal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; font-style: normal; text-transform: uppercase; color: #000; margin-bottom: 24px; border-left: 4px solid #000; padding-left: 20px;">Science Communication and Public Engagement</div>
+        <div style="display: flow-root;">
+            <div style="float: right; width: 300px; margin: 0 0 16px 20px;">
+                <img src="assets/images/research/IMG-2025041.jpg" alt="Science outreach" style="width: 100%; border-radius: 4px; border: 1px solid #eeeeee;">
+                <div class="image-caption">Science outreach with School students</div>
+            </div>
             <div class="research-focal-text">
                 <p>"Science is a way of thinking much more than it is a body of knowledge." — Carl Sagan</p>
-<p>This is, perhaps, the most underappreciated truth in science communication. Popular accounts of outreach often reduce it to the transfer of facts — teaching people that frogs are declining, that the Chocó is biodiverse, that species have Latin names. But that conception misses the point entirely. What science actually has to offer the public is not a collection of data; it is a way of approaching the world — with curiosity, with skepticism, with a willingness to revise what you think you know in the face of new evidence. Teaching people to think critically is, in my view, the deepest purpose of science communication, and the one most worth pursuing. And critical thinking, once learned, does not stay confined to biology — it spills into how people read the news, evaluate a political candidate, or decide what kind of future they want to live in.</p>
-<p>This conviction has shaped my engagement work across very different contexts. In the Chocó, working as a naturalist guide during humpback whale season, I rarely led with facts. Instead, I tried to lead with consequences and questions. What does it mean that an animal this size, with this physiology, travels thousands of kilometers to give birth in these waters? What does it tell us about how interconnected the world is — and about what is at stake when we fail to protect it? What kind of future does a community build around a living whale, versus a dead one? These conversations, held on boats in the Pacific with visitors from all walks of life, were never really about whales. They were about how we value nature, how we make collective decisions, and how a region historically marked by conflict and neglect can find dignity and economic sovereignty through the knowledge its own ecosystems hold. In the forest, walking with communities through landscapes they had lived in for generations but rarely been invited to see through a scientific lens, the goal was the same: not to explain, but to prompt a different kind of looking.</p>
-<p>At the Museo de Ciencias Naturales de La Salle in Medellín, I worked with adults and children who often arrived not knowing what a natural history collection is or why it exists. I tried to change not just that, but what they understood a collection to be for — not a cabinet of curiosities, but a decision-making tool. The specimens housed there represent irreplaceable information about what lived where, when, and in what abundance. That information is what allows scientists, and ultimately governments, to make conservation decisions grounded in evidence rather than assumption. Helping visitors understand that connection — between a pinned frog in a drawer and a policy that protects a watershed — is, I think, one of the most political acts a scientist can perform. Because a public that understands how knowledge is built is a public better equipped to demand that it be used wisely.</p>
-            </div>
-            <div class="research-focal-image">
-                <img src="assets/images/research/IMG-2025041.jpg" alt="Fieldwork in Chocó">
-                <div class="image-caption">Science outreach with School students</div>
+                <p>This is, perhaps, the most underappreciated truth in science communication. Popular accounts of outreach often reduce it to the transfer of facts — teaching people that frogs are declining, that the Chocó is biodiverse, that species have Latin names. But that conception misses the point entirely. What science actually has to offer the public is not a collection of data; it is a way of approaching the world — with curiosity, with skepticism, with a willingness to revise what you think you know in the face of new evidence. Teaching people to think critically is, in my view, the deepest purpose of science communication, and the one most worth pursuing. And critical thinking, once learned, does not stay confined to biology — it spills into how people read the news, evaluate a political candidate, or decide what kind of future they want to live in.</p>
+                <p>This conviction has shaped my engagement work across very different contexts. In the Chocó, working as a naturalist guide during humpback whale season, I rarely led with facts. Instead, I tried to lead with consequences and questions. What does it mean that an animal this size, with this physiology, travels thousands of kilometers to give birth in these waters? What does it tell us about how interconnected the world is — and about what is at stake when we fail to protect it? What kind of future does a community build around a living whale, versus a dead one? These conversations, held on boats in the Pacific with visitors from all walks of life, were never really about whales. They were about how we value nature, how we make collective decisions, and how a region historically marked by conflict and neglect can find dignity and economic sovereignty through the knowledge its own ecosystems hold. In the forest, walking with communities through landscapes they had lived in for generations but rarely been invited to see through a scientific lens, the goal was the same: not to explain, but to prompt a different kind of looking.</p>
+                <p>At the Museo de Ciencias Naturales de La Salle in Medellín, I worked with adults and children who often arrived not knowing what a natural history collection is or why it exists. I tried to change not just that, but what they understood a collection to be for — not a cabinet of curiosities, but a decision-making tool. The specimens housed there represent irreplaceable information about what lived where, when, and in what abundance. That information is what allows scientists, and ultimately governments, to make conservation decisions grounded in evidence rather than assumption. Helping visitors understand that connection — between a pinned frog in a drawer and a policy that protects a watershed — is, I think, one of the most political acts a scientist can perform. Because a public that understands how knowledge is built is a public better equipped to demand that it be used wisely.</p>
             </div>
         </div>
     </div>
@@ -670,8 +679,8 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     <div class="field-head">Gallery</div>
 
     <!-- Panel de videos -->
-    <div class="videos-panel">
-        <div class="carousel-label">Videos</div>
+    <div id="gallery-videos" class="videos-panel">
+        <div class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Videos</div>
         <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;">
             <!-- Video 1 -->
             <div class="video-card">
@@ -696,8 +705,8 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     </div>
 
     <!-- Carrusel de ilustraciones (contenedor vacío) -->
-    <div class="gallery-carousel">
-        <div class="carousel-label">Ilustraciones</div>
+    <div id="gallery-illustrations" class="gallery-carousel">
+        <div class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Illustrations</div>
         <div class="carousel-container">
             <button class="carousel-btn prev" data-carousel="illu">&#10094;</button>
             <div class="carousel-slides" id="carousel-illu"></div>   <!-- Vacío -->
@@ -707,8 +716,8 @@ p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .
     </div>
 
     <!-- Carrusel de fotografías (contenedor vacío) -->
-    <div class="gallery-carousel">
-        <div class="carousel-label">Fotografías de campo</div>
+    <div id="gallery-photos" class="gallery-carousel">
+        <div class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Photos</div>
         <div class="carousel-container">
             <button class="carousel-btn prev" data-carousel="photo">&#10094;</button>
             <div class="carousel-slides" id="carousel-photo"></div>   <!-- Vacío -->
@@ -797,12 +806,17 @@ function initCarousel(slidesId, captionId, carouselKey) {
     if (images.length === 0) return;
     let currentIndex = 0;
     function update() {
-        const width = images[0].clientWidth;
-        slidesContainer.scrollTo({ left: currentIndex * width, behavior: 'smooth' });
-        if (caption && images[currentIndex]) {
+    if (images[currentIndex]) {
+        images[currentIndex].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start'
+        });
+        if (caption) {
             caption.innerText = images[currentIndex].alt;
         }
     }
+}
     prevBtn.onclick = () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         update();
