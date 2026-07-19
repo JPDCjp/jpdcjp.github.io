@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Pablo Durango | Herpetología · Bioacústica</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap');
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth}
+        body{font-family:Arial,Helvetica,sans-serif;background:#f0f0ef;color:#000000;font-size:18px;line-height:1.6;max-width:960px;margin:0 auto}
+
+        .nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:50px;border-bottom:1px solid #cccccc;position:sticky;top:0;background:#ffffff;z-index:50}
+        .nav-brand{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#000000}
+        .nav-menu{display:flex;gap:28px;list-style:none}
+        .nav-menu a{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#000000;text-decoration:none;transition:opacity 0.2s;cursor:pointer}
+        .nav-menu a:hover{opacity:0.6}
+
+        #home{padding:0; overflow:auto}
+        .home-masthead{padding:28px 40px 20px;border-bottom:1px solid #cccccc}
+        .masthead-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px}
+        .masthead-date{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#555555}
+        .masthead-rule{border:none;border-top:3px solid #000000;margin-bottom:6px}
+        .masthead-thin{border:none;border-top:1px solid #000000;margin-bottom:20px}
+        .masthead-name{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6.5rem);font-weight:900;line-height:0.92;letter-spacing:-0.02em;color:#000000;text-transform:uppercase;margin-bottom:20px}
+        .masthead-sub{display:flex;justify-content:space-between;align-items:flex-end;padding-top:14px;border-top:1px solid #cccccc;flex-wrap:wrap;gap:16px}
+        .masthead-tagline{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#555555;max-width:500px;line-height:1.7}
+        .masthead-links{display:flex;gap:20px;flex-wrap:wrap}
+        .masthead-links a{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#555555;text-decoration:none}
+        .masthead-links a:hover{color:#000000}
+
+        .masthead-sub .home-photo {float:right;width:200px;margin-left:20px;margin-bottom:10px;}
+        .masthead-sub .home-photo img {width:100%;border-radius:4px;}
+        .masthead-sub .photo-caption {font-size:9px;text-align:center;margin-top:5px;color:#555;}
+
+        .home-body {display:grid;grid-template-columns:2fr 1px 1fr;gap:0;clear:both;}
+        .home-col1{padding:32px 40px}
+        .home-divider-v{background:#cccccc;width:1px}
+        .home-col2{padding:32px 32px}
+        .lead-label{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#555555;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #cccccc}
+        .lead-headline{font-family:Arial,Helvetica,sans-serif;font-size:1.5rem;font-weight:700;color:#000000;line-height:1.25;margin-bottom:14px;font-style:italic}
+        .lead-body{font-size:17px;color:#000000;line-height:1.75;margin-bottom:20px}
+        .lead-body p+p{margin-top:10px}
+
+        .sidebar-block{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid #eeeeee}
+        .sidebar-block:last-child{border-bottom:none}
+        .sidebar-label{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#555555;margin-bottom:10px}
+        .sidebar-item{font-size:16px;color:#000000;line-height:1.7}
+        .sidebar-item strong{color:#000000;font-weight:700}
+        .sidebar-stat{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#000000;line-height:1;margin-bottom:2px}
+        .sidebar-stat-label{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#555555}
+
+        .page{display:none;padding:48px 40px}
+        .about-head,.pub-head,.field-head,.contact-head{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#000000;text-transform:uppercase;line-height:1;margin-bottom:32px;padding-bottom:20px;border-bottom:3px solid #000000}
+        .about-cols{display:grid;grid-template-columns:1fr 1px 300px;gap:0}
+        .about-main{padding-right:40px}
+        .about-main p{font-size:17px;color:#000000;margin-bottom:1.25rem;line-height:1.7}
+        .about-side{padding-left:32px}
+        .kv-block{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #eeeeee}
+        .kv-block:last-child{border-bottom:none}
+        .kv-key{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#555555;margin-bottom:6px}
+        .kv-val{font-size:15px;color:#000000;line-height:1.6}
+        .kv-val a{color:#000000;text-decoration:none;border-bottom:1px solid #aaaaaa}
+        .kv-val a:hover{border-bottom-color:#000000}
+      
+        .pub-links a{font-size:10px;color:#000000;text-decoration:none;margin-right:12px;opacity:0.8}
+        .pub-links a:hover{opacity:1;text-decoration:underline}
+        .pub-year-large{font-size:24px;font-weight:bold;letter-spacing:0.08em;text-transform:uppercase;color:#000000;margin:24px 0 12px 0;border-bottom:1px solid #cccccc;padding-bottom:6px}
+
+        .contact-body{font-size:17px;color:#000000;max-width:500px;margin-bottom:36px}
+        .contact-email {font-family:Arial,Helvetica,sans-serif;font-size:1.6rem;font-weight:700;color:#000000;text-decoration:none;border-bottom:1px solid #aaaaaa;padding-bottom:3px;}
+        .contact-meta {font-family:Arial,Helvetica,sans-serif;margin-top:24px;font-size:11px;color:#555555;line-height:2.2;}
+        .contact-email:hover{border-color:#000000}
+        .contact-meta a{color:#000000;text-decoration:none}
+        .contact-meta a:hover{text-decoration:underline}
+
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;margin:32px 0}
+        .gallery-item{background:#f5f5f5;border-radius:4px;overflow:hidden;border:1px solid #eeeeee}
+        .gallery-item img{width:100%;height:auto;display:block}
+        .gallery-caption{padding:10px;font-size:10px;color:#000000;text-align:center}
+        .video-container{position:relative;padding-bottom:56.25%;height:0;margin:24px 0;border-radius:4px;overflow:hidden}
+        .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+
+        footer{border-top:3px solid #cccccc;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#555555;letter-spacing:0.08em;text-transform:uppercase;flex-wrap:wrap;gap:16px}
+        footer a{color:#555555;text-decoration:none}
+        footer a:hover{color:#000000}
+
+        a {color:#000000;text-decoration:none;}
+        a:hover {text-decoration:underline;text-decoration-color:#888888;text-underline-offset:2px;}
+
+        @media(max-width:640px){.nav{padding:0 20px}.page{padding:36px 20px}.home-masthead{padding:20px}.masthead-name{font-size:3rem}.home-body{grid-template-columns:1fr}.home-divider-v{display:none}.home-col1,.home-col2{padding:24px 20px}.about-cols{grid-template-columns:1fr}.about-main{padding-right:0;margin-bottom:32px}.about-side{padding-left:0;border-top:1px solid #cccccc;padding-top:24px}.field-list li{grid-template-columns:1px 1fr;grid-template-rows:auto auto}.field-where{grid-column:2;grid-row:1}.field-what{grid-column:2;grid-row:2}.pub-list li{grid-template-columns:1px 1fr}.masthead-sub .home-photo {float:none;width:150px;margin:0 auto 20px auto;display:block;}}
+		
+		.pub-ref {margin-bottom:1rem;line-height:1.6;font-size:16px;color:#000;}
+		.pub-ref a {margin-left:8px;text-decoration:none;color:#000;}
+		.pub-ref a:hover {text-decoration:underline;}
+		.pub-year-large {font-size:24px;font-weight:bold;letter-spacing:0.08em;text-transform:uppercase;color:#000;margin:24px 0 12px 0;border-bottom:1px solid #cccccc;padding-bottom:6px;}
+
+		.research-head {font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#000000;text-transform:uppercase;line-height:1;margin-bottom:32px;padding-bottom:20px;border-bottom:3px solid #000000;}
+		.research-overview {font-size:17px;line-height:1.7;color:#000000;margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid #cccccc;}
+		.research-focal {margin-bottom:56px;}
+		.research-focal-title {font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;font-style:italic;color:#000000;margin-bottom:24px;letter-spacing:-0.01em;border-left:4px solid #000000;padding-left:20px;}
+		.research-focal-content {display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+		.research-focal-text {flex:2;font-size:16px;line-height:1.7;color:#000000;}
+		.research-focal-text p {margin-bottom:16px;}
+		.research-focal-image {flex:1;min-width:200px;}
+		.research-focal-image img {width:100%;height:auto;border-radius:4px;border:1px solid #eeeeee;}
+		.image-caption {font-size:10px;color:#555555;text-align:center;margin-top:8px;letter-spacing:0.02em;}
+		@media (max-width:768px){.research-focal-content {flex-direction:column;}.research-focal-image {width:100%;margin-top:16px;}}
+		.research-block {display:flex;gap:2rem;align-items:center;}
+		.research-img, .research-text {flex:1;}
+		@media (max-width:640px){.research-block {flex-direction:column;}}
+
+		.gallery-carousel {margin-bottom:64px;}
+		.carousel-label {font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#555;border-bottom:1px solid #cccccc;padding-bottom:6px;margin-bottom:16px;}
+		.carousel-container {position:relative;display:flex;align-items:center;justify-content:center;}
+		.carousel-slides {width:80%;overflow:hidden;display:flex;scroll-behavior:smooth;gap:0;align-items:center;}
+		.carousel-slides img {width:100%;flex:0 0 100%;object-fit:contain;background:#f5f5f5;border-radius:4px;border:1px solid #eeeeee;}
+		.carousel-slides {scroll-snap-type:x mandatory;}
+		.carousel-btn {background:#ffffff;border:1px solid #cccccc;font-size:24px;font-weight:bold;cursor:pointer;padding:8px 16px;margin:0 10px;border-radius:4px;transition:background 0.2s;}
+		.carousel-btn:hover {background:#e0e0e0;}
+		.carousel-caption {text-align:center;font-size:10px;color:#555;margin-top:12px;}
+		.carousel-slides img {scroll-snap-align:start;flex:0 0 100%;}
+		@media (max-width:640px){.carousel-slides {width:70%;}}
+		.videos-panel {margin-bottom:48px;}
+		.video-card {flex:1;min-width:250px;max-width:400px;}
+		.youtube-link {display:inline-block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#000;background:#f5f5f5;padding:10px 20px;border-radius:30px;border:1px solid #cccccc;text-decoration:none;transition:background 0.2s;}
+		.youtube-link:hover {background:#e0e0e0;text-decoration:none;}
+		@media (max-width:640px){.video-card {min-width:100%;}}
+
+		p, .lead-body, .about-main p, .research-focal-text p, .sidebar-item, .pub-ref, .contact-body, .research-overview p {text-align:justify;}
+
+		.nav-menu li {position:relative;list-style:none;}
+		.nav-menu li:hover .sub-menu {display:block;}
+		.sub-menu {display:none;position:absolute;top:100%;left:0;background:#ffffff;border:1px solid #cccccc;border-top:none;padding:8px 0;min-width:200px;box-shadow:0 4px 8px rgba(0,0,0,0.1);z-index:100;}
+		.sub-menu li {display:block;padding:4px 16px;}
+		.sub-menu li a {font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#000000;text-decoration:none;display:block;padding:4px 0;transition:background 0.2s;}
+		.sub-menu li a:hover {background:#f0f0ef;text-decoration:none;}
+		@media (max-width:640px){.sub-menu {position:static;border:none;box-shadow:none;padding-left:16px;}.nav-menu li:hover .sub-menu {display:block;}}
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <span class="nav-brand">Juan-P. Durango</span>
+    <ul class="nav-menu">
+        <li><a href="#home" onclick="show('home')">Inicio</a></li>
+        <li><a href="#about" onclick="show('about')">Acerca</a></li>
+        <li>
+            <a href="#pubs" onclick="show('pubs')">Producción</a>
+            <ul class="sub-menu">
+                <li><a href="#pubs" onclick="show('pubs'); scrollToSection('in-prep')">Publicaciones</a></li>
+                <li><a href="#pubs" onclick="show('pubs'); scrollToSection('conf-pres')">Presentaciones</a></li>
+                <li><a href="#pubs" onclick="show('pubs'); scrollToSection('taxa-described')">Taxones descritos</a></li>
+                <li><a href="#pubs" onclick="show('pubs'); scrollToSection('peer-review')">Revisión por pares</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#research" onclick="show('research')">Investigación</a>
+            <ul class="sub-menu">
+                <li><a href="#research" onclick="show('research'); scrollToSection('focal-bioacoustics')">Bioacústica</a></li>
+                <li><a href="#research" onclick="show('research'); scrollToSection('focal-taxonomy')">Taxonomía y Colecciones</a></li>
+                <li><a href="#research" onclick="show('research'); scrollToSection('focal-communication')">Divulgación científica</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#gallery" onclick="show('gallery')">Galería</a>
+            <ul class="sub-menu">
+                <li><a href="#gallery" onclick="show('gallery'); scrollToSection('gallery-videos')">Videos</a></li>
+                <li><a href="#gallery" onclick="show('gallery'); scrollToSection('gallery-illustrations')">Ilustraciones</a></li>
+                <li><a href="#gallery" onclick="show('gallery'); scrollToSection('gallery-photos')">Fotos</a></li>
+            </ul>
+        </li>
+        <li><a href="#contact" onclick="show('contact')">Contacto</a></li>
+        <li><a href="index.html" style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;">🇬🇧 English</a></li>
+    </ul>
+</nav>
+
+<!-- HOME -->
+<div id="home">
+    <div class="home-masthead" style="padding: 28px 40px 20px; border-bottom: 1px solid #cccccc;">
+        <div class="masthead-top" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+            <span class="masthead-date" style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #555;">Medellín, Antioquia, Colombia · Est. 2024</span>
+            <span class="masthead-date" style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #555;">Zoología · Herpetología · Taxonomía · Sistemática · Bioacústica</span>
+        </div>
+        <div class="masthead-rule" style="border-top: 3px solid #000; margin-bottom: 6px;"></div>
+        <div class="masthead-thin" style="border-top: 1px solid #000; margin-bottom: 20px;"></div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; margin-bottom: 20px;">
+            <div class="masthead-name" style="font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 900; line-height: 0.92; color: #000; text-transform: uppercase; flex: 1;">Juan Pablo<br>Durango<br>Cardona</div>
+            <div class="home-photo" style="max-width: 200px; flex-shrink: 0;">
+                <img src="assets/images/profile/1.JPG" alt="Trabajo de campo en Chocó, Colombia" style="width: 100%; border-radius: 4px;">
+            </div>
+        </div>
+
+        <div class="masthead-sub" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: flex-end; padding-top: 14px; border-top: 1px solid #cccccc;">
+            <div class="masthead-tagline" style="font-size: 11px; color: #555; max-width: 500px; line-height: 1.7;">Biólogo de la Universidad EAFIT · Estudiando la taxonomía y sistemática de anfibios y reptiles neotropicales</div>
+            <div class="masthead-links" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <a href="https://orcid.org/0000-0003-3705-9834" style="font-size: 10px; text-transform: uppercase; color: #555;">ORCID</a>
+                <a href="https://scholar.google.com/citations?user=HBpjN5MAAAAJ&hl=es" style="font-size: 10px; text-transform: uppercase; color: #555;">Scholar</a>
+                <a href="https://www.researchgate.net/profile/Juan-Durango" style="font-size: 10px; text-transform: uppercase; color: #555;">ResearchGate</a>
+                <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001847885" style="font-size: 10px; color: #555;">CvLAC</a>
+                <a href="https://www.linkedin.com/in/juan-pablo-durango-cardona-1a33241a6/" style="font-size: 10px; text-transform: uppercase; color: #555;">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-body" style="display: grid; grid-template-columns: 2fr 1px 1fr; gap: 0; clear: both;">
+        <div class="home-col1" style="padding: 32px 40px;">
+            <div class="lead-label" style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #555; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #cccccc;">Crónica de campo — Colombia</div>
+            <div class="lead-headline" style="font-family: Arial, Helvetica, sans-serif; font-size: 1.5rem; font-weight: 700; color: #000; line-height: 1.25; margin-bottom: 14px; font-style: italic;">"La ciencia no solo es compatible con la espiritualidad; es una profunda fuente de espiritualidad."<br>― Carl Sagan, El mundo y sus demonios: la ciencia como una luz en la oscuridad</div>
+            <div class="lead-body" style="font-size: 17px; color: #000; line-height: 1.75;">
+                <p>Soy biólogo de Medellín, Colombia, con un profundo interés en los anfibios y reptiles, con énfasis en el Neotrópico. Mi investigación se centra en la bioacústica y la taxonomía — usando los cantos de las ranas para entender los límites entre especies y las relaciones evolutivas en una de las regiones más diversas del planeta.</p>
+                <p>He hecho trabajo de campo en toda Colombia, especialmente en la selva del Chocó y los bosques nublados de los Andes. También he colaborado en evaluaciones ambientales, planes de conservación y trabajo con colecciones biológicas.</p>
+                <p>Actualmente estoy basado en Medellín y abierto a colaboraciones, proyectos de campo y oportunidades de posgrado.</p>
+            </div>
+        </div>
+        <div class="home-divider-v" style="background: #cccccc; width: 1px;"></div>
+        <div class="home-col2" style="padding: 32px 32px;">
+            <div class="sidebar-block" style="margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid #eeeeee;">
+                <div class="sidebar-label" style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #555; margin-bottom: 10px;">Producción</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px;">
+                    <div><div class="sidebar-stat" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #000; line-height: 1; margin-bottom: 2px;">9</div><div class="sidebar-stat-label" style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #555;">Publicaciones</div></div>
+                    <div><div class="sidebar-stat" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #000; line-height: 1; margin-bottom: 2px;">5</div><div class="sidebar-stat-label" style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #555;">Citas</div></div>
+                    <div><div class="sidebar-stat" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #000; line-height: 1; margin-bottom: 2px;">2</div><div class="sidebar-stat-label" style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #555;">En preparación</div></div>
+                    <div><div class="sidebar-stat" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #000; line-height: 1; margin-bottom: 2px;">1</div><div class="sidebar-stat-label" style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #555;">índice h</div></div>
+                </div>
+            </div>
+            <div class="sidebar-block" style="margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid #eeeeee;">
+                <div class="sidebar-label" style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #555; margin-bottom: 10px;">Publicaciones recientes</div>
+                <div class="sidebar-item" style="margin-top: 8px;">
+                    <a href="javascript:void(0);" onclick="goToPub()">
+                        <strong>Localidad tipo de <em>Andinobates opisthomelas</em> y <em>Colostethus pratti</em></strong>
+                    </a><br>South American Journal of Herpetology, 2026
+                </div>
+                <div class="sidebar-item" style="margin-top: 12px;">
+                    <a href="javascript:void(0);" onclick="goToPub()">
+                        <strong>Nuevo <em>Pristimantis</em> de la Serranía del Baudó</strong>
+                    </a><br>Zootaxa, 2026
+                </div>
+            </div>
+            <div class="sidebar-block">
+                <div class="sidebar-label" style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #555; margin-bottom: 10px;">Taxones de enfoque</div>
+                <div class="sidebar-item" style="font-size: 16px; color: #000; line-height: 1.7;">Dendrobatoidea · Dipsadidae · Brachycephaloidea · Gymnophthalmidae</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+    <div class="about-head">Acerca</div>
+    <div class="about-cols">
+        <div class="about-main">
+            <p>Soy biólogo de Colombia, nacido en una familia con profundas raíces rurales. Mis abuelos fueron desplazados por la violencia alrededor de la época de mi nacimiento, lo que obligó a mi familia a buscar refugio en Medellín. La vida en la ciudad fue difícil, y eventualmente nos mudamos nuevamente a un pequeño pueblo. Allí, asistí a una escuela rural y caminaba dos horas cada día a través de parches de selva, ríos y pastizales. En el camino, descubrí el mundo natural con fascinación—observando renacuajos, persiguiendo aves y serpientes, o a veces huyendo de las vacas. Esas caminatas alimentaron mi curiosidad por la naturaleza.</p>
+
+            <p>Más tarde, regresé a la ciudad para terminar la secundaria. Gracias a mis buenos resultados en los exámenes nacionales, obtuve una beca y fui el primero de mi familia en ir a la universidad. Mientras estudiaba biología, regresé al mismo pueblo de mi infancia para hacer trabajo de campo. Caminando por esos senderos familiares, finalmente encontré una especie de rana venenosa que había escuchado mencionar pero nunca visto: <em>Andinobates opisthomelas</em>. Su color rojo brillante me cautivó e inspiró mi tesis de pregrado, publicada en el <em>South American Journal of Herpetology</em>.</p>
+
+            <p>Para mantenerme durante la universidad, trabajé mientras estudiaba—siempre buscando oportunidades relacionadas con la biología. Participé en proyectos de consultoría, haciendo trabajo de campo ambiental y redactando evaluaciones de impacto, lo que afiló mis habilidades analíticas. También tuve el privilegio de trabajar en la sección de educación y divulgación científica del <em>Museo de Ciencias Naturales de La Salle</em>, donde aprendí a comunicar la ciencia a niños y adultos. En mi tiempo libre, me sumergía en la colección de referencia de especímenes, aprendiendo a identificar la vasta diversidad que allí se resguarda.</p>
+
+            <p>Para mi pasantía obligatoria, trabajé en un hotel ecoturístico en la costa Pacífica de Colombia. Guié actividades de observación de ballenas y caminatas de interpretación forestal, mientras también realizaba trabajo de campo independiente sobre anfibios y reptiles en una de las regiones más biodiversas del planeta.</p>
+
+            <p>A lo largo de mis años de pregrado, tuve la fortuna de ser mentorizado por el profesor Juan Camilo Arredondo, doctor graduado de la Universidade de São Paulo (USP). Él me animó constantemente a investigar y publicar, destacando la fortaleza de un currículum bien equilibrado. Ahora estoy en busca de un posgrado en el que aspiro a profundizar mi experiencia en taxonomía, bioacústica y sistemática, y contribuir a la conservación de la extraordinaria biodiversidad de Colombia.</p>
+        </div>
+        <div style="background:#cccccc;width:1px"></div>
+        <div class="about-side">
+            <div class="kv-block"><div class="kv-key">Estudios</div><div class="kv-val">B.Sc. Biología, Universidad EAFIT, 2024</div></div>
+            <div class="kv-block"><div class="kv-key">Afiliación</div><div class="kv-val">Independiente</div></div>
+            <div class="kv-block"><div class="kv-key">Enfoque de investigación</div><div class="kv-val">Bioacústica de anuros, taxonomía y sistemática, historia natural</div></div>
+            <div class="kv-block"><div class="kv-key">Métodos</div><div class="kv-val">Bioacústica · Morfometría · Secuenciación Nanopore</div></div>
+            <div class="kv-block"><div class="kv-key">Geografía</div><div class="kv-val">Colombia — Andes y región Pacífica principalmente</div></div>
+            <div class="kv-block"><div class="kv-key">Premios</div><div class="kv-val">Ser Pilo Paga — Beca completa, Gobierno de Colombia (2015)</div></div>
+            <div class="kv-block"><div class="kv-key">Perfiles</div><div class="kv-val"><a href="https://orcid.org/0000-0003-3705-9834">ORCID</a><br><a href="https://scholar.google.com/citations?user=HBpjN5MAAAAJ&hl=es">Google Scholar</a><br><a href="https://www.researchgate.net/profile/Juan-Durango">ResearchGate</a><br><a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001847885">CvLAC</a><br><a href="https://www.linkedin.com/in/juan-pablo-durango-cardona-1a33241a6/">LinkedIn</a></div></div>
+            <div class="kv-block"><div class="kv-key">Hoja de vida</div><div class="kv-val"><a href="assets/cv/cv.pdf" target="_blank">Descargar CV (PDF)</a></div></div>
+        </div>
+    </div>
+</div>
+
+<!-- OUTPUT -->
+<div id="pubs" class="page">
+    <div class="pub-head">Producción</div>
+    <div class="research-overview">
+        <p>Mis contribuciones académicas se enumeran a continuación, incluyendo artículos publicados en revistas indexadas, manuscritos en preparación, presentaciones en congresos y taxones que he descrito. Estos trabajos están organizados cronológicamente y reflejan mis intereses.</p>
+    </div>
+    <div id="publications" class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Publicaciones</div>
+    
+    <div id="in-prep" class="pub-year-large">En preparación</div>
+
+    <div class="pub-ref">
+        <strong>Durango, J.P.</strong>, & Arredondo, J.C. (En prep.) Canto de anuncio, morfología del renacuajo y otras notas de historia natural de <em>Leucostethus dysprosium</em> (Rivero and Serna, 2000)
+    </div>
+
+    <div class="pub-ref">
+        <strong>Durango, J.P.</strong>, & Grant, T. (En prep). La sistemática de <em>Colostethus pratti</em> (Anura, Dendrobatoidea).
+    </div>
+
+    <div class="pub-ref">
+        Garzón-Franco, E., <strong>Durango, J.P.</strong>, Vargas-Ramirez, Y.C., & Lozano-Arias, J.M. (En prep.) Una nueva especie relacionada con <em>Pristimantis labiosus</em> (Anura, Craugastoridae), del Chocó, Colombia.
+    </div>
+
+    <div class="pub-year-large">2026</div>
+
+    <div style="overflow: hidden; margin-bottom: 1rem;">
+        <div style="float: right; width: 160px; margin: 0 0 16px 20px;">
+            <a href="assets/images/thumbnails/SAJH_cover_2026.jpg" target="_blank">
+                <img src="assets/images/thumbnails/SAJH_cover_2026.jpg" 
+                     alt="Portada South American Journal of Herpetology" 
+                     style="width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+            </a>
+            <div style="font-size: 10px; color: #555; text-align: center; margin-top: 4px; line-height: 1.4;">
+                Portada: SAJH<br>Vol. 38(1), 2026
+            </div>
+        </div>
+        <div class="pub-ref" style="margin-bottom: 1rem;">
+            9. <strong>Durango, J.P.</strong> & Arredondo, J.C. (2026) Sobre la localidad tipo de <em>Andinobates opisthomelas</em> y <em>Colostethus pratti</em>, con una redescripción de <em>A. opisthomelas</em> basada en topotipos recién colectados. <em>South American Journal of Herpetology</em>, 38(1): 45–60. 
+            <a href="https://doi.org/10.2994/SAJH-D-24-00004.1">DOI</a> 
+            <a href="assets/pdfs/papers/2026_Durango_SAJH.pdf">PDF</a>
+        </div>
+
+        <div class="pub-ref" style="margin-bottom: 1rem;">
+            8. Garzón-Franco, E., <strong>Durango, J.P.</strong>, Ospina-Sarria, J.J. & Arredondo, J.C. (2026) Una nueva especie de <em>Pristimantis</em> (Anura: Strabomantidae) de la vertiente occidental de la Serranía del Baudó, Chocó, Colombia. <em>Zootaxa</em>, 5757(4): 301–323. 
+            <a href="https://doi.org/10.11646/zootaxa.5757.4.1">DOI</a> 
+            <a href="assets/pdfs/papers/2026_Garzon_Zootaxa.pdf">PDF</a>
+        </div>
+
+        <div class="pub-ref" style="margin-bottom: 1rem;">
+            7. Lozano-Arias, J.M., Gómez-Mesa, L., <strong>Durango, J.P.</strong> & Garzón-Franco, E. (2026) Oculto en la hojarasca: redescubrimiento y variación morfológica del lagarto escamado <em>Alopoglossus grandisquamatus</em> (Rueda, 1985) (Squamata: Alopoglossidae). <em>Zootaxa</em>, 5757(4): 369–381. 
+            <a href="https://doi.org/10.11646/zootaxa.5757.4.5">DOI</a> 
+            <a href="assets/pdfs/papers/2026_LozanoArias_Zootaxa.pdf">PDF</a>
+        </div>
+
+        <div class="pub-ref" style="margin-bottom: 0;">
+            6. Garzón-Franco, E., <strong>Durango, J.P.</strong> & Arredondo, J.C. (2026) Depredación de la rana asaltadora del Chocó <em>Strabomantis anomalus</em> (Strabomantidae) por una serpiente de ojos de gato <em>Leptodeira ornata</em> (Dipsadidae) en el Chocó colombiano. <em>Revista Latinoamericana de Herpetología</em>, 9(1): e1388, 173–176. 
+            <a href="https://doi.org/10.22201/fc.25942158e.2026.1.1388">DOI</a> 
+            <a href="assets/pdfs/papers/2026_GarzonFranco_RLH.pdf">PDF</a>
+        </div>
+    </div>
+
+    <div class="pub-year-large">2025</div>
+
+    <div class="pub-ref">
+        5. <strong>Durango, J.P.</strong> (2025) El canto de anuncio de la rana asaltadora de Santa Marta <em>Serranobatrachus sanctaemartae</em> (Ruthven 1917). <em>The Herpetological Bulletin</em>, 171: 30–32. 
+        <a href="https://doi.org/10.33256/hb171.3032">DOI</a> 
+        <a href="assets/pdfs/papers/2025_Durango_HB.pdf">PDF</a>
+    </div>
+
+    <div class="pub-ref">
+        4. Vargas-Ramirez, Y.C., Garzón-Franco, E. & <strong>Durango, J.P.</strong> (2025) Nuevos registros de distribución de la rana de lluvia endémica <em>Pristimantis blasi</em> Duarte–Marín, Montoya–Marín & Rivera–Gómez (Anura, Strabomantidae), hacia el Chocó de Colombia. <em>Revista Latinoamericana de Herpetología</em>, 8(1): e1114, 143–147. 
+        <a href="https://doi.org/10.22201/fc.25942158e.2025.1.1114">DOI</a> 
+        <a href="assets/pdfs/papers/2025_VargasRamírez_RLH.pdf">PDF</a>
+    </div>
+
+    <div class="pub-year-large">2024</div>
+
+    <div class="pub-ref">
+        3. <strong>Durango, J.P.</strong>, Garzón-Franco, E., Gómez-Mesa, L., Lozano-Arias, J.M., Guayasamin, J.M. & Arredondo, J.C. (2024) Variación geográfica del canto en la rana de cristal granulada <em>Cochranella granulosa</em> (Taylor, 1949) (Anura, Centrolenidae) y un nuevo registro de distribución en Colombia. <em>Herpetology Notes</em>, 17: 587–595. 
+        <a href="https://www.biotaxa.org/hn/article/view/85050">DOI</a> 
+        <a href="assets/pdfs/papers/2024_Durango_HN.pdf">PDF</a>
+    </div>
+
+    <div class="pub-ref">
+        2. <strong>Durango, J.P.</strong> (2024) El canto de angustia de <em>Smilisca phaeota</em> (Cope 1862) (Hylidae: Hylinae) durante manipulación. <em>Reptiles & Amphibians</em>, 31: e2186. 
+        <a href="https://doi.org/10.17161/randa.v31i1.21860">DOI</a> 
+        <a href="assets/pdfs/papers/2024_Durango_R&A.pdf">PDF</a>
+    </div>
+
+    <div class="pub-year-large">2022</div>
+
+    <div class="pub-ref">
+        1. <strong>Durango, J.P.</strong>, Garzón-Franco, E., Castellanos-Mejía, M.C. & Arredondo, J.C. (2022) Depredación por una falsa coral de Cope <em>Pliocercus euryzonus</em> (Cope 1862) (Dipsadidae), sobre un bagre (Trichomycteridae: Trichomycterus) en el norte de los Andes de Colombia. <em>Reptiles & Amphibians</em>, 29: 95–97. 
+        <a href="https://doi.org/10.17161/randa.v29i1.16256">DOI</a> 
+        <a href="assets/pdfs/papers/2022_Durango_R&A.pdf">PDF</a>
+    </div>
+
+    <div id="conf-pres" class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Presentaciones en congresos</div>
+        <div style="margin-left: 0;">
+            <div class="pub-year-large" style="margin-top:0;">2025</div>
+            <div style="overflow: hidden; margin-top: 24px;">
+                <div style="float: right; width: 150px; margin: 0 0 10px 20px;">
+                    <a href="assets/pdfs/posters/2025_4CCH_Poster_Colostethuspratti.pdf" target="_blank">
+                        <img src="assets/images/thumbnails/2025_4CCH_Poster_Colostethuspratti.jpg" 
+                             alt="Thumbnail poster" 
+                             style="width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                    </a>
+                    <div style="font-size: 10px; color: #555; text-align: center; margin-top: 4px; line-height: 1.4;">
+                        Póster: IV CCH 2025
+                    </div>
+                </div>
+                <div class="sidebar-item" style="margin:8px 0 8px 0;">
+                    <strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong><br>
+                    Póster: Ciencia criolla: importancia de una visión local en la sistemática del complejo <em>Colostethus pratti</em>
+                    <a href="assets/pdfs/posters/2025_4CCH_Poster_Colostethuspratti.pdf" target="_blank" style="color:#000000; text-decoration:underline;">PDF</a>
+                </div>
+                <div class="sidebar-item" style="margin:0 0 8px 0;"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong><br>Oral: Desarrollo larval y datos adicionales de historia natural de <em>Leucostethus dysprosium</em></div>
+                <div class="sidebar-item" style="margin:0 0 16px 0;"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong><br>Oral: Delimitación y redescripción de <em>Andinobates opisthomelas</em></div>
+
+                <div class="pub-year-large" style="margin-top:16px">2024</div>
+                <div class="sidebar-item" style="margin:8px 0 16px 0;"><strong>II Congreso Colombiano de Bioacústica y Ecoacústica — Medellín</strong><br>Staff — Asistente de organización</div>
+
+                <div class="pub-year-large" style="margin-top:16px">2022</div>
+                <div class="sidebar-item" style="margin:8px 0 16px 0;"><strong>III Congreso Colombiano de Herpetología — Cali</strong><br>Oral: Clarificación de la localidad tipo de <em>Andinobates opisthomelas</em> y <em>Colostethus pratti</em></div>
+
+                <div class="pub-year-large" style="margin-top:16px">2018</div>
+                <div class="sidebar-item" style="margin:8px 0 8px 0;"><strong>Feria de Semilleros de Investigación — Universidad EAFIT, Medellín</strong><br>Póster</div>
+                <div class="sidebar-item" style="margin:0 0 8px 0;"><strong>XVII Encuentro Departamental de Semilleros — Envigado</strong><br>Póster</div>
+
+                <div class="pub-year-large" style="margin-top:16px">2017</div>
+                <div class="sidebar-item" style="margin:8px 0 8px 0;"><strong>XVI Encuentro Departamental de Semilleros — Medellín</strong><br>Póster</div>
+            </div>
+        </div>
+
+    <div id="taxa-described" class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Taxones descritos</div>
+
+    <div class="pub-year-large" style="margin-top:24px;"><em>Pristimantis</em> Jiménez de la Espada, 1870</div>
+
+    <div style="overflow: hidden; margin-bottom: 1.5rem;">
+        <div style="float: right; width: 200px; margin: 0 0 10px 20px;">
+            <a href="assets/images/taxa/Pristimantis-mecada.jpg" target="_blank">
+                <img src="assets/images/taxa/Pristimantis-mecada.jpg" 
+                     alt="Pristimantis mecada" 
+                     style="width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+            </a>
+            <div style="font-size: 10px; color: #555; text-align: center; margin-top: 4px; line-height: 1.4;">
+                <em>Pristimantis mecada</em><br>De: Huina, Bahía Solano, Chocó, Colombia
+            </div>
+        </div>
+        <div style="margin: 8px 0 16px 0;">
+            <strong><em>Pristimantis mecada</em></strong> — Garzón-Franco, Durango, Ospina-Sarria, and Arredondo-Salgar, 2026
+            <span style="font-size:10px;color:#555;display:block;margin-top:2px;">Holotipo: EAFIT-Am 0050, Mecana, Bahía Solano, Chocó, Colombia</span>
+        </div>
+    </div>
+
+    <div id="peer-review" class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Revisión por pares</div>
+
+    <div style="margin: 16px 0 0 0; font-size: 16px; line-height: 1.8; color: #000000;">
+        <p style="margin-bottom: 8px;">He actuado como revisor para las siguientes revistas científicas:</p>
+        <ul style="list-style-type: disc; padding-left: 24px; margin-bottom: 8px;">
+            <li><em>Herpetology Notes</em></li>
+        </ul>
+    </div>
+</div>
+
+<!-- RESEARCH -->
+<div id="research" class="page">
+    <div class="research-head">Investigación</div>
+
+    <div class="research-overview">
+        <p>El ambiente acústico de los bosques tropicales es uno de los más ricos y biológicamente complejos de la Tierra. Una parte significativa de este paisaje sonoro es producida por los anuros — el grupo que incluye todas las ranas y sapos. El tipo más común de vocalización en este grupo es el canto de anuncio, una señal que los machos producen para atraer parejas y disuadir rivales. Debido a que las hembras de una especie determinada responden preferentemente a los cantos de los machos conespecíficos, los cantos de anuncio actúan como barreras precigóticas — mecanismos que impiden la reproducción entre individuos de diferentes especies antes de que ocurra la fertilización, y por lo tanto juegan un papel central en el origen y mantenimiento de los límites entre especies. El enfoque central de mi investigación hasta ahora es entender cómo estas vocalizaciones pueden ser aprovechadas para abordar preguntas fundamentales en taxonomía, sistemática e historia natural. Mi investigación en curso se enmarca (pero no se limita) en las siguientes áreas focales:</p>
+    </div>
+
+    <div id="focal-bioacoustics" class="research-focal">
+        <div class="research-focal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; font-style: normal; text-transform: uppercase; color: #000; margin-bottom: 24px; border-left: 4px solid #000; padding-left: 20px;">Bioacústica como herramienta para la taxonomía y sistemática</div>
+        <div style="display: flow-root;">
+            <div style="float: right; width: 300px; margin: 0 0 16px 20px;">
+                <img src="assets/images/research/IMG-20220922.jpg" alt="Trabajo de campo en bioacústica" style="width: 100%; border-radius: 4px; border: 1px solid #eeeeee;">
+                <div class="image-caption">Grabando cantos de ranas en Huina, Bahía Solano, Chocó, Colombia.</div>
+            </div>
+            <div class="research-focal-text">
+                <p>Los cantos de anuncio son señales específicas de cada especie moldeadas por la selección sexual y el aislamiento reproductivo, lo que los convierte en herramientas poderosas para delimitar límites entre especies, descubrir diversidad críptica e inferir relaciones evolutivas. Un primer paso crítico en la aplicación de la bioacústica a la sistemática es la descripción formal de los cantos de especies cuyas vocalizaciones permanecen desconocidas. Gran parte de mi trabajo está dedicado a llenar estos vacíos — documentando los cantos de anuncio de anuros colombianos poco conocidos y estableciendo las líneas base acústicas necesarias para usar el sonido como carácter diagnóstico. Sobre la base de estas descripciones, he contribuido a la descripción formal de nuevas especies en las que los datos acústicos, junto con la evidencia morfológica, proporcionan caracteres clave que definen y diagnostican los nuevos taxones. Este enfoque integrador refleja mi interés más amplio en usar la bioacústica no meramente como una herramienta de muestreo, sino como una fuente rigurosa de evidencia taxonómica.</p>
+                
+                <p>Un trabajo realizado con colegas sobre la rana de cristal granulada <em>Cochranella granulosa</em> reveló variación geográfica en el canto a lo largo de su distribución en Colombia, sugiriendo diversidad oculta y destacando la importancia de integrar datos acústicos en revisiones taxonómicas. También he descrito cantos de anuncio para especies poco estudiadas como <em>Serranobatrachus sanctaemartae</em> y cantos de angustia para <em>Smilisca phaeota</em>. Estas contribuciones proporcionan datos de referencia para futuras investigaciones taxonómicas y evolutivas, así como para esfuerzos de monitoreo y conservación.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="focal-taxonomy" class="research-focal">
+        <div class="research-focal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; font-style: normal; text-transform: uppercase; color: #000; margin-bottom: 24px; border-left: 4px solid #000; padding-left: 20px;">Taxonomía, Colecciones Biológicas y la Importancia de la Investigación Histórica</div>
+        <div style="display: flow-root;">
+            <div style="float: left; width: 300px; margin: 0 20px 16px 0;">
+                <img src="assets/images/research/IMG-2025121.jpg" alt="Examinando especímenes" style="width: 100%; border-radius: 4px; border: 1px solid #eeeeee;">
+                <div class="image-caption">Trabajo en colecciones revisando material.</div>
+            </div>
+            <div class="research-focal-text">
+                <p>Los caracteres sonoros por sí solos no pueden resolver problemas taxonómicos si la pregunta fundamental de qué especie estamos hablando permanece sin respuesta. Un desafío persistente en la ciencia de la biodiversidad tropical es la existencia de múltiples carencias superpuestas: la carencia Linneana — el vasto número de especies que aún esperan descripción formal — y la carencia Wallaceana — nuestro conocimiento incompleto de dónde ocurren realmente las especies conocidas. Subyacente a ambas hay un problema más sutil y a menudo pasado por alto: el impedimento taxonómico. La escasez global de taxónomos capacitados significa que el ritmo al que se describen nuevas especies es ampliamente superado por la tasa a la que se pierde la biodiversidad, y que incluso las especies descritas permanecen frecuentemente mal comprendidas durante décadas.</p>
+                <p>Soy parte de una nueva generación de investigadores comprometidos con practicar la taxonomía como una ciencia rigurosa e integradora — e igualmente comprometidos con inspirar a otros a seguirla. La taxonomía no es una reliquia de la historia natural del siglo XIX; es el fundamento indispensable sobre el que descansa toda la biología, y necesita urgentemente profesionales. Central para esta visión es el papel de las colecciones biológicas — no solo como repositorios de especímenes históricos, sino como infraestructura científica activa. Enriquecer las colecciones en países en desarrollo, donde se concentra una proporción desproporcionada de la biodiversidad global, no es meramente una preocupación curatorial: es un prerrequisito para una taxonomía rigurosa y localmente fundamentada que no dependa enteramente de especímenes alojados en instituciones a miles de kilómetros de distancia. Al mejorar el conocimiento taxonómico, busco apoyar decisiones de conservación y manejo de la biodiversidad en regiones megadiversas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="focal-communication" class="research-focal">
+        <div class="research-focal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; font-style: normal; text-transform: uppercase; color: #000; margin-bottom: 24px; border-left: 4px solid #000; padding-left: 20px;">Divulgación Científica y Participación Pública</div>
+        <div style="display: flow-root;">
+            <div style="float: right; width: 300px; margin: 0 0 16px 20px;">
+                <img src="assets/images/research/IMG-2025041.jpg" alt="Divulgación científica" style="width: 100%; border-radius: 4px; border: 1px solid #eeeeee;">
+                <div class="image-caption">Divulgación científica con estudiantes de colegio.</div>
+            </div>
+            <div class="research-focal-text">
+                <p>"La ciencia es una forma de pensar mucho más que un cuerpo de conocimiento." — Carl Sagan</p>
+                <p>Esta es, quizás, la verdad más subestimada en la divulgación científica. Los relatos populares de la divulgación a menudo la reducen a la transferencia de hechos — enseñar a la gente que las ranas están disminuyendo, que el Chocó es biodiverso, que las especies tienen nombres latinos. Pero esa concepción pierde completamente el punto. Lo que la ciencia tiene realmente para ofrecer al público no es una colección de datos; es una forma de abordar el mundo — con curiosidad, con escepticismo, con la disposición a revisar lo que crees saber frente a nueva evidencia. Enseñar a la gente a pensar críticamente es, en mi opinión, el propósito más profundo de la divulgación científica, y el que más vale la pena perseguir. Y el pensamiento crítico, una vez aprendido, no se queda confinado a la biología — se derrama en cómo la gente lee las noticias, evalúa un candidato político, o decide qué tipo de futuro quiere vivir.</p>
+                <p>Esta convicción ha moldeado mi trabajo de divulgación en contextos muy diferentes. En el Chocó, trabajando como guía naturalista durante la temporada de ballenas jorobadas, rara vez lideraba con hechos. En cambio, intentaba liderar con consecuencias y preguntas. ¿Qué significa que un animal de este tamaño, con esta fisiología, viaje miles de kilómetros para dar a luz en estas aguas? ¿Qué nos dice sobre lo interconectado que está el mundo — y sobre lo que está en juego cuando fallamos en protegerlo? ¿Qué tipo de futuro construye una comunidad alrededor de una ballena viva, versus una muerta? Estas conversaciones, sostenidas en botes en el Pacífico con visitantes de todos los ámbitos de la vida, nunca fueron realmente sobre ballenas. Eran sobre cómo valoramos la naturaleza, cómo tomamos decisiones colectivas, y cómo una región históricamente marcada por el conflicto y el abandono puede encontrar dignidad y soberanía económica a través del conocimiento que sus propios ecosistemas albergan. En el bosque, caminando con comunidades a través de paisajes que habían habitado por generaciones pero rara vez habían sido invitados a ver a través de un lente científico, el objetivo era el mismo: no explicar, sino provocar una forma diferente de mirar.</p>
+                <p>En el Museo de Ciencias Naturales de La Salle en Medellín, trabajé con adultos y niños que a menudo llegaban sin saber qué es una colección de historia natural o por qué existe. Intenté cambiar no solo eso, sino lo que entendían que era una colección — no un gabinete de curiosidades, sino una herramienta de toma de decisiones. Los especímenes allí alojados representan información irreemplazable sobre qué vivió dónde, cuándo y en qué abundancia. Esa información es lo que permite a los científicos, y en última instancia a los gobiernos, tomar decisiones de conservación basadas en evidencia en lugar de suposiciones. Ayudar a los visitantes a entender esa conexión — entre una rana disecada en un cajón y una política que protege una cuenca hidrográfica — es, creo, uno de los actos más políticos que un científico puede realizar. Porque un público que entiende cómo se construye el conocimiento es un público mejor equipado para exigir que se use sabiamente.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery" class="page">
+    <div class="field-head">Galería</div>
+
+    <div id="gallery-videos" class="videos-panel">
+        <div class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Videos</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;">
+            <div class="video-card">
+                <div class="video-container" style="padding-bottom: 56.25%;">
+                    <iframe src="https://www.youtube.com/embed/BGp-Fl2K2tg" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="image-caption">Documental e inventario biótico en el Chocó</div>
+            </div>
+            <div class="video-card">
+                <div class="video-container" style="padding-bottom: 56.25%;">
+                    <iframe src="https://www.youtube.com/embed/HJl0TtIpoYQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="image-caption">Evento comportamental registrado en campo</div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 24px;">
+            <a href="https://www.youtube.com/@JPDCHerp" target="_blank" class="youtube-link">
+                📺 Ver más videos en mi canal de YouTube
+            </a>
+        </div>
+    </div>
+
+    <div id="gallery-illustrations" class="gallery-carousel">
+        <div class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Ilustraciones</div>
+        <div class="carousel-container">
+            <button class="carousel-btn prev" data-carousel="illu">&#10094;</button>
+            <div class="carousel-slides" id="carousel-illu"></div>
+            <button class="carousel-btn next" data-carousel="illu">&#10095;</button>
+        </div>
+        <div class="carousel-caption" id="caption-illu"></div>
+    </div>
+
+    <div id="gallery-photos" class="gallery-carousel">
+        <div class="pub-head" style="font-size:1.8rem;margin-top:48px;border-bottom-width:1px">Fotos</div>
+        <div class="carousel-container">
+            <button class="carousel-btn prev" data-carousel="photo">&#10094;</button>
+            <div class="carousel-slides" id="carousel-photo"></div>
+            <button class="carousel-btn next" data-carousel="photo">&#10095;</button>
+        </div>
+        <div class="carousel-caption" id="caption-photo"></div>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+    <div class="contact-head">Contacto</div>
+    <p class="contact-body">Siempre estoy feliz de recibir noticias de colegas investigadores, potenciales colaboradores, o cualquier persona curiosa sobre la herpetología colombiana. La mejor manera de contactarme es por correo electrónico.</p>
+    <a class="contact-email" href="mailto:jdurangocardona@gmail.com">jdurangocardona@gmail.com</a><br>
+    <a class="contact-email" href="mailto:jduran11@eafit.edu.co">jduran11@eafit.edu.co</a><br>
+    <div class="contact-meta"> (+57) 310 467 7111<br>
+        Medellín, Antioquia, Colombia<br><br>
+        <a href="https://orcid.org/0000-0003-3705-9834">ORCID</a> · 
+        <a href="https://scholar.google.com/citations?user=HBpjN5MAAAAJ&hl=es">Google Scholar</a> · 
+        <a href="https://www.researchgate.net/profile/Juan-Durango">ResearchGate</a> · 
+        <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001847885">CvLAC</a> · 
+        <a href="https://www.linkedin.com/in/juan-pablo-durango-cardona-1a33241a6/">LinkedIn</a><br><br>
+    </div>
+</div>
+
+<footer>
+    <span>© 2026 Juan Pablo Durango Cardona</span>
+    <span><a href="https://orcid.org/0000-0003-3705-9834">ORCID</a> · <a href="https://scholar.google.com/citations?user=HBpjN5MAAAAJ&hl=es">Scholar</a> · <a href="https://www.researchgate.net/profile/Juan-Durango">ResearchGate</a></span>
+</footer>
+
+<script>
+function show(id){
+    const pages = ['home','about','pubs','research','gallery','contact'];
+    pages.forEach(p => {
+        const el = document.getElementById(p);
+        if(el) el.style.display = 'none';
+    });
+    const target = document.getElementById(id);
+    if(target) target.style.display = 'block';
+}
+
+// Mostrar home al cargar
+document.addEventListener('DOMContentLoaded', function() {
+    show('home');
+});
+
+function goToPub(){
+    show('pubs');
+}
+
+function scrollToSection(id){
+    setTimeout(function() {
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 400);
+}
+
+// ========== CARRUSELES ==========
+const REPO_OWNER = 'JPDCjp';
+const REPO_NAME = 'jpdcjp.github.io';
+const DIR_ILLU = 'assets/images/illustrations';
+const DIR_PHOTO = 'assets/images/photos';
+
+async function getImagesFromGitHub(dirPath) {
+    try {
+        const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${dirPath}`;
+        const response = await fetch(url);
+        if (!response.ok) return [];
+        const files = await response.json();
+        return files.filter(file =>
+            file.type === 'file' && /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name)
+        );
+    } catch (error) {
+        console.warn('Error cargando imágenes desde GitHub:', error);
+        return [];
+    }
+}
+
+async function loadCarousel(containerId, dirPath, captionId, carouselKey) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const images = await getImagesFromGitHub(dirPath);
+    if (images.length === 0) return;
+    container.innerHTML = '';
+    images.forEach(img => {
+        const imgEl = document.createElement('img');
+        imgEl.src = img.download_url;
+        imgEl.alt = img.name.replace(/\.[^/.]+$/, '');
+        container.appendChild(imgEl);
+    });
+    initCarousel(containerId, captionId, carouselKey);
+}
+
+function initCarousel(slidesId, captionId, carouselKey) {
+    const slidesContainer = document.getElementById(slidesId);
+    const prevBtn = document.querySelector(`.prev[data-carousel="${carouselKey}"]`);
+    const nextBtn = document.querySelector(`.next[data-carousel="${carouselKey}"]`);
+    const caption = document.getElementById(captionId);
+    if (!slidesContainer || !prevBtn || !nextBtn) return;
+    const images = slidesContainer.querySelectorAll('img');
+    if (images.length === 0) return;
+    let currentIndex = 0;
+    function update() {
+        if (images[currentIndex]) {
+            images[currentIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'start'
+            });
+            if (caption) {
+                caption.innerText = images[currentIndex].alt;
+            }
+        }
+    }
+    prevBtn.onclick = () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        update();
+    };
+    nextBtn.onclick = () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        update();
+    };
+    window.addEventListener('resize', update);
+    setTimeout(update, 100);
+}
+
+// Cargar carruseles después de que la página esté lista
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        loadCarousel('carousel-illu', DIR_ILLU, 'caption-illu', 'illu');
+        loadCarousel('carousel-photo', DIR_PHOTO, 'caption-photo', 'photo');
+    }, 500);
+});
+</script>
+</body>
+</html>
