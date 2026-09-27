@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Pablo Durango Cardona</title>
+
+<meta name="description" content="Juan Pablo Durango Cardona — Biólogo colombiano (Universidad EAFIT) trabajando en taxonomía, sistemática y bioacústica de anfibios y reptiles neotropicales.">
+<meta name="author" content="Juan Pablo Durango Cardona">
+<meta name="keywords" content="Juan Pablo Durango, herpetología, herpetology, anfibios neotropicales, bioacústica, taxonomía, taxonomy, sistemática, systematics, EAFIT, Colombia, ranas">
+<link rel="canonical" href="https://jpdcjp.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Juan Pablo Durango Cardona">
+<meta property="og:description" content="Biólogo colombiano trabajando en taxonomía, sistemática y bioacústica de anfibios y reptiles neotropicales.">
+<meta property="og:url" content="https://jpdcjp.github.io/">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-primary:#000000;
+    --bg-secondary:#161616;
+    --bg-card:#1c1c1a;
+    --bg-map:#121211;
+    --accent:#4aa8c9;
+    --accent-bright:#6ec4e0;
+    --accent-dim:#2b7a96;
+    --accent-glow:rgba(74,168,201,0.25);
+    --text-primary:#e8e6e1;
+    --text-secondary:#a09d95;
+    --text-muted:#827e74;
+    --white:#f5f4f0;
+    --border:rgba(74,168,201,0.25);
+    --sans:'Inter', system-ui, sans-serif;
+    --nav-bg:rgba(0,0,0,0.75);
+    --nav-bg-scrolled:rgba(0,0,0,0.95);
+    --shadow-color:rgba(0,0,0,0.4);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;letter-spacing:-.005em}
+  img{max-width:100%;height:auto;display:block}
+  p{text-align:justify}
+
+  /* ===== NAVBAR ===== */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,4rem);height:64px;background:var(--nav-bg);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border-bottom:1px solid var(--border);transition:background .4s}
+  nav.scrolled{background:var(--nav-bg-scrolled)}
+  .nav-name{font-family:var(--sans);font-size:1.15rem;font-weight:500;color:var(--white);letter-spacing:-.02em;text-decoration:none;cursor:pointer;white-space:nowrap}
+  .nav-links{display:flex;gap:2rem;align-items:center;margin-left:auto;margin-right:1.5rem;white-space:nowrap;flex-shrink:0}
+  .nav-links > a,.nav-item > a{font-size:.82rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--text-secondary);text-decoration:none;position:relative;transition:color .3s;cursor:pointer}
+  .nav-links > a::after,.nav-item > a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--accent);transition:width .3s ease}
+  .nav-links > a:hover,.nav-links > a.active,.nav-item > a:hover,.nav-item > a.active{color:var(--accent-bright)}
+  .nav-links > a.active::after,.nav-links > a:hover::after,.nav-item > a:hover::after,.nav-item > a.active::after{width:100%}
+  .nav-item{position:relative}
+  .sub-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.97);backdrop-filter:blur(20px);border:1px solid var(--border);border-top:none;padding:.5rem 0;min-width:230px;box-shadow:0 8px 30px rgba(0,0,0,.5);z-index:100;margin-top:8px}
+  .sub-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+  .nav-item:hover .sub-menu,.nav-item:focus-within .sub-menu{display:block}
+  .sub-menu a{display:block;padding:.55rem 1.2rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary);text-decoration:none;transition:all .2s;cursor:pointer}
+  .sub-menu a:hover{color:var(--accent-bright);background:rgba(74,168,201,.06)}
+  .sub-menu a::after{display:none}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+  .hamburger span{display:block;width:22px;height:1.5px;background:var(--text-secondary);transition:all .3s}
+  .nav-toggles{display:flex;gap:.5rem;align-items:center;margin-left:.5rem}
+  .toggle-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:.85rem}
+  .toggle-btn:hover{border-color:var(--accent);color:var(--accent-bright)}
+  .lang-toggle{font-family:var(--sans);font-size:.68rem;font-weight:500;letter-spacing:.05em;text-decoration:none}
+
+  /* ===== PAGES ===== */
+  .page{display:none;opacity:0;transition:opacity .5s ease}
+  .page.active{display:block;opacity:1}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;width:100%;height:55vh;min-height:380px;overflow:hidden;display:flex;align-items:flex-end}
+  .hero-image{position:absolute;inset:0;background:linear-gradient(135deg,#2a2518 0%,#181410 40%,#131312 100%);background-size:cover;background-position:center}
+  .hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--bg-primary) 0%,rgba(0,0,0,.4) 40%,rgba(0,0,0,.1) 100%)}
+  .hero-content{position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:clamp(2rem,6vw,4rem) clamp(1.5rem,5vw,4rem);animation:fadeUp 1s ease;text-align:center}
+  .hero-content h1{font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:400;line-height:1.25;color:var(--white);margin-bottom:.9rem;letter-spacing:-.02em}
+  .hero-content h1 em{font-style:italic;color:var(--accent-bright)}
+  .hero-content h1 .hero-hl{color:var(--accent-bright);font-style:normal;font-weight:500}
+  .hero-content p{font-size:.98rem;color:var(--text-secondary);max-width:700px;letter-spacing:.03em;margin:0 auto}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ===== ABOUT ===== */
+  .about-intro{max-width:1100px;margin:0 auto;padding:clamp(2rem,5vw,4rem) clamp(1.5rem,5vw,4rem)}
+  .about-top{display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start;margin-bottom:3rem}
+  .profile-column{text-align:center}
+  .profile-photo-wrapper{position:relative;width:100%;max-width:340px;margin:0 auto}
+  .profile-photo{width:100%;height:600px;border-radius:4px;background:var(--bg-card);overflow:hidden;box-shadow:0 8px 40px var(--shadow-color)}
+  .profile-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .profile-socials{display:flex;justify-content:center;gap:1rem;margin-top:1rem}
+  .profile-socials a{color:var(--text-muted);display:inline-flex;align-items:center;justify-content:center;transition:color .3s}
+  .profile-socials a svg{width:20px;height:20px}
+  .profile-socials a:hover{color:var(--accent-bright)}
+  .profile-email{text-align:center;margin-top:1rem;font-size:.9rem;color:var(--text-secondary);letter-spacing:.02em;word-break:break-all}
+  .profile-email a{color:var(--text-secondary);text-decoration:none;transition:color .3s}
+  .profile-email a:hover{color:var(--accent-bright)}
+
+  .about-text h3{font-size:1.5rem;font-weight:500;color:var(--white);margin-bottom:.3rem;letter-spacing:-.02em}
+  .about-text h3 strong{color:var(--accent-bright);font-weight:500}
+  .about-text .orcid{font-size:.85rem;color:var(--accent);margin-bottom:1rem}
+  .about-text .orcid a{color:var(--accent);text-decoration:none;transition:all .3s;border-bottom:1px solid transparent}
+  .about-text .orcid a:hover{color:var(--accent-bright);border-bottom-color:var(--accent-bright)}
+  .about-text .bio{color:var(--text-secondary);font-size:1.08rem;text-align:justify}
+  .about-text .bio a{color:var(--accent);text-decoration:none}
+  .cv-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.3rem;background:transparent;border:1px solid var(--accent-dim);color:var(--accent-bright);font-family:var(--sans);font-size:.85rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .3s;cursor:pointer}
+  .cv-btn:hover{background:var(--accent-dim);color:var(--white);border-color:var(--accent)}
+   .profile-cv{width:100%;max-width:340px;justify-content:center;margin-top:1.2rem;padding:.75rem 1.3rem}
+
+  .section-label{font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;text-align:center}
+  .section-title{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:500;color:var(--white);line-height:1.25;text-align:center;margin-bottom:1.5rem;letter-spacing:-.02em}
+
+  /* ===== RESEARCH / OUTPUT ===== */
+  .research-content{max-width:1000px;margin:0 auto;padding:clamp(2rem,5vw,4rem) clamp(1.5rem,5vw,4rem)}
+  .filters-bar{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin-bottom:2rem;padding:1rem 1.2rem;background:rgba(74,168,201,.06);border:1px solid var(--border);border-radius:6px}
+  .filter-search{flex:1;min-width:180px;padding:.55rem .9rem;background:var(--bg-primary);border:1px solid var(--border);border-radius:3px;color:var(--text-primary);font-family:var(--sans);font-size:.9rem;font-weight:300;outline:none;transition:border-color .3s}
+  .filter-search::placeholder{color:var(--text-muted)}
+  .filter-search:focus{border-color:rgba(74,168,201,.5)}
+  .filter-select{padding:.55rem .9rem;min-width:120px;background:var(--bg-primary);border:1px solid var(--border);border-radius:3px;color:var(--text-primary);font-family:var(--sans);font-size:.9rem;font-weight:300;outline:none;cursor:pointer;transition:border-color .3s}
+  .filter-select:focus{border-color:rgba(74,168,201,.5)}
+  .filter-count{font-size:.82rem;color:var(--text-muted);letter-spacing:.05em;margin-left:auto}
+  .pub-category{margin-bottom:2.5rem;scroll-margin-top:90px}
+  .pub-category.hidden{display:none}
+  .pub-category-title{font-size:1.15rem;font-weight:500;color:var(--accent-bright);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;letter-spacing:-.01em}
+  .pub-count{font-family:var(--sans);font-size:.62rem;font-weight:600;background:var(--accent);color:#0a1216;padding:.12rem .45rem;border-radius:10px;letter-spacing:.05em}
+  .pub-item{padding:.9rem 0 .9rem 1rem;border-bottom:1px solid rgba(74,168,201,.06);transition:all .3s;position:relative}
+  .pub-item.hidden{display:none}
+  .pub-item::before{content:'';position:absolute;left:0;top:.9rem;width:3px;height:0;background:var(--accent);transition:height .3s;border-radius:2px}
+  .pub-item:hover::before{height:calc(100% - 1.8rem)}
+  .pub-item:hover{background:rgba(74,168,201,.04)}
+  .pub-item mark{background:rgba(74,168,201,.25);color:var(--white);border-radius:2px;padding:0 2px}
+  .pub-title-text{font-size:1.05rem;font-weight:400;color:var(--white);line-height:1.5;margin-bottom:.2rem}
+  .pub-title-text em{color:var(--text-primary)}
+  .pub-journal{font-size:.9rem;font-style:italic;color:var(--text-muted)}
+  .pub-links{margin-top:.4rem;display:flex;gap:.7rem;flex-wrap:wrap}
+  .pub-links a{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;padding:.15rem .45rem;border:1px solid var(--border);border-radius:2px;transition:all .2s}
+  .pub-links a:hover{background:var(--accent-dim);color:var(--white);border-color:var(--accent)}
+  .no-results{text-align:center;padding:3rem 1rem;color:var(--text-muted);font-size:1rem;display:none}
+
+  /* ===== RESEARCH FOCAL ===== */
+  .research-overview{font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:3rem;text-align:justify}
+  .research-focal{margin-bottom:4rem;scroll-margin-top:90px}
+  .research-focal-title{font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;color:var(--white);margin-bottom:1.5rem;letter-spacing:-.02em;border-left:4px solid var(--accent);padding-left:20px;text-transform:uppercase}
+  .research-focal-text{font-size:1rem;line-height:1.8;color:var(--text-secondary);text-align:justify}
+  .research-focal-text p{margin-bottom:1rem}
+  .research-focal-text p:first-child{color:var(--text-primary)}
+  .research-focal-image{flex:1;min-width:200px}
+  .research-focal-image img{width:100%;border-radius:4px;border:1px solid var(--border)}
+  .image-caption{font-size:.78rem;color:var(--text-muted);text-align:center;margin-top:.5rem;letter-spacing:.02em;font-style:italic}
+
+  /* ===== GALLERY ===== */
+  .videos-panel{margin-bottom:48px;scroll-margin-top:90px}
+  .video-card{flex:1;min-width:250px;max-width:400px}
+  .video-container{position:relative;padding-bottom:56.25%;height:0;margin:0 0 .6rem;border-radius:6px;overflow:hidden;border:1px solid var(--border);background:#000}
+  .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .youtube-link{display:inline-block;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-bright);background:transparent;padding:10px 20px;border-radius:30px;border:1px solid var(--accent-dim);text-decoration:none;transition:all .3s}
+  .youtube-link:hover{background:var(--accent-dim);color:var(--white);text-decoration:none}
+  .gallery-carousel{margin-bottom:64px;scroll-margin-top:90px}
+  .carousel-container{position:relative;display:flex;align-items:center;justify-content:center}
+  .carousel-slides{width:80%;overflow:hidden;display:flex;scroll-behavior:smooth;gap:0;align-items:center;scroll-snap-type:x mandatory}
+  .carousel-slides img{width:100%;flex:0 0 100%;object-fit:contain;background:var(--bg-card);border-radius:4px;border:1px solid var(--border);scroll-snap-align:start}
+  .carousel-btn{background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);font-size:20px;font-weight:bold;cursor:pointer;padding:10px 16px;margin:0 10px;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+  .carousel-btn:hover{background:var(--accent-dim);color:var(--white);border-color:var(--accent)}
+  .carousel-caption{text-align:center;font-size:.82rem;color:var(--text-muted);margin-top:12px;font-style:italic}
+
+  /* ===== CONTACT ===== */
+.contact-content{max-width:760px;margin:0 auto;padding:clamp(2rem,5vw,4rem) clamp(1.5rem,5vw,4rem)}
+.contact-intro{font-size:1.05rem;color:var(--text-secondary);line-height:1.8;margin-bottom:3rem;text-align:left}
+
+.contact-section{margin-bottom:2.8rem}
+.contact-section-label{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;text-align:left}
+
+.contact-rows{display:flex;flex-direction:column;gap:.9rem}
+.contact-row{display:grid;grid-template-columns:160px 1fr;gap:1.5rem;align-items:baseline;padding-bottom:.9rem;border-bottom:1px solid var(--border)}
+.contact-row:last-child{border-bottom:none}
+.contact-key{font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+.contact-val{font-size:1rem;color:var(--text-primary);text-decoration:none;transition:color .3s;word-break:break-word}
+a.contact-val{border-bottom:1px solid transparent}
+a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-bright)}
+
+.contact-faq{display:flex;flex-direction:column;gap:1.5rem}
+.faq-item{padding-left:1rem;border-left:2px solid var(--border);transition:border-color .3s}
+.faq-item:hover{border-left-color:var(--accent)}
+.faq-q{font-size:1rem;font-weight:500;color:var(--white);margin-bottom:.4rem;letter-spacing:-.01em}
+.faq-a{font-size:.95rem;color:var(--text-secondary);line-height:1.7;text-align:left}
+
+.contact-socials{display:flex;flex-wrap:wrap;gap:.7rem 1.8rem;padding-top:2rem;border-top:1px solid var(--border);margin-bottom:3rem}
+.contact-icon{display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .3s}
+.contact-icon:hover{color:var(--accent-bright)}
+.contact-icon svg{width:18px;height:18px;flex-shrink:0}
+
+  /* ===== FOOTER ===== */
+  footer{text-align:center;padding:2.5rem 2rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:.8rem;letter-spacing:.08em}
+  footer a{color:var(--accent);text-decoration:none}
+  footer a:hover{color:var(--accent-bright)}
+  footer p{text-align:center}
+  .footer-socials{display:flex;justify-content:center;gap:1.8rem;margin-bottom:1rem}
+  .footer-socials a{color:var(--text-muted);display:inline-flex;align-items:center;justify-content:center;transition:color .3s}
+  .footer-socials a svg{width:20px;height:20px}
+  .footer-socials a:hover{color:var(--accent-bright)}
+
+  /* ===== ACCESS ICONS ===== */
+  .access-icon{display:inline-flex;vertical-align:middle;margin-right:.5rem;position:relative;top:-2px;flex-shrink:0}
+  .access-icon svg{width:18px;height:18px}
+  .access-icon.open svg{fill:#6abf4b}
+  .access-icon.closed svg{fill:#e88a3a}
+
+  /* ===== AUDIO PLAYER ===== */
+  .audio-player{display:flex;align-items:center;gap:.6rem;padding:.55rem .8rem;background:var(--bg-card);border:1px solid var(--border);border-radius:24px;margin:1rem auto 0;max-width:220px}
+  .audio-play{width:32px;height:32px;border-radius:50%;border:none;background:var(--accent);color:#0a1216;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0}
+  .audio-play:hover{background:var(--accent-bright);transform:scale(1.05)}
+  .audio-play svg{width:14px;height:14px;fill:currentColor}
+  .audio-info{flex:1;min-width:0}
+  .audio-title{font-size:.72rem;font-weight:500;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .audio-species{font-size:.65rem;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-style:italic}
+  .audio-progress{height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin-top:.3rem}
+  .audio-progress-bar{height:100%;background:var(--accent);width:0;transition:width .1s linear}
+  .hero-audio{position:absolute;bottom:2rem;right:2rem;z-index:3;animation:fadeUp 1s ease .3s both}
+  .hero-audio .audio-player{margin:0;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);border-color:rgba(255,255,255,.15)}
+
+  /* ===== STATS ===== */
+  .stats-row{display:flex;gap:3rem;flex-wrap:wrap;padding:1.8rem 0 .5rem;border-top:1px solid var(--border);margin-top:2.5rem}
+  .stat{display:flex;flex-direction:column;align-items:flex-start;min-width:70px}
+  .stat-num{font-family:var(--sans);font-size:2.6rem;font-weight:500;color:var(--accent-bright);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .stat-label{font-family:var(--sans);font-size:.7rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-top:.5rem}
+
+  /* ===== HOME BLOCKS ===== */
+  .home-block{margin-top:2.2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+  .focus-taxa{margin-top:.9rem;font-size:1.05rem;color:var(--text-secondary);letter-spacing:.01em;text-align:left}
+  .latest-card{display:block;padding:1.1rem 0 1rem;text-decoration:none;transition:all .3s;margin-top:.9rem}
+  .latest-card:hover{text-decoration:none}
+  .latest-card:hover .latest-title{color:var(--accent-bright)}
+  .latest-meta{font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+  .latest-title{font-size:1.15rem;font-weight:400;color:var(--white);line-height:1.4;margin-bottom:.3rem;transition:color .3s}
+  .latest-journal{font-family:var(--sans);font-size:.85rem;font-style:italic;color:var(--text-muted)}
+  .see-all{display:inline-block;margin-top:.9rem;font-family:var(--sans);font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:color .3s}
+  .see-all:hover{color:var(--accent-bright);text-decoration:none}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Field map */
+.field-map-section{margin-bottom:4rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
+.field-map-grid{display:block;margin-top:1.5rem;max-width:640px;margin-left:auto;margin-right:auto}
+.field-map-wrap{position:relative}
+.colombia-map{width:100%;height:auto;display:block;overflow:visible}
+.map-pin{cursor:pointer}
+.pin-dot{fill:#e05252;transition:all .3s;transform-origin:center}
+.pin-ring{fill:none;stroke:#e05252;stroke-width:2.5;opacity:.55;transition:all .3s}
+.pin-line{stroke:#e05252;stroke-width:2.5;stroke-linecap:round;opacity:.85;transition:all .3s}
+.map-pin:hover .pin-dot{fill:#ff6b6b;filter:drop-shadow(0 0 12px #ff6b6b)}
+.map-pin:hover .pin-ring{stroke:#ff6b6b;opacity:1;animation:radarPulse 1.8s ease-out infinite}
+.map-pin:hover .pin-line{stroke:#ff6b6b;opacity:1}
+.map-pin:hover .pin-glow{opacity:1}
+@keyframes radarPulse{
+  0%{r:50;opacity:1}
+  100%{r:90;opacity:0}
+}
+
+.map-tooltip{position:absolute;background:var(--bg-card);border:1px solid var(--border);padding:.9rem 1.1rem;border-radius:6px;pointer-events:none;opacity:0;transform:translateY(6px);transition:all .25s;z-index:10;max-width:180px;box-shadow:0 8px 30px rgba(0,0,0,.55)}
+.map-tooltip.visible{opacity:1;transform:translateY(0)}
+.map-tooltip .tt-site{font-size:1rem;font-weight:500;color:var(--white);margin-bottom:.2rem}
+.map-tooltip .tt-region{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.map-tooltip .tt-note{font-size:.85rem;color:var(--text-secondary);line-height:1.55;text-align:left}
+
+
+/* Timeline */
+.timeline-wrap{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
+
+.timeline-panel{max-height:0;overflow:hidden;transition:max-height .5s ease,opacity .4s ease,margin .4s ease;opacity:0;margin-bottom:0}
+.timeline-panel.open{max-height:520px;opacity:1;margin-bottom:2rem}
+.tl-panel-inner{display:grid;grid-template-columns:380px 1fr;gap:2.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:1.5rem;align-items:start}
+.tl-panel-photo{width:100%;aspect-ratio:4/3;background:#0d0d0d;border:1px solid var(--border);border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.tl-panel-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.tl-panel-photo img[src=""]{display:none}
+.tl-panel-year{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.tl-panel-title{font-size:1.25rem;font-weight:500;color:var(--white);letter-spacing:-.02em;margin-bottom:.7rem}
+.tl-panel-body{font-size:.95rem;color:var(--text-secondary);line-height:1.7;text-align:left}
+
+.timeline-track{position:relative;display:flex;justify-content:space-between;gap:.8rem;margin-top:2.5rem;padding:0 .5rem}
+.timeline-line{position:absolute;top:44px;left:6%;right:6%;height:1px;background:var(--border);z-index:0}
+.timeline-item{position:relative;flex:1;text-align:center;z-index:1;min-width:0;cursor:pointer;transition:transform .3s}
+.tl-year{font-size:.72rem;font-weight:500;letter-spacing:.16em;color:var(--text-muted);margin-bottom:1rem;transition:color .3s}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-primary);margin:0 auto;position:relative;transition:all .3s}
+.tl-dot::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--accent);opacity:0;transition:all .3s}
+.tl-label{font-size:.82rem;font-weight:400;color:var(--text-secondary);margin-top:1rem;line-height:1.4;transition:color .3s}
+
+.timeline-item:hover .tl-dot{background:var(--accent-bright);transform:scale(1.15)}
+.timeline-item:hover .tl-year{color:var(--accent)}
+.timeline-item:hover .tl-label{color:var(--text-primary)}
+
+.timeline-item.active .tl-dot{background:var(--accent-bright);box-shadow:0 0 16px var(--accent-glow);transform:scale(1.25)}
+.timeline-item.active .tl-dot::before{opacity:.7}
+.timeline-item.active .tl-year{color:var(--accent-bright)}
+.timeline-item.active .tl-label{color:var(--white)}
+.timeline-item::after{
+  content:'';
+  position:absolute;
+  top:38px;left:50%;transform:translateX(-50%);
+  width:24px;height:24px;border-radius:50%;
+  border:1px solid var(--accent);
+  opacity:.35;
+  animation:tlHint 2.4s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes tlHint{
+  0%{transform:translateX(-50%) scale(.6);opacity:.6}
+  100%{transform:translateX(-50%) scale(1.6);opacity:0}
+}
+
+/* Imágenes flotantes en Output */
+.pub-year-wrap{display:flow-root}
+.pub-year-image{float:right;width:180px;margin:0 0 16px 24px}
+.pub-year-image img{width:100%;border-radius:4px;border:1px solid var(--border);display:block;transition:all .3s}
+.pub-year-image a:hover img{border-color:var(--accent);box-shadow:0 0 20px var(--accent-glow)}
+.pub-image-caption{font-size:.72rem;color:var(--text-muted);text-align:center;margin-top:.5rem;line-height:1.5;font-style:italic}
+.pub-item.has-image{display:flow-root}
+.pub-item.has-image .pub-item-image{float:right;width:160px;margin:0 0 12px 20px}
+.pub-item.has-image .pub-item-image img{width:100%;border-radius:4px;border:1px solid var(--border);display:block;transition:all .3s}
+.pub-item.has-image .pub-item-image a:hover img{border-color:var(--accent);box-shadow:0 0 20px var(--accent-glow)}
+
+@media (max-width:640px){
+  .pub-year-image,.pub-item.has-image .pub-item-image{float:none;width:200px;margin:0 auto 1rem}
+}
+.influences-wrap{margin:3rem auto 0;padding-top:2.5rem;border-top:1px solid var(--border);scroll-margin-top:90px;max-width:900px;width:100%}
+#about-story,#about-path{scroll-margin-top:90px}
+#about-influences{margin-top:1rem}
+.influence-section{margin-bottom:3.5rem}
+.influence-section:last-child{margin-bottom:0}
+.influence-carousel{display:flex;align-items:center;justify-content:center;margin-top:1.2rem}
+.influence-track{width:80%;overflow:hidden;display:flex;scroll-behavior:smooth;gap:1.2rem;align-items:stretch;scroll-snap-type:x mandatory}
+.influence-track::-webkit-scrollbar{display:none}
+.influence-card{flex:0 0 300px;scroll-snap-align:start;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.influence-card:hover{border-color:var(--accent-dim);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.influence-cover{width:100%;aspect-ratio:2/3;background:#0d0d0d;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.influence-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.influence-card:hover .influence-cover img{transform:scale(1.05)}
+.influence-info{padding:.9rem;flex:1;display:flex;flex-direction:column}
+.influence-title{font-size:.95rem;font-weight:500;color:var(--white);letter-spacing:-.01em;line-height:1.3;margin-bottom:.25rem}
+.influence-author{font-size:.78rem;color:var(--accent);margin-bottom:.55rem;letter-spacing:.02em}
+.influence-note{font-size:.82rem;color:var(--text-secondary);line-height:1.55;text-align:left;flex:1}
+.influence-intro{font-size:.95rem;color:var(--text-secondary);line-height:1.6;text-align:center;max-width:640px;margin:.8rem auto 0}
+
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:960px){
+    .about-top{grid-template-columns:1fr;justify-items:center;text-align:center}
+    .about-text .bio{text-align:left}
+    .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:rgba(0,0,0,.97);flex-direction:column;padding:1.5rem;gap:1.2rem;border-bottom:1px solid var(--border);margin-left:0;margin-right:0;white-space:normal;align-items:flex-start}
+    .nav-links.open{display:flex}
+    .hamburger{display:flex}
+    .nav-toggles{margin-left:auto;margin-right:.8rem}
+    .filters-bar{flex-direction:column}
+    .filter-count{margin-left:0}
+    .carousel-slides{width:70%}
+    .sub-menu{position:static;transform:none;display:none;border:none;box-shadow:none;background:transparent;padding-left:1rem;margin-top:.5rem}
+    .nav-item:hover .sub-menu,.nav-item:focus-within .sub-menu{display:block}
+    .profile-photo-wrapper{max-width:240px}
+    .profile-photo{height:420px}
+    .profile-cv{max-width:240px}
+    .hero-audio{position:static;margin:1rem auto 0;animation:none}
+    .stats-row{gap:1.5rem;justify-content:space-between}
+    .stat-num{font-size:2rem}
+	.tl-panel-inner{grid-template-columns:1fr;gap:1rem}
+.timeline-track{flex-direction:column;gap:1.6rem;padding-left:1.5rem}
+.timeline-line{top:0;bottom:0;left:6px;right:auto;width:1px;height:auto}
+.timeline-item{text-align:left;display:grid;grid-template-columns:64px 12px 1fr;gap:.3rem .8rem;align-items:center}
+.tl-year{grid-column:1;grid-row:1;margin:0}
+.tl-dot{grid-column:2;grid-row:1}
+.tl-label{grid-column:3;grid-row:1;margin:0}
+.contact-row{grid-template-columns:1fr;gap:.3rem}
+	
+  }
+</style>
+</head>
+<link rel="icon" type="image/png" href="assets/images/icon/1.png">
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+<a class="nav-name" role="button" tabindex="0" onclick="switchPage('home')" style="display:flex;align-items:center;gap:.5rem">
+  <img src="assets/images/icon/1.png" alt="" style="height:50px;width:auto;display:block">
+  <span>Juan-P. Durango</span>
+</a>
+  <div class="nav-links" id="navLinks">
+    <a role="button" tabindex="0" onclick="switchPage('home')" class="active" data-page="home">Inicio</a>
+    <div class="nav-item">
+  <a role="button" tabindex="0" onclick="switchPage('about')" data-page="about">Sobre mí ▾</a>
+  <div class="sub-menu">
+    <a onclick="switchPage('about'); scrollToSection('about-story')">Mi historia</a>
+    <a onclick="switchPage('about'); scrollToSection('about-path')">Trayectoria académica</a>
+    <a onclick="switchPage('about'); scrollToSection('about-influences')">Influencias</a>
+  </div>
+</div>
+
+    <div class="nav-item">
+      <a role="button" tabindex="0" onclick="switchPage('pubs')" data-page="pubs">Producción ▾</a>
+      <div class="sub-menu">
+        <a onclick="switchPage('pubs'); scrollToSection('pub-publications')">Publicaciones</a>
+        <a onclick="switchPage('pubs'); scrollToSection('pub-conf')">Ponencias en congresos</a>
+        <a onclick="switchPage('pubs'); scrollToSection('pub-taxa')">Taxones descritos</a>
+        <a onclick="switchPage('pubs'); scrollToSection('pub-peer')">Revisión de pares</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a role="button" tabindex="0" onclick="switchPage('research')" data-page="research">Investigación ▾</a>
+      <div class="sub-menu">
+        <a onclick="switchPage('research'); scrollToSection('focal-bioacoustics')">Bioacústica</a>
+        <a onclick="switchPage('research'); scrollToSection('focal-taxonomy')">Taxonomía y colecciones</a>
+        <a onclick="switchPage('research'); scrollToSection('focal-communication')">Divulgación científica</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a role="button" tabindex="0" onclick="switchPage('gallery')" data-page="gallery">Galería ▾</a>
+      <div class="sub-menu">
+        <a onclick="switchPage('gallery'); scrollToSection('gallery-videos')">Videos</a>
+        <a onclick="switchPage('gallery'); scrollToSection('gallery-illustrations')">Ilustraciones</a>
+        <a onclick="switchPage('gallery'); scrollToSection('gallery-photos')">Fotografías</a>
+      </div>
+    </div>
+
+    <a role="button" tabindex="0" onclick="switchPage('contact')" data-page="contact">Contacto</a>
+  </div>
+  <div class="nav-toggles">
+	<a class="toggle-btn lang-toggle" href="index-es.html" title="English" style="overflow:hidden;padding:0"><svg viewBox="0 0 60 40" width="34" height="34" style="border-radius:50%"><rect width="60" height="40" fill="#fff"/><g fill="#b22234"><rect width="60" height="3.08" y="0"/><rect width="60" height="3.08" y="6.15"/><rect width="60" height="3.08" y="12.31"/><rect width="60" height="3.08" y="18.46"/><rect width="60" height="3.08" y="24.62"/><rect width="60" height="3.08" y="30.77"/><rect width="60" height="3.08" y="36.92"/></g><rect width="24" height="21.54" fill="#3c3b6e"/></svg></a>
+  </div>
+  <button class="hamburger" onclick="toggleMobileNav(this)" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ==================== HOME ==================== -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-image" style="background-image:url(assets/images/background/IMG_1791.jpg)"></div>
+    <div class="hero-content">
+      <h1>“La <span class="hero-hl">ciencia</span> no solo es compatible con la <span class="hero-hl">espiritualidad</span>; es una fuente profunda de espiritualidad.”</h1>
+      <p><strong style="color:var(--accent-bright);font-weight:500">Carl Sagan</strong> – El mundo y sus demonios: la ciencia como una luz en la oscuridad.</p>
+    </div>
+    <div class="hero-audio">
+      <div class="audio-player">
+        <button class="audio-play" id="audioPlayBtn" onclick="toggleAudio()" aria-label="Reproducir">
+          <svg id="audioIconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="audioIconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+        </button>
+        <div class="audio-info">
+          <div class="audio-title"><em>Cochranella granulosa</em></div>
+          <div class="audio-species">Huina, Bahía Solano</div>
+          <div class="audio-progress"><div class="audio-progress-bar" id="audioProgressBar"></div></div>
+        </div>
+        <audio id="audioPlayer" src="assets/audio/Cochranella_granulosa.mp3" preload="metadata"></audio>
+      </div>
+    </div>
+  </section>
+
+  <div class="about-intro">
+    <div class="about-top reveal">
+      <div class="profile-column">
+        <div class="profile-photo-wrapper">
+          <div class="profile-photo">
+            <img src="assets/images/profile/1.JPG" alt="Juan Pablo Durango">
+          </div>
+        </div>
+        <div class="profile-email"><a href="mailto:jdurangocardona@gmail.com">jdurangocardona@gmail.com</a></div>
+        <div class="profile-socials">
+          <a href="https://orcid.org/0000-0003-3705-9834" target="_blank" title="ORCID"><svg viewBox="0 0 256 256" fill="currentColor"><circle cx="128" cy="128" r="124" fill="none" stroke="currentColor" stroke-width="8"/><path d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.6 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.5-56.8 53.5h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7 0-21.5-13.7-39.8-43.7-39.8h-23.7v79.5zM76.2 66.8c0 5.5-4.5 9.6-10.1 9.6-5.5 0-9.9-4.1-9.9-9.6 0-5.7 4.4-9.9 9.9-9.9 5.6 0 10.1 4.2 10.1 9.9z"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=HBpjN5MAAAAJ&hl=es" target="_blank" title="Google Scholar"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M343.76 106.66V79.43L363.52 64H149.63L20.48 176.27h85.66c-.16 2.12-.22 4.05-.22 6.23 0 20.84 7.22 38.09 21.67 51.86 14.45 13.8 32.25 20.65 53.33 20.65 4.92 0 9.75-.37 14.44-1.02-2.91 6.5-4.37 12.52-4.37 18.14 0 9.88 4.5 20.43 13.47 31.64-39.23 2.67-68.06 9.73-86.44 21.16-10.53 6.5-19 14.7-25.39 24.53-6.39 9.9-9.58 20.52-9.58 31.96 0 9.65 2.06 18.34 6.22 26.06 4.16 7.73 9.58 14.07 16.31 18.98 6.72 4.97 14.47 9.1 23.22 12.47 8.73 3.34 17.41 5.72 26.06 7.06 8.63 1.34 17.2 2 25.71 2 13.47 0 26.95-1.73 40.55-5.19 13.56-3.48 26.28-8.64 38.17-15.49 11.86-6.8 21.52-16.09 28.92-27.72 7.39-11.68 11.09-24.8 11.09-39.34 0-11.02-2.25-21.04-6.75-30.14-4.47-9.07-9.94-16.54-16.45-22.34-6.5-5.81-13-11.16-19.52-15.97-6.5-4.84-12-9.75-16.47-14.81-4.48-5.05-6.73-10.05-6.73-14.98 0-4.92 1.73-9.67 5.22-14.27 3.45-4.61 7.67-9.05 12.61-13.31 4.94-4.25 9.88-8.97 14.8-14.13 4.92-5.15 9.14-11.83 12.61-20.01 3.48-8.18 5.2-17.44 5.2-27.76 0-13.45-2.55-24.46-7.55-33.31-.59-1.02-1.22-1.8-1.88-3.02l56.91-46.67v17.12c-7.39.93-6.62 5.35-6.62 10.64v128.67c0 5.96 4.88 10.83 10.83 10.83h3.99c5.96 0 10.83-4.88 10.83-10.83V117.29c0-5.28.78-9.69-6.56-10.63z M236.4 329.14c1.14.75 3.7 2.78 7.72 6.04 4.05 3.24 6.8 5.7 8.27 7.41 1.44 1.66 3.58 4.17 6.38 7.55 2.81 3.37 4.72 6.3 5.72 8.73 1 2.48 2.02 5.46 3.05 8.95.99 3.44 1.48 6.98 1.48 10.56 0 17.05-6.56 29.68-19.66 37.86-13.13 8.18-28.77 12.27-46.94 12.27-9.19 0-18.2-1.09-27.06-3.2-8.84-2.12-17.31-5.34-25.39-9.6-8.08-4.26-14.58-10.2-19.5-17.8-4.94-7.64-7.41-16.41-7.41-26.25 0-10.32 2.8-19.29 8.42-26.91 5.59-7.63 12.94-13.39 22.03-17.32 9.06-3.95 18.25-6.74 27.56-8.4 9.31-1.7 18.8-2.55 28.44-2.55 4.47 0 7.94.25 10.4.7.45.22 3.03 2.07 7.73 5.56 4.7 3.46 7.63 5.6 8.75 6.38z m-3.36-100.58c-7.41 8.86-17.73 13.29-30.95 13.29-11.86 0-22.3-4.76-31.27-14.31-9-9.52-15.42-20.33-19.34-32.43-3.94-12.11-5.91-23.98-5.91-35.65 0-13.69 3.6-25.35 10.78-34.98 7.19-9.65 17.5-14.48 30.94-14.48 11.88 0 22.37 5.04 31.44 15.16 9.09 10.08 15.61 21.41 19.52 33.97 3.92 12.54 5.87 24.53 5.87 35.98 0 13.45-3.7 24.61-11.08 33.45z"/></svg></a>
+          <a href="https://www.researchgate.net/profile/Juan-Durango" target="_blank" title="ResearchGate"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M 228.65968,408.10149 C 208.46616,386.12784 181.4422,350.83324 158.962,310.93516 c 37.13444,-8.68487 64.63318,-43.55027 64.63318,-78.38386 0,-51.3457 -39.88089,-75.17678 -92.16329,-75.17678 -27.02266,0 -48.583367,1.36546 -68.715441,1.36546 -18.369155,0 -36.722401,0 -48.154153,-0.4447 v 13.30466 l 17.401097,3.19159 c 11.968845,2.30214 18.78249,7.76579 18.78249,36.21494 v 180.59919 c 0,28.43543 -6.813222,33.92871 -18.78249,36.19953 l -17.401097,3.25258 v 13.25908 c 12.367998,-0.4447 33.912828,-1.3513 55.473533,-1.3513 20.62404,0 47.217451,0.9066 58.680561,1.3513 v -13.25908 l -23.84698,-3.25258 c -12.366696,-1.796 -18.813848,-7.7641 -18.813848,-36.19953 v -76.54225 c 11.002507,0.92078 20.624038,0.92078 35.325548,0.92078 27.95932,49.94887 54.55102,87.55896 69.65214,104.9618 13.779,16.52587 34.84949,27.05401 61.44162,27.05401 7.78128,0 16.02316,-1.36721 21.05458,-3.68315 v -11.89361 c -16.49625,0 -32.99204,-11.47725 -44.8702,-24.3213 z M 119.06392,295.34424 c -15.59093,0 -22.434257,-0.41463 -33.007939,-1.41103 V 178.91935 c 10.573682,-0.92079 24.751869,-0.92079 37.135739,-0.92079 38.53132,0 61.42745,20.19525 61.42745,56.83902 0,36.21495 -24.73641,60.50666 -65.55525,60.50666 z m 139.93416,-115.7035 c -0.4606,-2.4087 -0.87524,-5.21701 -1.24303,-8.45544 -0.38328,-3.26846 -0.63033,-7.10411 -0.78243,-11.63108 -0.15386,-4.49562 -0.21509,-9.98891 -0.21509,-16.28098 0,-6.32297 0.0616,-11.7398 0.21509,-16.25087 0.15258,-4.52698 0.39915,-8.4099 0.78243,-11.64703 0.36778,-3.22291 0.78243,-6.0467 1.24303,-8.45541 0.4447,-2.4246 1.02776,-4.72679 1.78055,-6.981678 3.94262,-11.923264 10.40396,-20.884861 19.44246,-26.901503 9.0226,-6.015342 20.08653,-9.036752 33.22147,-9.036752 6.75224,0 12.87587,0.782429 18.30773,2.377345 5.37082,1.580761 10.1887,3.760457 14.43897,6.552435 4.18926,2.762339 7.81137,6.015349 10.80317,9.698476 3.06868,3.697285 5.53882,7.641624 7.47319,11.877718 0.75106,1.349583 0.53752,2.424608 -0.65998,3.175676 l -16.68012,6.858773 c -1.41275,0.75278 -2.40869,0.36907 -3.19287,-1.12058 -3.74283,-6.93613 -6.93611,-11.49275 -12.18281,-14.806757 -5.30941,-3.299853 -10.22007,-4.865129 -18.3077,-4.865129 -8.79314,0 -12.7216,1.748734 -18.22953,5.693102 -5.46364,3.867008 -9.46901,8.732137 -11.83217,16.142614 -0.47437,1.33581 -0.9053,2.99348 -1.41104,4.94203 -0.41463,1.97991 -0.75278,4.40452 -0.9663,7.24247 -0.21544,2.83925 -0.41464,6.35308 -0.59855,10.49678 -0.12246,4.14373 -0.18403,9.17686 -0.18403,15.00788 0,5.86107 0.0616,10.8942 0.18403,15.03794 0.18402,4.12779 0.38328,7.64162 0.59855,10.48086 0.2135,2.86931 0.55167,5.27805 0.9663,7.27386 0.50616,1.91846 0.93667,3.57483 1.41104,4.92613 2.36316,7.38084 5.74037,11.41585 10.71205,14.65467 4.91068,3.28394 10.55651,5.64755 19.34965,5.64755 7.81134,0 14.96232,-2.22524 19.62634,-5.61746 4.61979,-3.39094 8.45544,-7.87108 10.17452,-13.99472 0.75281,-2.57843 1.71916,-5.78588 2.3791,-9.71393 0.59853,-3.92843 0.59853,-8.08632 0.59853,-13.82497 0,-0.9066 -0.5074,-1.36721 -1.3513,-1.36721 h -26.71631 c -1.50383,0 -2.24073,-0.73558 -2.24073,-2.23898 v -15.31466 c 0,-1.51931 0.7369,-2.25661 2.24073,-2.25661 h 49.02807 c 1.53521,0 2.25661,0.73688 2.25661,2.25661 v 13.08938 c 0,6.93614 0,13.36612 -0.7214,19.32001 -0.69131,5.95392 -1.62625,11.10951 -2.80789,14.86822 -3.74453,11.7712 -9.68254,20.14969 -18.78247,26.39405 -9.1313,6.29165 -20.90079,9.68257 -33.6838,9.68257 -13.13494,0 -24.19891,-3.02183 -33.22147,-9.0226 -9.0385,-6.07635 -15.49984,-14.99239 -19.44246,-26.91566 -0.75279,-2.25489 -1.33585,-4.57253 -1.78055,-6.99714 z"/></svg></a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001847885" target="_blank" title="CvLAC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></a>
+        </div>
+        <a href="assets/cv/HV.pdf" target="_blank" class="cv-btn profile-cv">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar CV
+        </a>
+      </div>
+      <div class="about-text">
+        <h3>Juan Pablo <strong>Durango</strong> Cardona</h3>
+           <p class="bio">Soy un biólogo colombiano con un profundo interés por los anfibios y reptiles del Neotrópico. Mi investigación se centra en la <strong style="color:var(--accent-bright);font-weight:500">bioacústica</strong> y la <strong style="color:var(--accent-bright);font-weight:500">taxonomía</strong> — usando los cantos de las ranas para entender los límites entre especies y las relaciones evolutivas en una de las regiones más diversas del planeta. He realizado trabajo de campo a lo largo de Colombia, especialmente en la selva del Chocó y los bosques nublados andinos, y he colaborado en evaluaciones ambientales, planificación de la conservación y trabajo con colecciones biológicas. Actualmente estoy radicado en Medellín y abierto a colaboraciones, proyectos de campo y oportunidades de posgrado.</p>
+
+        <div class="stats-row">
+          <div class="stat"><div class="stat-num">9</div><div class="stat-label">Publicaciones</div></div>
+          <div class="stat"><div class="stat-num">6</div><div class="stat-label">Citas</div></div>
+          <div class="stat"><div class="stat-num">2</div><div class="stat-label">En prep.</div></div>
+          <div class="stat"><div class="stat-num">1</div><div class="stat-label">índice h</div></div>
+        </div>
+
+        <div class="home-block">
+          <div class="section-label" style="text-align:left">Grupos de interés</div>
+          <p class="focus-taxa">Dendrobatoidea · Dipsadidae · Brachycephaloidea · Gymnophthalmidae</p>
+        </div>
+
+        <div class="home-block">
+          <div class="section-label" style="text-align:left">Última publicación</div>
+          <a href="javascript:void(0);" onclick="switchPage('pubs')" class="latest-card">
+            <div class="latest-meta">2026 · South American Journal of Herpetology</div>
+            <div class="latest-title">Localidad tipo de <em>Andinobates opisthomelas</em> y <em>Colostethus pratti</em></div>
+            <div class="latest-journal">Durango, J.P. &amp; Arredondo, J.C.</div>
+          </a>
+          <a href="javascript:void(0);" onclick="switchPage('pubs')" class="see-all">Ver todas las publicaciones →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ABOUT ==================== -->
+<div class="page" id="page-about">
+  <section class="hero">
+    <div class="hero-image" style="background-image:url(assets/images/background/IMG_4495.jpg)"></div>
+    <div class="hero-content">
+      <h1>Sobre <span class="hero-hl">mí</span></h1>
+    </div>
+  </section>
+
+  <div class="about-intro">
+    <div class="about-top reveal" id="about-story">
+      <div class="profile-column">
+        <div class="profile-photo-wrapper">
+          <div class="profile-photo">
+            <img src="assets/images/profile/2.JPG" alt="Juan Pablo Durango">
+          </div>
+        </div>
+         <div class="profile-socials">
+          <a href="https://orcid.org/0000-0003-3705-9834" target="_blank" title="ORCID"><svg viewBox="0 0 256 256" fill="currentColor"><circle cx="128" cy="128" r="124" fill="none" stroke="currentColor" stroke-width="8"/><path d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.6 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.5-56.8 53.5h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7 0-21.5-13.7-39.8-43.7-39.8h-23.7v79.5zM76.2 66.8c0 5.5-4.5 9.6-10.1 9.6-5.5 0-9.9-4.1-9.9-9.6 0-5.7 4.4-9.9 9.9-9.9 5.6 0 10.1 4.2 10.1 9.9z"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=HBpjN5MAAAAJ&hl=es" target="_blank" title="Google Scholar"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M343.76 106.66V79.43L363.52 64H149.63L20.48 176.27h85.66c-.16 2.12-.22 4.05-.22 6.23 0 20.84 7.22 38.09 21.67 51.86 14.45 13.8 32.25 20.65 53.33 20.65 4.92 0 9.75-.37 14.44-1.02-2.91 6.5-4.37 12.52-4.37 18.14 0 9.88 4.5 20.43 13.47 31.64-39.23 2.67-68.06 9.73-86.44 21.16-10.53 6.5-19 14.7-25.39 24.53-6.39 9.9-9.58 20.52-9.58 31.96 0 9.65 2.06 18.34 6.22 26.06 4.16 7.73 9.58 14.07 16.31 18.98 6.72 4.97 14.47 9.1 23.22 12.47 8.73 3.34 17.41 5.72 26.06 7.06 8.63 1.34 17.2 2 25.71 2 13.47 0 26.95-1.73 40.55-5.19 13.56-3.48 26.28-8.64 38.17-15.49 11.86-6.8 21.52-16.09 28.92-27.72 7.39-11.68 11.09-24.8 11.09-39.34 0-11.02-2.25-21.04-6.75-30.14-4.47-9.07-9.94-16.54-16.45-22.34-6.5-5.81-13-11.16-19.52-15.97-6.5-4.84-12-9.75-16.47-14.81-4.48-5.05-6.73-10.05-6.73-14.98 0-4.92 1.73-9.67 5.22-14.27 3.45-4.61 7.67-9.05 12.61-13.31 4.94-4.25 9.88-8.97 14.8-14.13 4.92-5.15 9.14-11.83 12.61-20.01 3.48-8.18 5.2-17.44 5.2-27.76 0-13.45-2.55-24.46-7.55-33.31-.59-1.02-1.22-1.8-1.88-3.02l56.91-46.67v17.12c-7.39.93-6.62 5.35-6.62 10.64v128.67c0 5.96 4.88 10.83 10.83 10.83h3.99c5.96 0 10.83-4.88 10.83-10.83V117.29c0-5.28.78-9.69-6.56-10.63z M236.4 329.14c1.14.75 3.7 2.78 7.72 6.04 4.05 3.24 6.8 5.7 8.27 7.41 1.44 1.66 3.58 4.17 6.38 7.55 2.81 3.37 4.72 6.3 5.72 8.73 1 2.48 2.02 5.46 3.05 8.95.99 3.44 1.48 6.98 1.48 10.56 0 17.05-6.56 29.68-19.66 37.86-13.13 8.18-28.77 12.27-46.94 12.27-9.19 0-18.2-1.09-27.06-3.2-8.84-2.12-17.31-5.34-25.39-9.6-8.08-4.26-14.58-10.2-19.5-17.8-4.94-7.64-7.41-16.41-7.41-26.25 0-10.32 2.8-19.29 8.42-26.91 5.59-7.63 12.94-13.39 22.03-17.32 9.06-3.95 18.25-6.74 27.56-8.4 9.31-1.7 18.8-2.55 28.44-2.55 4.47 0 7.94.25 10.4.7.45.22 3.03 2.07 7.73 5.56 4.7 3.46 7.63 5.6 8.75 6.38z m-3.36-100.58c-7.41 8.86-17.73 13.29-30.95 13.29-11.86 0-22.3-4.76-31.27-14.31-9-9.52-15.42-20.33-19.34-32.43-3.94-12.11-5.91-23.98-5.91-35.65 0-13.69 3.6-25.35 10.78-34.98 7.19-9.65 17.5-14.48 30.94-14.48 11.88 0 22.37 5.04 31.44 15.16 9.09 10.08 15.61 21.41 19.52 33.97 3.92 12.54 5.87 24.53 5.87 35.98 0 13.45-3.7 24.61-11.08 33.45z"/></svg></a>
+          <a href="https://www.researchgate.net/profile/Juan-Durango" target="_blank" title="ResearchGate"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M 228.65968,408.10149 C 208.46616,386.12784 181.4422,350.83324 158.962,310.93516 c 37.13444,-8.68487 64.63318,-43.55027 64.63318,-78.38386 0,-51.3457 -39.88089,-75.17678 -92.16329,-75.17678 -27.02266,0 -48.583367,1.36546 -68.715441,1.36546 -18.369155,0 -36.722401,0 -48.154153,-0.4447 v 13.30466 l 17.401097,3.19159 c 11.968845,2.30214 18.78249,7.76579 18.78249,36.21494 v 180.59919 c 0,28.43543 -6.813222,33.92871 -18.78249,36.19953 l -17.401097,3.25258 v 13.25908 c 12.367998,-0.4447 33.912828,-1.3513 55.473533,-1.3513 20.62404,0 47.217451,0.9066 58.680561,1.3513 v -13.25908 l -23.84698,-3.25258 c -12.366696,-1.796 -18.813848,-7.7641 -18.813848,-36.19953 v -76.54225 c 11.002507,0.92078 20.624038,0.92078 35.325548,0.92078 27.95932,49.94887 54.55102,87.55896 69.65214,104.9618 13.779,16.52587 34.84949,27.05401 61.44162,27.05401 7.78128,0 16.02316,-1.36721 21.05458,-3.68315 v -11.89361 c -16.49625,0 -32.99204,-11.47725 -44.8702,-24.3213 z M 119.06392,295.34424 c -15.59093,0 -22.434257,-0.41463 -33.007939,-1.41103 V 178.91935 c 10.573682,-0.92079 24.751869,-0.92079 37.135739,-0.92079 38.53132,0 61.42745,20.19525 61.42745,56.83902 0,36.21495 -24.73641,60.50666 -65.55525,60.50666 z m 139.93416,-115.7035 c -0.4606,-2.4087 -0.87524,-5.21701 -1.24303,-8.45544 -0.38328,-3.26846 -0.63033,-7.10411 -0.78243,-11.63108 -0.15386,-4.49562 -0.21509,-9.98891 -0.21509,-16.28098 0,-6.32297 0.0616,-11.7398 0.21509,-16.25087 0.15258,-4.52698 0.39915,-8.4099 0.78243,-11.64703 0.36778,-3.22291 0.78243,-6.0467 1.24303,-8.45541 0.4447,-2.4246 1.02776,-4.72679 1.78055,-6.981678 3.94262,-11.923264 10.40396,-20.884861 19.44246,-26.901503 9.0226,-6.015342 20.08653,-9.036752 33.22147,-9.036752 6.75224,0 12.87587,0.782429 18.30773,2.377345 5.37082,1.580761 10.1887,3.760457 14.43897,6.552435 4.18926,2.762339 7.81137,6.015349 10.80317,9.698476 3.06868,3.697285 5.53882,7.641624 7.47319,11.877718 0.75106,1.349583 0.53752,2.424608 -0.65998,3.175676 l -16.68012,6.858773 c -1.41275,0.75278 -2.40869,0.36907 -3.19287,-1.12058 -3.74283,-6.93613 -6.93611,-11.49275 -12.18281,-14.806757 -5.30941,-3.299853 -10.22007,-4.865129 -18.3077,-4.865129 -8.79314,0 -12.7216,1.748734 -18.22953,5.693102 -5.46364,3.867008 -9.46901,8.732137 -11.83217,16.142614 -0.47437,1.33581 -0.9053,2.99348 -1.41104,4.94203 -0.41463,1.97991 -0.75278,4.40452 -0.9663,7.24247 -0.21544,2.83925 -0.41464,6.35308 -0.59855,10.49678 -0.12246,4.14373 -0.18403,9.17686 -0.18403,15.00788 0,5.86107 0.0616,10.8942 0.18403,15.03794 0.18402,4.12779 0.38328,7.64162 0.59855,10.48086 0.2135,2.86931 0.55167,5.27805 0.9663,7.27386 0.50616,1.91846 0.93667,3.57483 1.41104,4.92613 2.36316,7.38084 5.74037,11.41585 10.71205,14.65467 4.91068,3.28394 10.55651,5.64755 19.34965,5.64755 7.81134,0 14.96232,-2.22524 19.62634,-5.61746 4.61979,-3.39094 8.45544,-7.87108 10.17452,-13.99472 0.75281,-2.57843 1.71916,-5.78588 2.3791,-9.71393 0.59853,-3.92843 0.59853,-8.08632 0.59853,-13.82497 0,-0.9066 -0.5074,-1.36721 -1.3513,-1.36721 h -26.71631 c -1.50383,0 -2.24073,-0.73558 -2.24073,-2.23898 v -15.31466 c 0,-1.51931 0.7369,-2.25661 2.24073,-2.25661 h 49.02807 c 1.53521,0 2.25661,0.73688 2.25661,2.25661 v 13.08938 c 0,6.93614 0,13.36612 -0.7214,19.32001 -0.69131,5.95392 -1.62625,11.10951 -2.80789,14.86822 -3.74453,11.7712 -9.68254,20.14969 -18.78247,26.39405 -9.1313,6.29165 -20.90079,9.68257 -33.6838,9.68257 -13.13494,0 -24.19891,-3.02183 -33.22147,-9.0226 -9.0385,-6.07635 -15.49984,-14.99239 -19.44246,-26.91566 -0.75279,-2.25489 -1.33585,-4.57253 -1.78055,-6.99714 z"/></svg></a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001847885" target="_blank" title="CvLAC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></a>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>Mi historia</h3>
+        <p class="bio">Soy biólogo colombiano, nacido en una familia de raíces profundamente rurales. Mis abuelos fueron desplazados por la violencia en la época de mi nacimiento, lo que obligó a mi familia a buscar refugio en Medellín. La vida en la ciudad fue difícil y con el tiempo nos mudamos de nuevo a un pequeño pueblo. Allí asistí a una escuela rural y caminaba dos horas cada día entre parches de selva, ríos y potreros. En el camino descubrí el mundo natural con fascinación — observando renacuajos, persiguiendo aves y serpientes, o a veces huyendo de las vacas. Esos recorridos alimentaron mi curiosidad por la naturaleza.</p>
+
+        <p class="bio">Más tarde regresé a la ciudad para terminar el bachillerato. Gracias a mis buenos resultados en las pruebas nacionales obtuve una beca y me convertí en el primero de mi familia en asistir a la universidad. Mientras estudiaba biología, volví al mismo pueblo de mi infancia para hacer trabajo de campo. Caminando esos senderos conocidos, finalmente me encontré con una especie de rana venenosa que había escuchado durante mucho tiempo pero nunca había visto: <em>Andinobates opisthomelas</em>. Su brillante color rojo me cautivó e inspiró mi tesis de pregrado, publicada en el <em>South American Journal of Herpetology</em>.</p>
+
+        <p class="bio">Para sostenerme durante la universidad, trabajé paralelamente a mis estudios — buscando siempre oportunidades relacionadas con la biología. Participé en proyectos de consultoría, realizando trabajo de campo ambiental y redactando estudios de impacto, lo cual afinó mis habilidades analíticas. También tuve el privilegio de trabajar en la sección de educación y divulgación científica del <em>Museo de Ciencias Naturales de La Salle</em>, donde aprendí a comunicar la ciencia a niños y adultos. En mi tiempo libre me sumergía en la colección de referencia, aprendiendo a identificar la vasta diversidad allí resguardada.</p>
+
+        <p class="bio">Para mis prácticas obligatorias, trabajé en un hotel ecoturístico en la costa Pacífica de Colombia. Guié actividades de avistamiento de ballenas y caminatas de interpretación del bosque, mientras realizaba trabajo de campo independiente sobre anfibios y reptiles en una de las regiones más biodiversas del planeta.</p>
+
+        <p class="bio">A lo largo de mis años de pregrado tuve la fortuna de ser asesorado por el profesor Juan Camilo Arredondo, egresado de doctorado de la Universidade de São Paulo (USP). Él me animó constantemente a investigar y publicar, resaltando el valor de una hoja de vida integral. Ahora busco un posgrado en el que aspiro a profundizar mi experiencia en taxonomía, bioacústica y sistemática, y contribuir a la conservación de la extraordinaria biodiversidad de Colombia.</p>
+      </div>
+    </div>
+
+ <div class="timeline-wrap reveal" id="about-path">
+  <div class="section-label" style="text-align:left">Trayectoria académica</div>
+
+  <div class="timeline-panel" id="tlPanel">
+    <div class="tl-panel-inner">
+      <div class="tl-panel-photo"><img id="tlPanelImg" src="" alt=""></div>
+      <div class="tl-panel-text">
+        <div class="tl-panel-year" id="tlPanelYear"></div>
+        <div class="tl-panel-title" id="tlPanelTitle"></div>
+        <div class="tl-panel-body" id="tlPanelBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-track">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item" data-year="2015" data-title="Ser Pilo Paga" data-photo="assets/images/timeline/1.jpg" data-body="Cuando terminaba el colegio recibí la noticia más inesperada: era elegible para una beca del gobierno. Nunca había considerado seriamente seguir estudiando; esas posibilidades simplemente no existían en mi casa. Mucho menos había alguien que me animara a buscar oportunidades educativas. Al final tomé la decisión —poco sabia, si me preguntan— de aceptar la beca.">
+      <div class="tl-year">2015</div>
+      <div class="tl-dot"></div>
+      <div class="tl-label">Ser Pilo Paga</div>
+    </div>
+
+    <div class="timeline-item" data-year="2016-1" data-title="Ingeniería Física" data-photo="assets/images/timeline/2.jpg" data-body="Terminé estudiando Ingeniería Física en la Universidad EAFIT. Y aunque allí descubrí que no era exactamente un prodigio de las matemáticas y la lógica, aprendí a amar la ciencia; descubrí un mundo completamente nuevo —uno que fue verdaderamente una explosión de emociones y sensaciones que aún resuenan en mi mente.">
+      <div class="tl-year">2016-1</div>
+      <div class="tl-dot"></div>
+      <div class="tl-label">Ingeniería Física</div>
+    </div>
+
+    <div class="timeline-item" data-year="2016-2" data-title="Biología en EAFIT" data-photo="assets/images/timeline/3.jpg" data-body="Cambiarme a biología fue una buena decisión, aunque no fue nada fácil al comienzo. Pero era un campo que —sin duda— encajaba perfectamente conmigo, con mis raíces y con mis habilidades.">
+      <div class="tl-year">2016-2</div>
+      <div class="tl-dot"></div>
+      <div class="tl-label">Biología en EAFIT</div>
+    </div>
+
+    <div class="timeline-item" data-year="2019" data-title="Regreso al pueblo" data-photo="assets/images/timeline/4.jpg" data-body="En proceso...">
+      <div class="tl-year">2019</div>
+      <div class="tl-dot"></div>
+      <div class="tl-label">Regreso al pueblo</div>
+    </div>
+
+    <div class="timeline-item" data-year="2021" data-title="Museo La Salle" data-photo="assets/images/timeline/5.jpg" data-body="En proceso...">
+      <div class="tl-year">2021</div>
+      <div class="tl-dot"></div>
+      <div class="tl-label">Museo La Salle</div>
+    </div>
+
+    <div class="timeline-item" data-year="2022" data-title="Pasantía en el Pacífico" data-photo="assets/images/timeline/6.jpg" data-body="En proceso...">
+      <div class="tl-year">2022</div>
+      <div class="tl-dot"></div>
+      <div class="tl-label">Pasantía en el Pacífico</div>
+    </div>
+
+    <div class="timeline-item" data-year="2024" data-title="Biólogo, EAFIT" data-photo="assets/images/timeline/7.jpg" data-body="En proceso...">
+      <div class="tl-year">2024</div>
+      <div class="tl-dot"></div>
+      <div class="tl-label">Biólogo, EAFIT</div>
+    </div>
+  </div>
+</div>
+    </div>
+	<div class="influences-wrap reveal" id="about-influences">
+	<div class="section-label" style="text-align:left">Influencias</div>
+	<p class="influence-intro" style="text-align:justify">Un científico es, ante todo, un ser humano. Está influenciado por el mundo que lo rodea. Un científico debe, por tanto, verse a sí mismo como un ser político, cultural y revolucionario. Esta sección presenta muchos de mis pensamientos y sentimientos sobre temas políticos, sociales y culturales.</p>
+  <!-- BOOKS -->
+  <section class="influence-section">
+    <div class="section-label">Libros</div>
+	<p class="influence-intro" style="text-align:justify">Desearía poder decir que soy un lector ávido, pero tristemente soy lento; pierdo el hilo y tengo que volver atrás; me cuesta incluso empezar los libros —y a veces terminarlos. Es cierto que ha habido libros que devoré a un ritmo increíble, pero esa no es la norma para mí. Aun así, la lectura es fundamental en mi vida. Creo firmemente que es esencial para la humanidad también —si al menos, como sociedad, leyéramos más. Intento elegir con cuidado lo que leo, porque si uno no lee mucho, debería al menos asegurarse de que lo poco que lee valga la pena.</p>
+	<p class="influence-intro" style="text-align:justify">Aquí encontrarás libros de ciencia, pero también literatura, porque al final todo está conectado.</p>
+    <div class="influence-carousel">
+      <button class="carousel-btn prev" onclick="scrollInfluence('books',-1)">&#10094;</button>
+      <div class="influence-track" id="track-books">
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/books/1.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">El mundo y sus demonios: la ciencia como una luz en la oscuridad</div>
+            <div class="influence-author">Carl Sagan</div>
+            <div class="influence-note">Descubrí a Carl Sagan cuando empecé Ingeniería Física —en realidad ya lo había visto en el colegio—, casualmente durante una clase de matemáticas, pero no estaba listo para él en ese entonces. Durante mi primer semestre de universidad era muy malo en matemáticas —todavía lo soy— y, para ser honesto, no me iba bien en la carrera. Pero estando allí empecé a dejarme consumir por un sentimiento de pedantería. Amaba la manera en que mis compañeros hablaban de la ciencia y todos los datos raros e increíblemente interesantes que sabían. Un tema recurrente era cómo cada uno empezó a amar la ciencia —y la física en particular— y Carl siempre era parte fundamental de eso. Con Carl abrí la puerta a un mundo del que no hay vuelta atrás: el mundo del pensamiento crítico y escéptico. Carl también me enseñó a amar la ciencia, a abrazarla como una forma de vida. Todavía siento escalofríos y una emoción poderosa me invade cuando escucho la banda sonora de <em>Cosmos</em> o vuelvo a ver un episodio por enésima vez.</div>
+          </div>
+        </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/books/2.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Miles de millones</div>
+            <div class="influence-author">Carl Sagan</div>
+            <div class="influence-note">En proceso...</div>
+          </div>
+        </div>
+		<div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/books/3.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">La Vorágine</div>
+            <div class="influence-author">José Eustasio Rivera</div>
+            <div class="influence-note">"La Vorágine" — ¡qué nombre! Para mí, la palabra <em>vorágine</em> es poderosa en sí misma; mucho antes de conocer su significado, removía remolinos dentro de mí. Y quizás eso es lo que me gusta de este libro: incluso antes de leerlo podía sentir la realidad de fuerza de vendaval que retrata. Este libro me dio ganas de conocer los Llanos y su cultura. Ya disfrutaba el <em>joropo</em> —un género que remueve un torbellino de emociones en mí— pero siempre albergaré el anhelo de vivir otra vida como <em>llanero</em>.</div>
+          </div>
+        </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/books/4.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Cien Años de Soledad</div>
+            <div class="influence-author">Gabriel García Márquez</div>
+            <div class="influence-note">Macondo —ese nombre que usamos para referirnos a Colombia cuando el país nos parece irreal, algo que pasa con frecuencia hoy en día. Márquez nos dio más que un libro; nos dio maneras de entender y sanar nuestras heridas. Nos sacó de nuestro estado ordinario como colombianos y nos puso como guardias en un panóptico. Desde esa posición reconocemos a las personas que nos rodean como sus personajes. Esto nos permite comprender, hasta cierto punto, la complejidad de nuestra historia y nuestra realidad actual. Para mí el final del libro es revelador. Es sombrío —una fatalidad absoluta, que marca la imposibilidad de un comienzo nuevo para los colombianos. Como Aureliano Babilonia, Colombia parece atrapada en una lucha constante por descifrar los pergaminos de su propia historia, mientras los vientos de la violencia, el olvido y la repetición soplan con fuerza. Quizás, una vez que comprendamos finalmente nuestra historia, esos ciclos de violencia terminen y un nuevo comienzo espere a Colombia.</div>
+          </div>
+        </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/books/5.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">El Extranjero</div>
+            <div class="influence-author">Albert Camus</div>
+            <div class="influence-note">Este libro llegó a mi vida en un momento muy especial. Ocurrió después de que había estado luchando emocionalmente y tras la insistencia persistente de Esteban —un gran amigo que hice durante mis estudios de biología. Al ver el estado en que me encontraba, Esteban me recomendó a Camus en varias ocasiones; sin embargo, siempre he sido un mal lector —me distraigo con facilidad y no retengo detalles importantes— así que mi respuesta siempre era que no era el tipo de lectura para mí, o que no entendería nada. Por alguna razón —y no fue intencional— cuando finalmente leí <em>El Extranjero</em>, lo entendí todo. El comportamiento de Meursault fue tan revelador para mí que no hubo una sola línea que no resonara conmigo. Este libro puso en marcha un proceso interminable de sanación emocional para mí.</div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="scrollInfluence('books',1)">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- FILMS -->
+  <section class="influence-section">
+    <div class="section-label">Películas</div>
+	<p class="influence-intro" style="text-align:justify">Para mí, las películas han sido una forma de educación —no instrucción formal <em>per se</em>, sino una introducción a ideas o momentos históricos que antes desconocía, y que luego exploraba con más profundidad— así como una fuente de sanación emocional que trasciende el mero entretenimiento. Creo fervientemente que las películas bien elegidas pueden ser muy poderosas para desarrollar empatía y servir como estímulo cognitivo y creativo.</p>
+    <div class="influence-carousel">
+      <button class="carousel-btn prev" onclick="scrollInfluence('films',-1)">&#10094;</button>
+      <div class="influence-track" id="track-films">
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/films/1.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Contacto</div>
+            <div class="influence-author">Robert Zemeckis</div>
+            <div class="influence-note">Para mí, esta película es uno de los mejores retratos de la pasión por la ciencia. ¿Cuántas veces —igual que la Dra. Arroway— he pasado horas frente a computadores o estereoscopios, sin querer detenerme? Además, ofrece una mirada de primera mano a algunos de los mayores dilemas de la sociedad: la existencia de otras formas de vida en el universo y la tensión entre la ciencia y la fe.</div>
+          </div>
+        </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/films/2.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Interestelar</div>
+            <div class="influence-author">Christopher Nolan</div>
+            <div class="influence-note">Para mí, esta película es el ejemplo definitivo de cómo la ciencia sirve como fuente profunda de espiritualidad —en un sentido menos esotérico y más de bienestar personal— así como fuente de esperanza y de fuerza para seguir adelante como especie. Sin embargo, también es un testimonio de todo lo que puede salir mal si nos rendimos a nuestras supersticiones y miedos: el colapso de la civilización. Desde el punto de vista científico es impecable —una obra maestra. Deberían proyectarla en las clases de ciencia del colegio.</div>
+          </div>
+        </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/films/3.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">El hombre que conocía el infinito</div>
+            <div class="influence-author">Matt Brown</div>
+            <div class="influence-note">En proceso...</div>
+          </div>
+        </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/films/4.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Ágora</div>
+            <div class="influence-author">Alejandro Amenábar</div>
+            <div class="influence-note">En proceso...</div>
+          </div>
+		 </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/films/5.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Aeronautas</div>
+            <div class="influence-author">Tom Harper</div>
+            <div class="influence-note">En proceso...</div>
+          </div>
+        </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/films/6.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Radioactiva</div>
+            <div class="influence-author">Marjane Satrapi</div>
+            <div class="influence-note">En proceso...</div>
+          </div>
+		</div> 	
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/films/7.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">El código enigma</div>
+            <div class="influence-author">Morten Tyldum</div>
+            <div class="influence-note">En proceso...</div>
+          </div>
+	    </div>
+      </div>
+      <button class="carousel-btn next" onclick="scrollInfluence('films',1)">&#10095;</button>
+    </div>
+  </section>
+<section class="influence-section">
+    <div class="section-label">Series y documentales</div>
+	<p class="influence-intro" style="text-align:justify">Para mí, a diferencia de las películas, las series son una forma de saciar esa urgencia chismosa por conocer detalles —a menudo reales, a veces ficticios— sobre la historia y las personas. Los documentales, por otro lado, son una manera espléndida de aprender y maravillarse, pero también de reflexionar y cuestionar.</p>
+    <div class="influence-carousel">
+      <button class="carousel-btn prev" onclick="scrollInfluence('series',-1)">&#10094;</button>
+      <div class="influence-track" id="track-series">
+		 <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/series/1.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Cosmos: Un viaje personal</div>
+            <div class="influence-author">Carl Sagan, Ann Druyan, Steven Soter, Adrian Malone</div>
+            <div class="influence-note"><em>Cosmos</em> no necesita presentación general. En lo personal, este es el documental que me ayudó a sobrellevar ocho años de estudios universitarios. Su banda sonora evoca una sensación de esperanza y un deseo de explorar, pero también un sentimiento de paz. Las palabras de Carl sobre lo que significa ser a la vez científico y ser humano me han conmovido profundamente y son testimonio del poder de su mensaje; incluso después de su muerte, sigue cautivando mentes e inspirando pasión por la ciencia.</div>
+          </div>
+        </div>
+		 <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/series/2.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Cosmos: Una odisea en el espacio-tiempo</div>
+            <div class="influence-author">Ann Druyan, Steven Soter, Brannon Braga, Bill Pope</div>
+            <div class="influence-note">La razón para distinguir entre las series de <em>Cosmos</em> es clara: el mensaje que transmite la saga posterior. Como muchos saben, Neil conoció a Carl, y ese encuentro dejó una marca duradera en él. Como Neil dijo en un segmento de la serie —uno que nunca deja de darme escalofríos y emocionarme— representa el paso de la antorcha de maestro a alumno en una cadena interminable. Para mí, ese hecho es una maravilla en sí mismo. Además, aunque ciertamente aprecio mucho las nuevas sagas, la versión de Carl siempre permanecerá como pionera en mi corazón.</div>
+          </div>
+        </div>
+		<div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/series/3.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Genius: Einstein</div>
+            <div class="influence-author">Kenneth Biller, Noah Pink</div>
+            <div class="influence-note">En proceso...</div>
+          </div>
+        </div>
+		<div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/series/4.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Chernobyl</div>
+            <div class="influence-author">Craig Mazin</div>
+            <div class="influence-note">En proceso...</div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="scrollInfluence('series',1)">&#10095;</button>
+    </div>
+  </section>
+  <!-- MUSIC -->
+  <section class="influence-section">
+    <div class="section-label">Música</div>
+	<p class="influence-intro" style="text-align:justify">La música, por supuesto, no puede quedar fuera. Y aunque no existe algo así como "música científica" <em>per se</em>, estas dos esferas han estado conectadas durante milenios y se complementan de diversas maneras. Para cualquier científico, la música es parte integral del trabajo; nos volveríamos (aún más) locos sin ella. En lo personal, me encanta escuchar <em>Cumbias</em>, <em>Boleros</em>, <em>Porros</em>, <em>Currulaos</em>, <em>Vallenatos</em>, <em>Joropo</em> y <em>Salsa</em> —entre muchos otros géneros— ya sea que esté en el campo trabajando con la naturaleza o en el laboratorio, maravillándome con lo que aprendo y descubro. Esta lista podría ser tan larga como mi playlist, pero aquí he seleccionado algunas de las canciones y artistas que más me conmueven.</p>
+    <div class="influence-carousel">
+      <button class="carousel-btn prev" onclick="scrollInfluence('music',-1)">&#10094;</button>
+      <div class="influence-track" id="track-music">
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/music/1.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Yo me llamo cumbia</div>
+            <div class="influence-author">Totó la Momposina</div>
+            <div class="influence-note">Para mí, esta canción representa ese sentimiento de querer ser uno con el mundo que nos rodea —que, en cierta forma, ya lo somos. Más allá de eso, es exquisita; es inteligente en su juego con las similitudes entre una mujer y una <em>Cumbia</em>. Para mí, las mujeres son, en cierto modo, una <em>Cumbia</em>.</div>
+          </div>
+        </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/music/2.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">El Mochuelo</div>
+            <div class="influence-author">Otto Serge y Rafael Ricardo</div>
+            <div class="influence-note">El vallenato ha sido parte de mi vida desde pequeño —cuando mis tías lo escuchaban sin parar los fines de semana. Sin embargo, en algún momento los colombianos pasamos por una fase en la que nos avergonzaba esta música; para mí proviene del regionalismo —una especie de chovinismo que nos hace avergonzarnos de lo que es verdaderamente nuestro, de nuestras raíces y nuestra cultura nativa. Redescubrir el vallenato ha sido un viaje profundamente conmovedor y hermoso para mí. Esta canción en particular evoca lugares que nunca he visto en realidad, pero que de algún modo revisito en mi mente —como si un paisaje natural pudiera reconstruirse enteramente a través de la música.</div>
+          </div>
+        </div>
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/music/3.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">La Noche De Los Cocuyos</div>
+            <div class="influence-author">Juan Harvey Caicedo</div>
+            <div class="influence-note">Aunque los Llanos colombianos constituyen una vasta región con inmensa diversidad cultural y ambiental, la mayoría de los colombianos del centro del país desconocemos en gran medida su cultura. Tuve la fortuna de tener un tío que amaba los poemas de Juan Harvey Caicedo, lo que mantuvo esta región constantemente presente en mi mente. Más recientemente, habiendo estudiado biología, mi fascinación —y quizás hasta un toque de pedantería— por esta y las demás regiones del país solo ha crecido. Y en realidad, ¿cómo no, cuando escuchas este poema narrado por una voz tan icónica?</div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="scrollInfluence('music',1)">&#10095;</button>
+    </div>
+  </section>
+
+</div>
+  </div>
+
+
+<!-- ==================== OUTPUT / PUBLICATIONS ==================== -->
+<div class="page" id="page-pubs">
+  <section class="hero">
+    <div class="hero-image" style="background-image:url(assets/images/background/IMG_2110.jpg)"></div>
+    <div class="hero-content">
+      <h1>Pro<span class="hero-hl">ducción</span></h1>
+    </div>
+  </section>
+
+  <div class="research-content">
+    <div class="section-label">Producción académica</div>
+    <div class="section-title">Publicaciones y contribuciones</div>
+    <div class="filters-bar">
+      <input type="text" class="filter-search" id="searchInput" placeholder="Buscar por título, autor, palabra clave...">
+      <select class="filter-select" id="yearFilter">
+        <option value="">Todos los años</option>
+      </select>
+      <span class="filter-count" id="filterCount">9 publicaciones</span>
+    </div>
+
+    <div id="pubContainer">
+
+      <div class="pub-category" id="pub-publications">
+        <div class="pub-category-title">En preparación <span class="pub-count">3</span></div>
+        <div class="pub-item" data-year="2026">
+          <div class="pub-title-text"><strong>Durango, J.P.</strong>, &amp; Arredondo, J.C. (En prep.) Advertisement call, tadpole morphology and other natural history notes of <em>Leucostethus dysprosium</em> (Rivero and Serna, 2000)</div>
+        </div>
+        <div class="pub-item" data-year="2026">
+          <div class="pub-title-text"><strong>Durango, J.P.</strong>, &amp; Grant, T. (En prep). The systematics of <em>Colostethus pratti</em> (Anura, Dendrobatoidea).</div>
+        </div>
+        <div class="pub-item" data-year="2026">
+          <div class="pub-title-text">Garzón-Franco, E., <strong>Durango, J.P.</strong>, Vargas-Ramirez, Y.C., &amp; Lozano-Arias, J.M. (En prep.) A new species related to <em>Pristimantis labiosus</em> (Anura, Craugastoridae), from Chocó, Colombia.</div>
+        </div>
+      </div>
+
+		 <div class="pub-category">
+		  <div class="pub-category-title">2026 <span class="pub-count">4</span></div>
+		  <div class="pub-year-wrap">
+			<div class="pub-year-image">
+			  <a href="assets/images/thumbnails/SAJH_cover_2026.jpg" target="_blank">
+				<img src="assets/images/thumbnails/SAJH_cover_2026.jpg" alt="Portada South American Journal of Herpetology">
+			  </a>
+			  <div class="pub-image-caption">Portada: SAJH<br>Vol. 38(1), 2026</div>
+			</div>
+
+			<div class="pub-item" data-year="2026" data-access="open">
+			  <div class="pub-title-text">9. <strong>Durango, J.P.</strong> &amp; Arredondo, J.C. (2026) On the type locality of <em>Andinobates opisthomelas</em> and <em>Colostethus pratti</em>, with a redescription of <em>A. opisthomelas</em> based on newly collected topotypes. <em>South American Journal of Herpetology</em>, 38(1): 45–60.</div>
+			  <div class="pub-links"><a href="https://doi.org/10.2994/SAJH-D-24-00004.1">DOI</a><a href="assets/pdfs/papers/2026_Durango_SAJH.pdf">PDF</a></div>
+			</div>
+
+			<div class="pub-item" data-year="2026" data-access="closed">
+			  <div class="pub-title-text">8. Garzón-Franco, E., <strong>Durango, J.P.</strong>, Ospina-Sarria, J.J. &amp; Arredondo, J.C. (2026) A new species of <em>Pristimantis</em> (Anura: Strabomantidae) from the western slope of the Serranía del Baudó, Chocó, Colombia. <em>Zootaxa</em>, 5757(4): 301–323.</div>
+			  <div class="pub-links"><a href="https://doi.org/10.11646/zootaxa.5757.4.1">DOI</a><a href="assets/pdfs/papers/2026_Garzon_Zootaxa.pdf">PDF</a></div>
+			</div>
+
+			<div class="pub-item" data-year="2026" data-access="closed">
+			  <div class="pub-title-text">7. Lozano-Arias, J.M., Gómez-Mesa, L., <strong>Durango, J.P.</strong> &amp; Garzón-Franco, E. (2026) Hidden in the leaf litter: rediscovery and morphological variation of the largescale lizard <em>Alopoglossus grandisquamatus</em> (Rueda, 1985). <em>Zootaxa</em>, 5757(4): 369–381.</div>
+			  <div class="pub-links"><a href="https://doi.org/10.11646/zootaxa.5757.4.5">DOI</a><a href="assets/pdfs/papers/2026_LozanoArias_Zootaxa.pdf">PDF</a></div>
+			</div>
+
+			<div class="pub-item" data-year="2026" data-access="open">
+			  <div class="pub-title-text">6. Garzón-Franco, E., <strong>Durango, J.P.</strong> &amp; Arredondo, J.C. (2026) Predation of the Chocoan robber frog <em>Strabomantis anomalus</em> by a Cat-eyed snake <em>Leptodeira ornata</em> in the Colombian Chocó. <em>Revista Latinoamericana de Herpetología</em>, 9(1): e1388, 173–176.</div>
+			  <div class="pub-links"><a href="https://doi.org/10.22201/fc.25942158e.2026.1.1388">DOI</a><a href="assets/pdfs/papers/2026_GarzonFranco_RLH.pdf">PDF</a></div>
+			</div>
+		  </div>
+		</div>
+
+      <div class="pub-category">
+        <div class="pub-category-title">2025 <span class="pub-count">2</span></div>
+        <div class="pub-item" data-year="2025" data-access="open">
+          <div class="pub-title-text">5. <strong>Durango, J.P.</strong> (2025) The advertisement call of the Santa Marta robber frog <em>Serranobatrachus sanctaemartae</em> (Ruthven 1917). <em>The Herpetological Bulletin</em>, 171: 30–32.</div>
+          <div class="pub-links"><a href="https://doi.org/10.33256/hb171.3032">DOI</a><a href="assets/pdfs/papers/2025_Durango_HB.pdf">PDF</a></div>
+        </div>
+        <div class="pub-item" data-year="2025" data-access="open">
+          <div class="pub-title-text">4. Vargas-Ramirez, Y.C., Garzón-Franco, E. &amp; <strong>Durango, J.P.</strong> (2025) New distributional records of the endemic rainfrog <em>Pristimantis blasi</em> Duarte–Marín, Montoya–Marín &amp; Rivera–Gómez (Anura, Strabomantidae), towards the Chocó of Colombia. <em>Revista Latinoamericana de Herpetología</em>, 8(1): e1114, 143–147.</div>
+          <div class="pub-links"><a href="https://doi.org/10.22201/fc.25942158e.2025.1.1114">DOI</a><a href="assets/pdfs/papers/2025_VargasRamírez_RLH.pdf">PDF</a></div>
+        </div>
+      </div>
+
+      <div class="pub-category">
+        <div class="pub-category-title">2024 <span class="pub-count">2</span></div>
+        <div class="pub-item" data-year="2024" data-access="open">
+          <div class="pub-title-text">3. <strong>Durango, J.P.</strong>, Garzón-Franco, E., Gómez-Mesa, L., Lozano-Arias, J.M., Guayasamin, J.M. &amp; Arredondo, J.C. (2024) Geographic call variation in the Granular Glassfrog <em>Cochranella granulosa</em> (Taylor, 1949) (Anura, Centrolenidae) and a new distribution record in Colombia. <em>Herpetology Notes</em>, 17: 587–595.</div>
+          <div class="pub-links"><a href="https://www.biotaxa.org/hn/article/view/85050">Enlace</a><a href="assets/pdfs/papers/2024_Durango_HN.pdf">PDF</a></div>
+        </div>
+        <div class="pub-item" data-year="2024" data-access="open">
+          <div class="pub-title-text">2. <strong>Durango, J.P.</strong> (2024) The distress call of <em>Smilisca phaeota</em> (Cope 1862) (Hylidae: Hylinae) during manipulation. <em>Reptiles &amp; Amphibians</em>, 31: e2186.</div>
+          <div class="pub-links"><a href="https://doi.org/10.17161/randa.v31i1.21860">DOI</a><a href="assets/pdfs/papers/2024_Durango_R&A.pdf">PDF</a></div>
+        </div>
+      </div>
+
+      <div class="pub-category">
+        <div class="pub-category-title">2022 <span class="pub-count">1</span></div>
+        <div class="pub-item" data-year="2022" data-access="open">
+          <div class="pub-title-text">1. <strong>Durango, J.P.</strong>, Garzón-Franco, E., Castellanos-Mejía, M.C. &amp; Arredondo, J.C. (2022) Predation by a Cope's False Coralsnake <em>Pliocercus euryzonus</em> (Cope 1862) (Dipsadidae), on a catfish (Trichomycteridae: <em>Trichomycterus</em>) in the northern Andes of Colombia. <em>Reptiles &amp; Amphibians</em>, 29: 95–97.</div>
+          <div class="pub-links"><a href="https://doi.org/10.17161/randa.v29i1.16256">DOI</a><a href="assets/pdfs/papers/2022_Durango_R&A.pdf">PDF</a></div>
+        </div>
+      </div>
+
+      <div class="pub-category" id="pub-conf">
+        <div class="pub-category-title">Ponencias en congresos <span class="pub-count">7</span></div>
+
+		<div class="pub-item has-image" data-year="2025">
+		  <div class="pub-item-image">
+			<a href="assets/pdfs/posters/2025_4CCH_Poster_Colostethuspratti.pdf" target="_blank">
+			  <img src="assets/images/thumbnails/2025_4CCH_Poster_Colostethuspratti.jpg" alt="Miniatura del póster">
+			</a>
+			<div class="pub-image-caption">Póster · IV CCH 2025</div>
+		  </div>
+		  <div class="pub-title-text"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong></div>
+		  <div class="pub-journal">Póster: Ciencia criolla: importancia de una visión local en la sistemática del complejo <em>Colostethus pratti</em></div>
+		  <div class="pub-links"><a href="assets/pdfs/posters/2025_4CCH_Poster_Colostethuspratti.pdf" target="_blank">PDF</a></div>
+		</div>
+        <div class="pub-item" data-year="2025">
+          <div class="pub-title-text"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong></div>
+          <div class="pub-journal">Ponencia oral: Desarrollo larval y datos adicionales de historia natural de <em>Leucostethus dysprosium</em></div>
+        </div>
+        <div class="pub-item" data-year="2025">
+          <div class="pub-title-text"><strong>IV Congreso Colombiano de Herpetología — Santa Marta</strong></div>
+          <div class="pub-journal">Ponencia oral: Delimitación y redescripción de <em>Andinobates opisthomelas</em></div>
+        </div>
+        <div class="pub-item" data-year="2024">
+          <div class="pub-title-text"><strong>II Congreso Colombiano de Bioacústica y Ecoacústica — Medellín</strong></div>
+          <div class="pub-journal">Staff — Asistente de organización</div>
+        </div>
+        <div class="pub-item" data-year="2022">
+          <div class="pub-title-text"><strong>III Congreso Colombiano de Herpetología — Cali</strong></div>
+          <div class="pub-journal">Ponencia oral: Clarificación de la localidad tipo de <em>Andinobates opisthomelas</em> y <em>Colostethus pratti</em></div>
+        </div>
+        <div class="pub-item" data-year="2018">
+          <div class="pub-title-text"><strong>Feria de Semilleros de Investigación — Universidad EAFIT, Medellín</strong></div>
+          <div class="pub-journal">Póster · <strong>XVII Encuentro Departamental de Semilleros — Envigado</strong> · Póster</div>
+        </div>
+        <div class="pub-item" data-year="2017">
+          <div class="pub-title-text"><strong>XVI Encuentro Departamental de Semilleros — Medellín</strong></div>
+          <div class="pub-journal">Póster</div>
+        </div>
+      </div>
+
+		<div class="pub-category" id="pub-taxa">
+		  <div class="pub-category-title">Taxones descritos <span class="pub-count">1</span></div>
+		  <div class="pub-item has-image">
+			<div class="pub-item-image">
+			  <a href="assets/images/taxa/Pristimantis-mecada.jpg" target="_blank">
+				<img src="assets/images/taxa/Pristimantis-mecada.jpg" alt="Pristimantis mecada">
+			  </a>
+			  <div class="pub-image-caption"><em>Pristimantis mecada</em><br>Huina, Bahía Solano, Chocó</div>
+			</div>
+			<div class="pub-title-text"><em>Pristimantis mecada</em> — Garzón-Franco, Durango, Ospina-Sarria, and Arredondo-Salgar, 2026</div>
+			<div class="pub-journal">Holotipo: EAFIT-Am 0050, Mecana, Bahía Solano, Chocó, Colombia</div>
+		  </div>
+		</div>
+
+      <div class="pub-category" id="pub-peer">
+        <div class="pub-category-title">Revisión de pares <span class="pub-count">1</span></div>
+        <div class="pub-item">
+          <div class="pub-title-text">He actuado como revisor para las siguientes revistas científicas:</div>
+          <div class="pub-journal"><em>Herpetology Notes</em></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="no-results" id="noResults">Ninguna publicación coincide con tus filtros.</div>
+  </div>
+</div>
+
+<!-- ==================== RESEARCH ==================== -->
+<div class="page" id="page-research">
+  <section class="hero">
+    <div class="hero-image" style="background-image:url(assets/images/background/IMG_4915.jpg)"></div>
+    <div class="hero-content">
+      <h1>Investi<span class="hero-hl">gación</span></h1>
+    </div>
+  </section>
+
+  <div class="research-content">
+    <div class="section-label">Investigación</div>
+    <div class="section-title">Áreas focales</div>
+
+    <div class="research-overview reveal">
+      <p>El entorno acústico de los bosques tropicales está entre los más ricos y biológicamente complejos del planeta. Una parte significativa de este paisaje sonoro es producida por anuros —el grupo que incluye a todas las ranas y sapos. El tipo de vocalización más común en este grupo es el canto de anuncio, una señal que los machos producen para atraer parejas y disuadir rivales. Como las hembras de una especie responden preferentemente a los cantos de machos coespecíficos, los cantos de anuncio actúan como barreras precigóticas —mecanismos que impiden la reproducción entre individuos de distintas especies antes de que ocurra la fecundación— y por lo tanto juegan un papel central en el origen y mantenimiento de los límites entre especies. El foco central de mi investigación hasta ahora es entender cómo estas vocalizaciones pueden aprovecharse para abordar preguntas fundamentales en taxonomía, sistemática e historia natural.</p>
+    </div>
+<section class="field-map-section reveal">
+  <div class="section-label">Trabajo de campo</div>
+  <div class="section-title">A lo largo de Colombia</div>
+  <div class="field-map-grid">
+    <div class="field-map-wrap">
+      <div id="mapTooltip" class="map-tooltip"></div>
+      <svg class="colombia-map" viewBox="0 0 2480 3507" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="landGrad" x1="0" y1="0" x2="0.6" y2="1">
+            <stop offset="0%" stop-color="rgba(74,168,201,0.28)"/>
+            <stop offset="100%" stop-color="rgba(74,168,201,0.05)"/>
+          </linearGradient>
+          <radialGradient id="pinGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#6ec4e0" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#6ec4e0" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g fill-rule="evenodd" fill="url(#landGrad)" stroke="rgba(74,168,201,0.55)" stroke-width="3" stroke-linejoin="round">
+          <path d="M942.365,1923.93 L982.265,1936.59 L997.026,1975.57 L968.412,2045.07 L995.12,2060.82 L985.535,2083.71 L1001.68,2122.82 L1063.87,2137.26 L1104.83,2166.18 L1163.27,2164.94 L1210.26,2247.09 L1257.33,2289.77 L1279.67,2290.5 L1305.18,2270.11 L1313.03,2242.53 L1378.76,2260.12 L1420.79,2326.99 L1437.72,2321 L1460.77,2335.81 L1486.86,2390.59 L1502.11,2387.32 L1543.94,2431.93 L1554.64,2420.37 L1579.38,2425.73 L1592.25,2445.97 L1536.07,2450.66 L1513.23,2465.52 L1506.4,2498.65 L1452.91,2501.65 L1405.7,2569.99 L1384.34,2554.12 L1359.66,2579.79 L1326.21,2552.81 L1296.22,2563.65 L1278.61,2547.78 L1268.02,2564.68 L1245.08,2565.61 L1222.01,2544.06 L1179.68,2545.98 L1153.67,2521.97 L1134.91,2527.07 L1082.45,2495.55 L1069.95,2500.72 L1041.23,2473.1 L989.343,2469.31 L980.61,2423.87 L922.738,2404.58 L925.904,2378.57 L905.324,2361.84 L884.473,2366.23 L875.894,2323.6 L832.5,2315.98 L809.533,2296.55 L786.994,2303.53 L746.907,2261.94 L695.364,2250.82 L689.638,2233.47 L706.11,2217.15 L714.062,2169.25 L738.292,2170.18 L791.492,2134.44 L891.116,2004.62 L897.105,1966.27 L942.365,1923.93"/>
+          <path d="M662.25,1857.67 L734.564,1876.55 L725.578,1898.51 L739.256,1927.16 L789.582,1966.71 L769.229,2018.91 L748.524,2005.28 L722.928,2025.6 L717.984,2059.47 L677.545,2045.54 L667.316,2073.95 L638.743,2076.3 L638.787,2119.1 L717.209,2173.81 L690.261,2242.86 L731.037,2269.41 L702.258,2280.84 L646.902,2267.74 L641.702,2205.44 L628.826,2192.95 L579.642,2212.61 L578.178,2184.91 L595.226,2165.35 L576.896,2144 L506.233,2152.5 L529.093,2104.08 L505.759,2086.31 L501.812,2048.9 L483.223,2044.28 L478.12,2060.55 L425.73,2068.94 L399.856,2009.22 L403.01,1973.71 L424.69,1971.55 L468.333,1878.26 L488.434,1871.03 L503.287,1891.44 L523.555,1897.16 L549.948,1883.26 L576.364,1896.14 L581.914,1880.47 L606.102,1874.68 L613.173,1894.16 L637.394,1900.03 L652.56,1894.89 L662.25,1857.67"/>
+          <path d="M624.433,2190.84 L641.702,2205.44 L642.758,2259.71 L664.813,2279.99 L702.258,2280.84 L745.482,2261.5 L786.994,2303.53 L809.533,2296.55 L833.041,2316.2 L862.612,2315.79 L883.996,2340.13 L884.618,2366.38 L920.157,2368.93 L922.738,2404.58 L980.61,2423.87 L981.186,2464.31 L1041.23,2473.1 L1059.38,2495.48 L1130.82,2524.71 L1026.94,2553.93 L993.252,2516.7 L972.374,2515.93 L961.502,2489.46 L943.95,2497.43 L892.965,2461.53 L874.045,2476.28 L809.715,2445.12 L778.985,2445.09 L742.561,2399.99 L694.7,2375.45 L670.639,2385.23 L668.642,2411.46 L551.354,2402.24 L544.45,2347.63 L532.02,2340.54 L560.433,2275.39 L548.04,2245.09 L624.433,2190.84"/>
+          <path d="M730.25,1550.53 L762.158,1584.86 L758.182,1601.44 L796.847,1619.91 L768.275,1628.16 L763.251,1662.86 L782.08,1674.56 L773.255,1720.06 L791.404,1727.66 L745.567,1802.25 L733.459,1878.32 L662.035,1857.63 L652.515,1894.97 L635.239,1900.18 L613.173,1894.16 L606.102,1874.68 L581.914,1880.47 L576.467,1896.11 L547.845,1883.22 L523.555,1897.16 L488.658,1871.1 L467.313,1876.08 L535.81,1801.12 L532.917,1771.64 L555.993,1759.92 L515.054,1766.26 L508.623,1746.41 L530.625,1728.08 L517.381,1723.73 L501.14,1750.64 L487.452,1711.43 L520.085,1695.61 L546.692,1718.24 L573.612,1715.93 L598.512,1736.27 L639.016,1742.77 L664.817,1706.07 L645.07,1666.07 L679.07,1649.53 L688.581,1603.17 L719.633,1586.81 L730.25,1550.53"/>
+          <path d="M523.829,1731.89 L524.468,1730.03 L524.928,1730.37 L523.829,1731.89"/>
+          <path d="M2228.69,1729.46 L2245.71,1781.26 L2265.62,1779.15 L2299.72,1848.87 L2200.91,1940.7 L2200.68,1954.19 L2245.38,1950.24 L2254.77,1978.12 L2268.49,1976.33 L2321.71,2032.8 L2315.61,2049.99 L2336.01,2074.14 L2333.33,2099.64 L2382.09,2234.47 L2338.7,2243.9 L2327.39,2217.72 L2341.95,2208.25 L2332.51,2135.45 L2315.93,2110.19 L2301.09,2113.28 L2284.72,2053.85 L2252.62,2066.45 L2237.51,2097.21 L2216.54,2089.25 L2190.37,2114.7 L2192.87,2130.44 L2170.81,2129.33 L2140.73,2088.58 L2125.3,2125.99 L2147.13,2144.22 L1899.42,2135.45 L1852.51,2150.13 L1786.12,2116.68 L1797.07,2075.65 L1819.06,2058.84 L1810.29,2043.05 L1729.45,2053.66 L1705.61,2039.49 L1683.41,1999.38 L1651.91,1992.9 L1754.67,1942.69 L1772.68,1909.41 L1761.11,1901.06 L1787.17,1874.3 L1795.47,1880.31 L1795.72,1844.77 L1828.48,1845.85 L1825.49,1834.73 L1841.34,1837.87 L1837.43,1820.42 L1851.1,1831.12 L1846.32,1818.25 L1853.83,1825.61 L1864.93,1810.74 L1891.3,1814.89 L1891.94,1794.2 L1943.04,1788.13 L1945.1,1801.1 L1947.31,1786.51 L1963.95,1803.05 L1987.35,1802.2 L2008.53,1783.64 L2027.41,1796.47 L2023.84,1784.29 L2041.34,1776.34 L2077.8,1779.77 L2074.46,1770.1 L2105.71,1764.23 L2098.21,1752.74 L2114.3,1751.11 L2115.17,1738.65 L2152.99,1737.35 L2162.22,1749.13 L2170.17,1735.49 L2191.82,1753.73 L2228.69,1729.46"/>
+          <path d="M2210.41,1321.49 L2270.77,1341.87 L2281.97,1379.21 L2248.42,1410.37 L2243.41,1473.47 L2203.29,1504.13 L2201.91,1643.61 L2228.69,1729.46 L2191.82,1753.73 L2170.17,1735.49 L2162.22,1749.13 L2152.99,1737.35 L2114.68,1738.74 L2114.3,1751.11 L2098.21,1752.74 L2105.71,1764.23 L2074.46,1770.1 L2077.8,1779.77 L2041.34,1776.34 L2023.84,1784.29 L2026.9,1796.57 L2008.53,1783.64 L1987.35,1802.2 L1963.95,1803.05 L1947.31,1786.51 L1945.1,1801.1 L1943.04,1788.13 L1892,1794.18 L1891.3,1814.89 L1864.93,1810.74 L1853.83,1825.61 L1846.32,1818.25 L1851.1,1831.12 L1837.43,1820.42 L1841.34,1837.87 L1825.49,1834.73 L1828.48,1845.85 L1795.72,1844.77 L1795.47,1880.31 L1787.17,1874.3 L1761.11,1901.06 L1772.68,1909.41 L1754.17,1943.02 L1728.04,1954.48 L1700.24,1942.03 L1691.44,1963.56 L1688.65,1953.17 L1662.4,1956.28 L1665.49,1948.16 L1661.71,1943.87 L1649.11,1954.91 L1628.21,1942.23 L1625.44,1576.59 L1649.45,1536.29 L1753.8,1453.49 L1793.29,1449.36 L1853.43,1369.63 L1900.44,1371.73 L1935.68,1353.7 L1954.66,1365.31 L1989.1,1339.86 L2060.94,1356.43 L2171.43,1344.44 L2210.41,1321.49"/>
+          <path d="M1399.75,1317.85 L1398.85,1339.09 L1435.4,1367.61 L1468.51,1349.3 L1599.91,1326.15 L1688.47,1340.81 L1752.67,1325.36 L1790.71,1326.35 L1847.75,1372.16 L1797.8,1445.51 L1753.85,1453.46 L1710.41,1482.69 L1648.36,1537.46 L1629.13,1575.41 L1494.99,1633.07 L1462.14,1668.87 L1416.83,1659.74 L1387.9,1680.63 L1362.34,1674.04 L1336.25,1686.07 L1292.52,1643.96 L1267.5,1592.41 L1277.86,1558.25 L1298.63,1546.37 L1286.08,1531.62 L1302.4,1493.52 L1317.51,1490.49 L1335.01,1509.62 L1385.06,1457.72 L1407.55,1466.36 L1420.77,1437.53 L1377.52,1406.66 L1401.75,1397.14 L1402.91,1363.76 L1385.41,1346.13 L1399.75,1317.85"/>
+          <path d="M1613.49,2443.5 L1652.41,2462.74 L1670.5,2518.94 L1686.52,2504.79 L1714.65,2523.64 L1725.43,2517.49 L1736.52,2542.16 L1780.83,2532.61 L1760.16,2553.95 L1772.53,2561.38 L1765.2,2595.11 L1778.78,2612.12 L1763.41,2626.13 L1783.03,2629.79 L1788.19,2652.68 L1804.21,2639.24 L1796.49,2627.52 L1815.41,2621.18 L1835.92,2627.44 L1826.42,2649.67 L1871.23,2641.02 L1878.48,2672.97 L1891.31,2658.57 L1911.77,2670.32 L1916.44,2645.14 L1926.58,2654.3 L1827.36,3210.49 L1788.41,3178.65 L1766.81,3137.32 L1725.3,3148.02 L1690.71,3132.82 L1805.22,2953.02 L1804.67,2930.12 L1789.31,2939.17 L1774.6,2911.37 L1754.23,2912.96 L1764.29,2901.78 L1740.84,2906.19 L1717.22,2886.59 L1705.94,2897.38 L1699.58,2875.84 L1660.96,2851.42 L1638.94,2849.35 L1640.41,2866.71 L1616.9,2862.64 L1608.57,2879.67 L1586.3,2873.63 L1568.66,2885.09 L1557.66,2861.3 L1550,2875.09 L1546.6,2856.63 L1508.87,2852.2 L1506.66,2837.65 L1474.77,2879.57 L1451.66,2872.1 L1432.38,2897.57 L1415.41,2888.74 L1393.56,2899.61 L1387.26,2885.91 L1347.43,2875.83 L1338.27,2892.6 L1321.7,2882 L1293.35,2893.4 L1285.72,2873.15 L1259.48,2870.06 L1250.49,2850.94 L1269.08,2827.26 L1255.13,2776.57 L1242.05,2766.69 L1225.05,2780.81 L1185.81,2759.18 L1188.97,2746.55 L1198.25,2738 L1199.48,2734.68 L1176.3,2708.36 L1179.2,2690.03 L1148.1,2668.42 L1143.72,2679.49 L1126.76,2673.52 L1098.1,2633.61 L1086.94,2642.2 L1053.33,2628.86 L1044.78,2611.19 L1056.71,2600.27 L1034.1,2582.43 L1032.77,2552.58 L1150.92,2521.57 L1179.68,2545.98 L1222.01,2544.06 L1245.08,2565.61 L1268.02,2564.68 L1278.61,2547.78 L1296.22,2563.65 L1326.21,2552.81 L1359.66,2579.79 L1384.34,2554.12 L1405.1,2570.17 L1432.94,2517.08 L1453.91,2501.29 L1512.07,2495.43 L1513.23,2465.52 L1536.07,2450.66 L1613.49,2443.5"/>
+          <path d="M1798.63,2081.16 L1786.95,2118.75 L1845.99,2146.7 L1845.84,2260.56 L1939.93,2258.72 L1972.92,2296.53 L1963.75,2322.28 L1975.78,2340.04 L1934.16,2343.52 L1911.31,2321.82 L1888.78,2343.71 L1877.25,2333.93 L1853.67,2351.12 L1810.06,2352.67 L1806.7,2482.92 L1888.45,2543.08 L1896.78,2567.44 L1885.39,2586.94 L1922.52,2632.29 L1909.59,2671.28 L1891.31,2658.57 L1878.07,2672.75 L1881.08,2653.19 L1863.21,2637.41 L1863.95,2649.92 L1848.75,2637.44 L1825.38,2649.17 L1829.23,2622.93 L1799.53,2624.55 L1804.18,2639.33 L1788.04,2652.56 L1783.03,2629.79 L1763.41,2626.13 L1778.78,2612.12 L1765.2,2595.11 L1772.53,2561.38 L1760.16,2553.95 L1780.5,2532.25 L1736.52,2542.16 L1725.43,2517.49 L1714.65,2523.64 L1686.52,2504.79 L1670.5,2518.94 L1644.96,2455.14 L1633.82,2461.97 L1606.4,2436.1 L1587.01,2441.24 L1567.87,2420.21 L1544.58,2432.02 L1539.02,2414.77 L1525.53,2420.73 L1502.11,2387.32 L1486.69,2390.41 L1492.01,2380.85 L1454.46,2334.58 L1506.89,2277.2 L1534.65,2266.49 L1539.83,2246.66 L1552.57,2255.01 L1540.49,2224.92 L1569.55,2167.42 L1568.12,2143.16 L1593.1,2154.93 L1660.93,2107.46 L1704.52,2112.81 L1798.63,2081.16"/>
+          <path d="M1583.43,1930 L1647.52,1944.76 L1648.96,1954.89 L1661.56,1943.83 L1662.4,1956.28 L1688.65,1953.17 L1691.44,1963.56 L1699.85,1942.2 L1707.71,1953.79 L1716.37,1946.46 L1728.68,1954.46 L1652.23,1993.41 L1683.41,1999.38 L1729.17,2053.55 L1762.49,2058.22 L1809.96,2042.85 L1817.31,2062.8 L1785.98,2091.07 L1704.45,2112.82 L1658.28,2108.44 L1593.1,2154.93 L1568.12,2143.16 L1569.55,2167.42 L1540.49,2224.92 L1552.57,2255.01 L1539.83,2246.66 L1534.64,2266.51 L1506.89,2277.2 L1451.71,2336.02 L1437.72,2321 L1420.86,2327.06 L1378.84,2260.19 L1344.07,2241.94 L1306.6,2244.99 L1305.18,2270.11 L1267.68,2293.38 L1211.07,2248.11 L1162.58,2168.28 L1170.71,2028.07 L1217.56,2037.49 L1261.62,2027.3 L1313.95,1985.6 L1355.44,1991.03 L1364.41,1969.72 L1413.95,1947.89 L1425.88,1957.26 L1436.2,1936.4 L1463.64,1952.1 L1492.51,1938.15 L1499.77,1949.12 L1503.03,1934.89 L1522.65,1948.69 L1556.45,1934.54 L1569.36,1944.45 L1583.43,1930"/>
+          <path d="M982.225,1420.45 L986.197,1479.25 L970.995,1507.19 L934.285,1502.5 L902.629,1529.79 L871.901,1533.78 L856.224,1593.85 L837.504,1573.48 L797.715,1568.29 L789.763,1550.15 L777.593,1572.95 L763.747,1565.42 L776.007,1510.18 L807.423,1503.48 L793.626,1487.45 L769.382,1492 L768.537,1468.7 L792.724,1457.57 L821.226,1465.36 L816.173,1426.56 L855.974,1437.86 L874.046,1483.62 L907.844,1440.25 L946.101,1424.7 L964.325,1435.06 L982.225,1420.45"/>
+          <path d="M797.794,1608.56 L854.85,1611.51 L786.132,1724.04 L772.683,1715.26 L780.051,1667.61 L763.096,1661.42 L768.615,1627.49 L796.626,1620.27 L797.794,1608.56"/>
+          <path d="M742.971,1457.64 L768.067,1470.78 L769.382,1492 L793.626,1487.45 L807.421,1503.28 L776.007,1510.18 L763.747,1565.42 L777.593,1572.95 L789.763,1550.15 L797.715,1568.29 L837.504,1573.48 L856.224,1593.85 L849.706,1612.43 L757.14,1600.01 L762.235,1585.01 L746.564,1580.99 L706.602,1496.13 L742.971,1457.64"/>
+          <path d="M670.425,865.161 L676.221,879.412 L669.348,886.431 L696.824,907.227 L712.147,950.452 L668.38,1008.27 L655.554,1066.36 L652.35,1095.55 L675.333,1130.1 L772.1,1138.43 L786.462,1092.81 L824.055,1088.81 L840.102,1052.41 L882.846,1010.29 L936.334,1008.21 L953.171,985.423 L1009.27,1038.88 L1017.14,1078.46 L1001.45,1085.96 L997.051,1120.82 L1014.54,1139.08 L1028.6,1118.16 L1045.16,1121.5 L1030.31,1141.45 L1038.76,1198.78 L1058.43,1200.08 L1117.48,1147.65 L1122.88,1200.19 L1029.61,1273.7 L1036.29,1305.76 L999.788,1340.94 L1001.6,1379.97 L983.402,1420.97 L964.325,1435.06 L924.633,1430.5 L874.046,1483.62 L855.974,1437.86 L816.32,1426.54 L820.08,1466.14 L747.513,1465.66 L728.881,1435.27 L735.294,1388.26 L713.542,1376.43 L706.953,1346.51 L616.12,1348.85 L606.984,1293.99 L571.878,1257.67 L570.771,1234.07 L603.843,1222.48 L595.054,1200.69 L642.187,1204.19 L657.77,1176.78 L625.98,1120.16 L575.546,1095.09 L542.598,1052.53 L576.362,1010.32 L573.403,999.598 L574.525,990.72 L571.45,987.238 L569.002,975.874 L581.52,987.414 L577.651,1005.18 L584.508,997.886 L596.003,996.307 L598.98,998.001 L595.135,1018.02 L578.911,1017.16 L579.373,1036.32 L610.496,1035.51 L608.659,950.86 L576.507,922.519 L670.425,865.161"/>
+          <path d="M499.55,900.324 L574.525,990.72 L576.362,1010.32 L543.595,1059.51 L576.877,1096.13 L625.98,1120.16 L657.77,1176.78 L642.187,1204.19 L595.838,1200.08 L602.611,1224.5 L570.413,1234.74 L571.984,1257.89 L607.083,1294.23 L604.227,1327.42 L621.358,1350.62 L701.904,1342.25 L713.542,1376.43 L735.316,1388.34 L728.881,1435.27 L743.197,1455.83 L706.602,1496.13 L733.63,1534.22 L728.57,1568.17 L688.581,1603.17 L679.07,1649.53 L645.084,1666.04 L664.817,1706.07 L638.793,1742.87 L598.512,1736.27 L573.612,1715.93 L546.692,1718.24 L520.085,1695.61 L487.452,1711.43 L484.979,1730.63 L471.398,1714.9 L472.98,1688.08 L491.336,1685.1 L505.022,1660.67 L511.781,1603.8 L495.68,1479.14 L468.897,1471.32 L477.792,1449.81 L504.268,1448.04 L521.898,1421.16 L479.051,1345.15 L480.579,1326.33 L494.708,1337.38 L507.234,1281.22 L492.833,1256.56 L471.196,1263.56 L460.324,1232.95 L439.803,1228.79 L447.558,1201.48 L407.27,1161.72 L423.608,1118.04 L440.039,1109.9 L434.951,1076.07 L464.605,1109.75 L504.705,1063.46 L507.326,1040.21 L537.073,1033.69 L485.283,936.85 L499.55,900.324"/>
+          <path d="M361.363,1974.48 L373.498,1986.11 L399.294,1980.87 L415.349,2063.6 L478.12,2060.55 L483.223,2044.28 L507.629,2055.76 L505.759,2086.31 L529.093,2104.08 L506.233,2152.5 L576.896,2144 L595.073,2164.33 L578.178,2184.91 L582.612,2217.04 L547.546,2246.92 L560.433,2275.39 L532.02,2340.54 L544.45,2347.63 L545.285,2386.77 L471,2381.85 L479.382,2335.86 L446.213,2327.24 L446.443,2307.06 L397.702,2307.3 L353.333,2285.58 L330.732,2240.25 L309.9,2249.64 L276.314,2230.41 L205.675,2161.37 L241.55,2126.05 L257.043,2126.87 L250.048,2141.78 L287.37,2138.86 L281.758,2100.4 L265.763,2099.06 L261.57,2053.89 L304.996,1988.54 L361.363,1974.48"/>
+          <path d="M226.835,2183.25 L227.351,2183.34 L226.945,2183.31 L226.835,2183.25"/>
+          <path d="M759.127,763.096 L797.99,768.582 L814.364,792.284 L834.553,791.441 L843.094,817.505 L883.394,829.56 L895.492,852.673 L856.92,873.628 L867.166,931.647 L890.296,950.572 L922.41,927.99 L936.68,932.142 L962.642,971.829 L936.334,1008.21 L882.846,1010.29 L815.113,1095.75 L786.462,1092.81 L772.1,1138.43 L675.725,1130.34 L652.35,1095.55 L655.554,1066.36 L668.38,1008.27 L712.147,950.452 L696.824,907.227 L669.348,886.431 L669.875,862.613 L697.106,843.023 L729.173,782.621 L759.127,763.096"/>
+          <path d="M877.694,520.469 L881.596,577.761 L929.771,605.32 L933.517,641.318 L961.326,661.574 L944.488,686.347 L961.443,717.847 L958.212,762.488 L982.069,768.641 L1009.92,800.601 L1024.46,793.482 L1049.36,806.301 L1077.82,837.435 L1121.4,846.528 L1139.07,875.373 L1147.12,972.903 L1125.39,1018.21 L1138.62,1084.06 L1117.98,1112.21 L1117.48,1147.65 L1058.16,1200.2 L1038.76,1198.78 L1029.2,1165.81 L1044.63,1120.58 L1028.6,1118.16 L1014.54,1139.08 L995.312,1117.88 L1001.99,1084.85 L1017.14,1078.46 L1005.96,1031.07 L953.284,983.565 L965.612,968.847 L985.456,971.629 L1005.82,945.247 L993.108,886.262 L1005.83,877.428 L987.984,846.613 L940.791,813.316 L932.291,780.299 L942.983,765.44 L917.665,759.067 L921.215,748.019 L893.989,726.867 L856.424,729.677 L862.889,694.334 L826.185,656.402 L834.391,637.549 L820.762,648.119 L829.788,621.172 L803.683,638.959 L797.57,638.356 L806.446,634.255 L815.261,621.179 L818.529,623.195 L818.101,610.592 L833.38,609.697 L829.64,591.122 L822.05,592.605 L831.672,561.372 L873.726,535.992 L877.694,520.469"/>
+          <path d="M819.24,606.669 L821.375,596.728 L826.583,598.69 L826.957,599.09 L827.235,599.685 L819.24,606.669"/>
+          <path d="M771.072,698.57 L771.757,700.59 L775.259,701.099 L770.208,701.464 L771.289,699.939 L770.189,699.387 L771.072,698.57"/>
+          <path d="M712.93,771.186 L712.453,774.914 L710.324,773.684 L712.93,771.186"/>
+          <path d="M789.393,630.889 L793.891,631.143 L789.641,632.736 L789.53,631.305 L789.393,630.889"/>
+          <path d="M806.295,632.723 L806.393,633.652 L804.737,633.29 L803.833,633.581 L803.577,634.296 L803.86,633.418 L806.295,632.723"/>
+          <path d="M781.997,635.388 L782.706,633.617 L783.212,635.101 L781.997,635.388"/>
+          <path d="M766.734,702.398 L767.912,702.856 L766.629,702.951 L766.734,702.398"/>
+          <path d="M819.149,608.154 L819.941,608.798 L819.634,609.007 L819.149,608.154"/>
+          <path d="M787.838,632.184 L789.003,632.045 L788.405,632.551 L787.838,632.184"/>
+          <path d="M789.24,631.338 L789.447,631.279 L789.274,631.588 L789.354,631.836 L789.319,632.225 L789.256,632.269 L789.24,631.338"/>
+          <path d="M819.905,607.72 L819.958,607.451 L820.475,607.617 L819.905,607.72"/>
+          <path d="M784.618,631.6 L784.479,631.648 L784.381,631.161 L784.618,631.6"/>
+          <path d="M785.834,632.187 L786.227,632.385 L785.969,632.461 L785.834,632.187"/>
+          <path d="M794.045,630.813 L794.351,630.833 L794.1,631.05 L794.045,630.813"/>
+          <path d="M803.077,634.308 L803.223,634.361 L803.091,634.776 L803.077,634.308"/>
+          <path d="M802.727,634.725 L802.484,634.833 L802.111,634.804 L802.727,634.725"/>
+          <path d="M793.199,637.467 L792.979,637.405 L793.11,637.206 L793.199,637.467"/>
+          <path d="M784.199,631.333 L784.411,631.539 L784.138,631.376 L784.199,631.333"/>
+          <path d="M794.876,630.807 L795.199,630.925 L794.818,630.867 L794.876,630.807"/>
+          <path d="M804.007,633.877 L804.163,633.688 L804.216,633.719 L804.007,633.877"/>
+          <path d="M770.213,700.076 L770.479,700.127 L770.245,700.208 L770.213,700.076"/>
+          <path d="M785.378,631.754 L785.524,631.756 L785.434,631.965 L785.378,631.754"/>
+          <path d="M769.645,701.804 L769.641,702.018 L769.513,701.842 L769.645,701.804"/>
+          <path d="M769.954,700.147 L770.098,700.212 L770.01,700.292 L769.954,700.147"/>
+          <path d="M770.443,700.307 L770.587,700.393 L770.499,700.446 L770.443,700.307"/>
+          <path d="M787.564,631.762 L787.71,631.897 L787.571,631.894 L787.564,631.762"/>
+          <path d="M785.246,631.839 L785.354,631.688 L785.344,631.869 L785.246,631.839"/>
+          <path d="M799.951,636.785 L799.833,636.711 L799.918,636.625 L799.951,636.785"/>
+          <path d="M804.112,634.243 L804.02,634.389 L804.019,634.24 L804.112,634.243"/>
+          <path d="M770.633,699.805 L770.608,700.017 L770.57,699.813 L770.633,699.805"/>
+          <path d="M799.8,636.678 L799.729,636.843 L799.769,636.655 L799.8,636.678"/>
+          <path d="M804.775,633.748 L804.662,633.76 L804.704,633.654 L804.775,633.748"/>
+          <path d="M799.64,636.616 L799.698,636.789 L799.629,636.787 L799.64,636.616"/>
+          <path d="M804.573,634.127 L804.691,634.048 L804.716,634.098 L804.573,634.127"/>
+          <path d="M793.088,630.511 L793.157,630.619 L793.053,630.526 L793.088,630.511"/>
+          <path d="M800.1,636.585 L799.991,636.497 L800.079,636.49 L800.1,636.585"/>
+          <path d="M793.44,630.569 L793.355,630.602 L793.348,630.525 L793.44,630.569"/>
+          <path d="M806.239,634.046 L806.14,634.102 L806.139,634.034 L806.239,634.046"/>
+          <path d="M787.607,632.011 L787.689,632.071 L787.595,632.018 L787.607,632.011"/>
+          <path d="M794.999,630.594 L794.921,630.62 L794.971,630.562 L794.999,630.594"/>
+          <path d="M785.608,631.656 L785.552,631.591 L785.593,631.578 L785.608,631.656"/>
+          <path d="M804.961,633.982 L805.037,633.979 L804.995,634.027 L804.961,633.982"/>
+          <path d="M805.352,634.215 L805.285,634.219 L805.329,634.173 L805.352,634.215"/>
+          <path d="M784.557,634.464 L784.481,634.464 L784.542,634.439 L784.557,634.464"/>
+          <path d="M789.393,630.971 L789.371,631.021 L789.378,630.959 L789.393,630.971"/>
+          <path d="M786.396,631.555 L786.384,631.604 L786.373,631.559 L786.396,631.555"/>
+          <path d="M791.583,630.412 L791.598,630.444 L791.574,630.421 L791.583,630.412"/>
+          <path d="M784.723,631.144 L784.73,631.176 L784.71,631.165 L784.723,631.144"/>
+          <path d="M791.448,630.42 L791.418,630.426 L791.434,630.407 L791.448,630.42"/>
+          <path d="M1167.08,520.013 L1231.32,510.199 L1231.68,533.621 L1266.6,547.192 L1248.89,580.13 L1255.58,592.334 L1299.18,585.53 L1301.86,594.756 L1281.56,677.43 L1291.52,691.667 L1207.73,814.945 L1207.2,884.456 L1178.21,931.051 L1195.91,937.421 L1186.55,953.409 L1202.33,960.552 L1207.24,939.364 L1220.24,943.763 L1203.49,995.583 L1232.17,1029.13 L1193.6,1079.85 L1145.06,1064.53 L1161.35,1038.84 L1139.76,1003.17 L1147.88,938.863 L1125.09,858.362 L1138.63,832.312 L1126.3,809.828 L1109.22,808.986 L1106.34,772.883 L1077.51,754.196 L1137.64,728.666 L1130.74,699.862 L1087.57,651.578 L1090.66,633.783 L1117.26,595.856 L1180.62,573.412 L1171,548.197 L1184.42,528.503 L1167.08,520.013"/>
+          <path d="M1522.7,224.025 L1598.52,251.811 L1615.02,305.126 L1580.85,319.724 L1581.37,335.481 L1465.53,368.926 L1415.76,459.508 L1371.22,469.372 L1305.98,580.648 L1255.58,592.334 L1248.9,580.095 L1267.75,549.717 L1231.68,533.621 L1233.91,512.276 L1174.27,513.962 L1168.03,502.459 L1164.46,459.99 L1178.51,438.116 L1231.89,433.446 L1322.73,363.097 L1416.65,327.404 L1435.56,286.883 L1428.36,266.747 L1467.34,259.482 L1460.25,272.262 L1472.94,278.562 L1485.18,266.723 L1468.32,256.769 L1492.14,239.028 L1492.5,250.052 L1504.02,246.045 L1509.69,231.965 L1515.3,240.445 L1526.88,231.688 L1508.64,229.207 L1522.7,224.025"/>
+          <path d="M1067.65,430.248 L1180.22,439.033 L1162.39,486.413 L1167.1,522.583 L1184.42,528.503 L1171,548.197 L1180.83,573.078 L1116.41,596.456 L1087.32,650.512 L1136.59,718.704 L1137.64,728.666 L1077.51,754.196 L1106.34,772.883 L1109.22,808.986 L1126.3,809.828 L1138.57,832.143 L1126.11,853.945 L958.726,763.166 L961.443,717.847 L944.488,686.347 L961.401,661.906 L933.021,639.307 L972.764,554.98 L973.839,500.846 L949.949,465.74 L1047.95,487.307 L1063.94,472.047 L1067.65,430.248"/>
+          <path d="M834.391,637.549 L840.113,682.961 L862.889,694.334 L856.517,729.8 L893.989,726.867 L921.215,748.019 L917.665,759.067 L942.983,765.44 L932.291,780.299 L940.791,813.316 L987.984,846.613 L1005.83,877.428 L993.108,886.262 L1007.05,940.168 L985.456,971.629 L960.181,971.108 L936.68,932.142 L922.41,927.99 L890.296,950.572 L867.166,931.647 L856.92,873.628 L895.492,852.673 L883.316,829.491 L843.094,817.505 L834.553,791.441 L797.353,775.956 L820.345,743.197 L813.791,718.268 L797.408,717.338 L820.762,648.119 L834.391,637.549"/>
+          <path d="M1696.6,1183.74 L1760.67,1212.27 L1797.29,1204.24 L1920.84,1360.34 L1841.97,1372.09 L1789.47,1326.14 L1688.47,1340.81 L1599.91,1326.15 L1468.51,1349.3 L1435.76,1367.62 L1398.85,1339.09 L1398.49,1318.41 L1436.97,1286.36 L1469.55,1198.53 L1505.82,1188.79 L1635.12,1205.23 L1696.6,1183.74"/>
+          <path d="M1429.31,1191.05 L1469.55,1198.53 L1436.97,1286.36 L1389.49,1330.47 L1401.92,1396.27 L1377.52,1406.55 L1420.68,1438.15 L1406.54,1467.97 L1385.06,1457.72 L1335.01,1509.62 L1317.51,1490.49 L1302.4,1493.52 L1286.08,1531.62 L1298.63,1546.37 L1275.95,1561.7 L1262.76,1619.3 L1227,1606.93 L1209.46,1580.02 L1184.99,1577.05 L1196,1532.03 L1175.32,1487.14 L1137.38,1456.26 L1098.67,1492.97 L1085.07,1474.29 L1056.98,1471.25 L1042.8,1408.71 L1025.29,1422.86 L984.107,1423.87 L1008.17,1330.57 L1033.86,1372.33 L1056.12,1367.82 L1054.8,1409.15 L1070.13,1395.46 L1105.53,1429.5 L1153.54,1418.62 L1166.14,1430.52 L1167.59,1395.44 L1192.38,1360.21 L1215.06,1378.61 L1199.63,1399.17 L1204.3,1421.24 L1218.5,1402.35 L1244.73,1410.58 L1245.74,1378.98 L1263.37,1386.3 L1275.68,1375.43 L1279.4,1386.15 L1327.11,1338.52 L1330.65,1297.8 L1315.62,1279.45 L1344.22,1301.43 L1363.88,1292.2 L1371.41,1214.74 L1391.08,1223.12 L1429.31,1191.05"/>
+          <path d="M1043.8,1411.05 L1058.66,1473.28 L1085.07,1474.29 L1088.91,1485.14 L1102.58,1492.76 L1137.38,1456.26 L1175.32,1487.14 L1196,1532.03 L1184.99,1577.05 L1209.46,1580.02 L1241.86,1616.38 L1262.49,1619.43 L1272,1605.73 L1256.89,1699.43 L1218.11,1680.03 L1182.85,1682.42 L1170.1,1636.84 L1136.98,1661.96 L1148.45,1702.12 L1077.85,1737.46 L1082.35,1660 L1104.91,1624.92 L1101.42,1590.49 L1086.92,1588.51 L1062.41,1625.5 L1071.18,1646.75 L1058.46,1719.04 L1043.38,1714.16 L1021.81,1785.83 L1021.84,1769.92 L1005.87,1765.3 L1009.55,1694.48 L980.485,1701.56 L943.01,1685.84 L976.067,1561.87 L984.107,1423.87 L1043.8,1411.05"/>
+          <path d="M1280.71,792.425 L1290.65,826.051 L1323.33,823.676 L1343.2,911.618 L1390.89,959.236 L1398.27,1018.63 L1373.04,1031.68 L1375.36,1113.35 L1383.69,1128.53 L1425.6,1131.86 L1451.88,1193.72 L1410.91,1198.27 L1390.18,1223.43 L1362.43,1220.97 L1359.74,1200.59 L1340.75,1206.73 L1313.54,1187.48 L1310.62,1136.9 L1284.57,1089.53 L1242.21,1087.41 L1235.49,1105.41 L1217.81,1103.12 L1168.08,1067.18 L1202.78,1075.88 L1232,1031.22 L1203.49,995.583 L1220.24,943.763 L1207.24,939.364 L1202.33,960.552 L1186.55,953.409 L1195.91,937.421 L1183.38,937.19 L1178,932.822 L1207.2,884.456 L1205.48,820.418 L1280.71,792.425"/>
+          <path d="M1089.14,1587.79 L1101.42,1590.49 L1104.91,1624.92 L1082.35,1660 L1079.7,1728.84 L1023.74,1785.73 L1043.38,1714.16 L1058.46,1719.04 L1065.86,1694.62 L1062.59,1624.87 L1089.14,1587.79"/>
+          <path d="M1625.44,1576.59 L1625.51,1937.59 L1581.26,1930.02 L1569.45,1944.43 L1556.45,1934.54 L1522.65,1948.69 L1503.03,1934.89 L1499.77,1949.12 L1492.51,1938.15 L1463.64,1952.1 L1436.2,1936.4 L1425.88,1957.26 L1413.95,1947.89 L1364.41,1969.72 L1355.44,1991.03 L1313.95,1985.6 L1261.62,2027.3 L1217.56,2037.49 L1170.87,2027.97 L1161.64,2165.62 L1104.83,2166.18 L1063.87,2137.26 L1001.48,2122.62 L985.535,2083.71 L995.12,2060.82 L968.412,2045.07 L997.026,1975.57 L982.265,1936.59 L941.475,1922.93 L981.917,1883.16 L989.565,1832.15 L1049.33,1769.94 L1063.51,1735.57 L1148.5,1702.08 L1136.17,1665.42 L1153.66,1645.32 L1177.87,1640.44 L1186.36,1684.41 L1218.11,1680.03 L1256.78,1699.47 L1272,1605.73 L1332.16,1685.03 L1387.9,1680.63 L1416.83,1659.74 L1462.51,1668.71 L1494.99,1633.07 L1625.44,1576.59"/>
+          <path d="M1009.61,1766.87 L1028.49,1786.79 L989.565,1832.15 L981.917,1883.16 L897.105,1966.27 L891.116,2004.62 L791.492,2134.44 L722.999,2175.66 L701.084,2152.22 L676.183,2155.07 L677.878,2141.58 L633.6,2108.65 L638.794,2076.18 L667.316,2073.95 L677.545,2045.54 L717.984,2059.47 L722.928,2025.6 L748.524,2005.28 L769.229,2018.91 L788.756,1970.67 L776.266,1945.95 L739.256,1927.16 L746.488,1919.63 L773.059,1939.44 L810.149,1917.25 L829.021,1859.54 L858.7,1843.34 L916.818,1839.63 L910.796,1863.66 L940.371,1864.36 L1009.61,1766.87"/>
+          <path d="M1142.82,1002.19 L1161.35,1038.84 L1145.67,1066.13 L1168.1,1066.46 L1217.81,1103.12 L1235.49,1105.41 L1242.21,1087.41 L1284.57,1089.53 L1310.62,1136.9 L1310.78,1183.26 L1329.02,1202.91 L1359.74,1200.59 L1375.01,1228.8 L1363.88,1292.2 L1344.22,1301.43 L1315.62,1279.45 L1330.65,1297.8 L1327.11,1338.52 L1279.78,1385.86 L1275.31,1375.35 L1263.37,1386.3 L1245.74,1378.98 L1248.04,1407.07 L1218.5,1402.35 L1211.52,1424.1 L1196.66,1412.33 L1215.06,1378.61 L1192.38,1360.21 L1167.59,1395.44 L1166.14,1430.52 L1153.28,1418.62 L1123.35,1431.89 L1070.13,1395.46 L1054.8,1409.15 L1056.12,1367.82 L1033.86,1372.33 L1007.75,1332.42 L1036.29,1305.76 L1029.98,1273.25 L1123.15,1199.62 L1117.2,1115.36 L1138.7,1083.43 L1126.13,1010.18 L1142.82,1002.19"/>
+          <path d="M918.4,1506.84 L972.658,1511.21 L976.074,1561.77 L943.01,1685.84 L980.485,1701.56 L1009.55,1694.48 L1017.43,1714.63 L1002.62,1779.21 L940.371,1864.36 L910.796,1863.66 L916.818,1839.63 L858.7,1843.34 L829.021,1859.54 L810.149,1917.25 L773.059,1939.44 L746.488,1919.63 L739.256,1927.16 L725.519,1897.4 L745.567,1802.25 L816.633,1687.36 L829.587,1640.25 L849.035,1626.2 L866.386,1578.57 L861.727,1544.07 L902.642,1529.79 L918.4,1506.84"/>
+          <path d="M950.378,467.098 L973.839,500.846 L972.797,554.638 L939.879,618.253 L881.596,577.761 L878.771,534.186 L950.378,467.098"/>
+        </g>
+
+        <!-- PINS -->
+<g class="map-pin" transform="translate(1108,465)" data-site="Santa Marta">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(903,1228)" data-site="Valdivia">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(487,1339)" data-site="Bahía Solano">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(776,1054)" data-site="Montelíbano">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(903,1297)" data-site="Santo Domingo">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(832,1619)" data-site="Filandia">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(1145,1250)" data-site="Simacota">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(980,1085)" data-site="El Bagre">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(685,1170)" data-site="Mutatá">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(725,1430)" data-site="Carmen de Atrato">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(354,1928)" data-site="Gorgona">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(1395,1035)" data-site="Cúcuta">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(1718,1195)" data-site="Arauca">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+
+<g class="map-pin" transform="translate(523,1773)" data-site="Buenaventura">
+  <circle class="pin-glow" r="110" fill="url(#pinGlow)" opacity="0"/>
+  <circle class="pin-ring" r="40"/>
+  <line class="pin-line" x1="0" y1="-26" x2="0" y2="-58"/>
+  <line class="pin-line" x1="0" y1="26" x2="0" y2="58"/>
+  <line class="pin-line" x1="-26" y1="0" x2="-58" y2="0"/>
+  <line class="pin-line" x1="26" y1="0" x2="58" y2="0"/>
+  <circle class="pin-dot" r="8"/>
+</g>
+      </svg>
+    </div>
+   </div>
+</section>
+    <div class="research-focal reveal" id="focal-bioacoustics">
+      <div class="research-focal-title">La bioacústica como herramienta para la taxonomía y la sistemática</div>
+      <div style="display:flow-root">
+        <div class="research-focal-image" style="float:right;width:300px;margin:0 0 16px 20px">
+          <img src="assets/images/research/IMG-20220922.jpg" alt="Trabajo de campo bioacústico">
+          <div class="image-caption">Grabando cantos de ranas en Huina, Bahía Solano, Chocó, Colombia.</div>
+        </div>
+        <div class="research-focal-text">
+          <p>Los cantos de anuncio son señales específicas de cada especie, moldeadas por la selección sexual y el aislamiento reproductivo, lo que las hace poderosas para delimitar los límites entre especies, descubrir diversidad críptica e inferir relaciones evolutivas. Un primer paso crítico para aplicar la bioacústica a la sistemática es la descripción formal de los cantos de especies cuyas vocalizaciones aún se desconocen. Gran parte de mi trabajo se dedica a llenar estos vacíos —documentando los cantos de anuncio de anuros colombianos poco conocidos y estableciendo las bases acústicas necesarias para usar el sonido como carácter diagnóstico.</p>
+          <p>Un trabajo realizado con colegas sobre la rana de cristal granulosa <em>Cochranella granulosa</em> reveló variación geográfica en el canto a lo largo de su distribución en Colombia, sugiriendo diversidad oculta y resaltando la importancia de integrar datos acústicos en las revisiones taxonómicas. También he descrito los cantos de anuncio de especies poco estudiadas como <em>Serranobatrachus sanctaemartae</em> y cantos de auxilio de <em>Smilisca phaeota</em>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-focal reveal" id="focal-taxonomy">
+      <div class="research-focal-title">Taxonomía, Colecciones Biológicas y la Importancia de la Investigación Histórica</div>
+      <div style="display:flow-root">
+        <div class="research-focal-image" style="float:left;width:300px;margin:0 20px 16px 0">
+          <img src="assets/images/research/IMG-2025121.jpg" alt="Examen de especímenes">
+          <div class="image-caption">Trabajo en colecciones revisando material.</div>
+        </div>
+        <div class="research-focal-text">
+          <p>Los caracteres sonoros por sí solos no pueden resolver problemas taxonómicos si la pregunta fundacional sobre de qué especie estamos hablando permanece sin respuesta. Un desafío persistente en la ciencia de la biodiversidad tropical es la existencia de múltiples déficits que se superponen: el déficit linneano —la vasta cantidad de especies que aún esperan descripción formal— y el déficit wallaceano —nuestro conocimiento incompleto sobre dónde ocurren realmente las especies conocidas.</p>
+          <p>Formo parte de una nueva generación de investigadores comprometidos con practicar la taxonomía como una ciencia rigurosa e integradora. Central en esta visión es el papel de las colecciones biológicas —no solo como repositorios de especímenes históricos, sino como infraestructura científica activa. Enriquecer las colecciones en países en desarrollo no es una mera preocupación curatorial: es un requisito previo para una taxonomía rigurosa y arraigada localmente.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-focal reveal" id="focal-communication">
+      <div class="research-focal-title">Divulgación científica y participación pública</div>
+      <div style="display:flow-root">
+        <div class="research-focal-image" style="float:right;width:300px;margin:0 0 16px 20px">
+          <img src="assets/images/research/IMG-2025041.jpg" alt="Divulgación científica">
+          <div class="image-caption">Divulgación científica con estudiantes escolares.</div>
+        </div>
+        <div class="research-focal-text">
+          <p><em>"La ciencia es una forma de pensar mucho más que un cuerpo de conocimiento." — Carl Sagan</em></p>
+          <p>Esta es, quizás, la verdad más subestimada en la divulgación científica. Lo que la ciencia realmente tiene para ofrecer al público no es una colección de datos; es una manera de acercarse al mundo —con curiosidad, con escepticismo, con la disposición a revisar lo que uno cree saber ante nueva evidencia.</p>
+          <p>En el Chocó, trabajando como guía naturalista durante la temporada de ballenas jorobadas, rara vez lideraba con datos. En cambio, intentaba liderar con consecuencias y preguntas. En el Museo de Ciencias Naturales de La Salle en Medellín, trabajé con adultos y niños que a menudo llegaban sin saber qué es una colección de historia natural o para qué existe. Ayudar a los visitantes a comprender la conexión entre una rana clavada en un cajón y una política que protege una cuenca hidrográfica es, creo, uno de los actos más políticos que puede realizar un científico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GALLERY ==================== -->
+<div class="page" id="page-gallery">
+  <section class="hero">
+    <div class="hero-image" style="background-image:url(assets/images/background/IMG_5242.jpg)"></div>
+    <div class="hero-content">
+      <h1>Galería</h1>
+    </div>
+  </section>
+
+  <div class="research-content">
+    <div id="gallery-videos" class="videos-panel reveal">
+      <div class="section-label" style="text-align:left">Videos</div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:1.5rem">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/BGp-Fl2K2tg" allowfullscreen></iframe>
+          </div>
+          <div class="image-caption">Documental e inventario biótico en el Chocó</div>
+        </div>
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/HJl0TtIpoYQ" allowfullscreen></iframe>
+          </div>
+          <div class="image-caption">Evento comportamental registrado en campo</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="https://www.youtube.com/@JPDCHerp" target="_blank" class="youtube-link">Ver más en mi canal de YouTube</a>
+      </div>
+    </div>
+
+    <div id="gallery-illustrations" class="gallery-carousel reveal">
+      <div class="section-label" style="text-align:left">Ilustraciones</div>
+      <div class="carousel-container" style="margin-top:1.5rem">
+        <button class="carousel-btn prev" data-carousel="illu">&#10094;</button>
+        <div class="carousel-slides" id="carousel-illu"></div>
+        <button class="carousel-btn next" data-carousel="illu">&#10095;</button>
+      </div>
+      <div class="carousel-caption" id="caption-illu"></div>
+    </div>
+
+    <div id="gallery-photos" class="gallery-carousel reveal">
+      <div class="section-label" style="text-align:left">Fotografías</div>
+      <div class="carousel-container" style="margin-top:1.5rem">
+        <button class="carousel-btn prev" data-carousel="photo">&#10094;</button>
+        <div class="carousel-slides" id="carousel-photo"></div>
+        <button class="carousel-btn next" data-carousel="photo">&#10095;</button>
+      </div>
+      <div class="carousel-caption" id="caption-photo"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CONTACT ==================== -->
+<div class="page" id="page-contact">
+  <section class="hero">
+    <div class="hero-image" style="background-image:url(assets/images/background/IMG_5637.jpg)"></div>
+<div class="hero-content">
+  <h1>"El verdadero problema de la humanidad es el siguiente: tenemos <span class="hero-hl">emociones paleolíticas</span>, <span class="hero-hl">instituciones medievales</span> y <span class="hero-hl">tecnología divina</span>."</h1>
+  <p><strong style="color:var(--accent-bright);font-weight:500">E.O. Wilson</strong></p>
+</div>
+  </section>
+
+<div class="contact-content">
+  <p class="contact-intro reveal">Si te interesan o estudias los anfibios y reptiles — deberíamos hablar. Abajo encontrarás los detalles aburridos y algunas respuestas rápidas.</p>
+
+  <div class="contact-section reveal">
+    <div class="contact-section-label">Dónde encontrarme</div>
+    <div class="contact-rows">
+      <div class="contact-row">
+        <span class="contact-key">Correo personal</span>
+        <a class="contact-val" href="mailto:jdurangocardona@gmail.com">jdurangocardona@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">Correo institucional</span>
+        <a class="contact-val" href="mailto:jduran11@eafit.edu.co">jduran11@eafit.edu.co</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">Ubicación</span>
+        <span class="contact-val">Medellín, Antioquia · Colombia (UTC−5)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-section reveal">
+    <div class="contact-section-label">Respuestas rápidas</div>
+    <div class="contact-faq">
+      <div class="faq-item">
+        <div class="faq-q">¿Estás abierto a colaboraciones?</div>
+        <div class="faq-a">Sí — cualquier cosa (ciencia, arte, proyectos de divulgación, etc.) que involucre la herpetofauna colombiana e incluso otros grupos (¿por qué no?).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué tipo de proyectos te interesan?</div>
+        <div class="faq-a">Trabajo de campo, revisiones taxonómicas y sistemáticas, delimitación de especies, etología del sonido animal y mucho más.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Respondes correos?</div>
+        <div class="faq-a">Siempre. Usualmente en 2–3 días. Si no respondo, escribe de nuevo — no muerdo. O prueba por mis otras redes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Forma preferida de contactarme?</div>
+        <div class="faq-a">Correo y mensajes directos, siempre — investigar no exige distancia ni apatía.</div>
+      </div>
+    </div>
+  </div>
+
+<div class="contact-socials reveal">
+  <a class="contact-icon" href="https://orcid.org/0000-0003-3705-9834" target="_blank"><svg viewBox="0 0 256 256" fill="currentColor"><circle cx="128" cy="128" r="124" fill="none" stroke="currentColor" stroke-width="8"/><path d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.6 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.5-56.8 53.5h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7 0-21.5-13.7-39.8-43.7-39.8h-23.7v79.5zM76.2 66.8c0 5.5-4.5 9.6-10.1 9.6-5.5 0-9.9-4.1-9.9-9.6 0-5.7 4.4-9.9 9.9-9.9 5.6 0 10.1 4.2 10.1 9.9z"/></svg>ORCID</a>
+  <a class="contact-icon" href="https://scholar.google.com/citations?user=HBpjN5MAAAAJ&hl=es" target="_blank"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M343.76 106.66V79.43L363.52 64H149.63L20.48 176.27h85.66c-.16 2.12-.22 4.05-.22 6.23 0 20.84 7.22 38.09 21.67 51.86 14.45 13.8 32.25 20.65 53.33 20.65 4.92 0 9.75-.37 14.44-1.02-2.91 6.5-4.37 12.52-4.37 18.14 0 9.88 4.5 20.43 13.47 31.64-39.23 2.67-68.06 9.73-86.44 21.16-10.53 6.5-19 14.7-25.39 24.53-6.39 9.9-9.58 20.52-9.58 31.96 0 9.65 2.06 18.34 6.22 26.06 4.16 7.73 9.58 14.07 16.31 18.98 6.72 4.97 14.47 9.1 23.22 12.47 8.73 3.34 17.41 5.72 26.06 7.06 8.63 1.34 17.2 2 25.71 2 13.47 0 26.95-1.73 40.55-5.19 13.56-3.48 26.28-8.64 38.17-15.49 11.86-6.8 21.52-16.09 28.92-27.72 7.39-11.68 11.09-24.8 11.09-39.34 0-11.02-2.25-21.04-6.75-30.14-4.47-9.07-9.94-16.54-16.45-22.34-6.5-5.81-13-11.16-19.52-15.97-6.5-4.84-12-9.75-16.47-14.81-4.48-5.05-6.73-10.05-6.73-14.98 0-4.92 1.73-9.67 5.22-14.27 3.45-4.61 7.67-9.05 12.61-13.31 4.94-4.25 9.88-8.97 14.8-14.13 4.92-5.15 9.14-11.83 12.61-20.01 3.48-8.18 5.2-17.44 5.2-27.76 0-13.45-2.55-24.46-7.55-33.31-.59-1.02-1.22-1.8-1.88-3.02l56.91-46.67v17.12c-7.39.93-6.62 5.35-6.62 10.64v128.67c0 5.96 4.88 10.83 10.83 10.83h3.99c5.96 0 10.83-4.88 10.83-10.83V117.29c0-5.28.78-9.69-6.56-10.63z M236.4 329.14c1.14.75 3.7 2.78 7.72 6.04 4.05 3.24 6.8 5.7 8.27 7.41 1.44 1.66 3.58 4.17 6.38 7.55 2.81 3.37 4.72 6.3 5.72 8.73 1 2.48 2.02 5.46 3.05 8.95.99 3.44 1.48 6.98 1.48 10.56 0 17.05-6.56 29.68-19.66 37.86-13.13 8.18-28.77 12.27-46.94 12.27-9.19 0-18.2-1.09-27.06-3.2-8.84-2.12-17.31-5.34-25.39-9.6-8.08-4.26-14.58-10.2-19.5-17.8-4.94-7.64-7.41-16.41-7.41-26.25 0-10.32 2.8-19.29 8.42-26.91 5.59-7.63 12.94-13.39 22.03-17.32 9.06-3.95 18.25-6.74 27.56-8.4 9.31-1.7 18.8-2.55 28.44-2.55 4.47 0 7.94.25 10.4.7.45.22 3.03 2.07 7.73 5.56 4.7 3.46 7.63 5.6 8.75 6.38z m-3.36-100.58c-7.41 8.86-17.73 13.29-30.95 13.29-11.86 0-22.3-4.76-31.27-14.31-9-9.52-15.42-20.33-19.34-32.43-3.94-12.11-5.91-23.98-5.91-35.65 0-13.69 3.6-25.35 10.78-34.98 7.19-9.65 17.5-14.48 30.94-14.48 11.88 0 22.37 5.04 31.44 15.16 9.09 10.08 15.61 21.41 19.52 33.97 3.92 12.54 5.87 24.53 5.87 35.98 0 13.45-3.7 24.61-11.08 33.45z"/></svg>Scholar</a>
+  <a class="contact-icon" href="https://www.researchgate.net/profile/Juan-Durango" target="_blank"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M 228.65968,408.10149 C 208.46616,386.12784 181.4422,350.83324 158.962,310.93516 c 37.13444,-8.68487 64.63318,-43.55027 64.63318,-78.38386 0,-51.3457 -39.88089,-75.17678 -92.16329,-75.17678 -27.02266,0 -48.583367,1.36546 -68.715441,1.36546 -18.369155,0 -36.722401,0 -48.154153,-0.4447 v 13.30466 l 17.401097,3.19159 c 11.968845,2.30214 18.78249,7.76579 18.78249,36.21494 v 180.59919 c 0,28.43543 -6.813222,33.92871 -18.78249,36.19953 l -17.401097,3.25258 v 13.25908 c 12.367998,-0.4447 33.912828,-1.3513 55.473533,-1.3513 20.62404,0 47.217451,0.9066 58.680561,1.3513 v -13.25908 l -23.84698,-3.25258 c -12.366696,-1.796 -18.813848,-7.7641 -18.813848,-36.19953 v -76.54225 c 11.002507,0.92078 20.624038,0.92078 35.325548,0.92078 27.95932,49.94887 54.55102,87.55896 69.65214,104.9618 13.779,16.52587 34.84949,27.05401 61.44162,27.05401 7.78128,0 16.02316,-1.36721 21.05458,-3.68315 v -11.89361 c -16.49625,0 -32.99204,-11.47725 -44.8702,-24.3213 z M 119.06392,295.34424 c -15.59093,0 -22.434257,-0.41463 -33.007939,-1.41103 V 178.91935 c 10.573682,-0.92079 24.751869,-0.92079 37.135739,-0.92079 38.53132,0 61.42745,20.19525 61.42745,56.83902 0,36.21495 -24.73641,60.50666 -65.55525,60.50666 z m 139.93416,-115.7035 c -0.4606,-2.4087 -0.87524,-5.21701 -1.24303,-8.45544 -0.38328,-3.26846 -0.63033,-7.10411 -0.78243,-11.63108 -0.15386,-4.49562 -0.21509,-9.98891 -0.21509,-16.28098 0,-6.32297 0.0616,-11.7398 0.21509,-16.25087 0.15258,-4.52698 0.39915,-8.4099 0.78243,-11.64703 0.36778,-3.22291 0.78243,-6.0467 1.24303,-8.45541 0.4447,-2.4246 1.02776,-4.72679 1.78055,-6.981678 3.94262,-11.923264 10.40396,-20.884861 19.44246,-26.901503 9.0226,-6.015342 20.08653,-9.036752 33.22147,-9.036752 6.75224,0 12.87587,0.782429 18.30773,2.377345 5.37082,1.580761 10.1887,3.760457 14.43897,6.552435 4.18926,2.762339 7.81137,6.015349 10.80317,9.698476 3.06868,3.697285 5.53882,7.641624 7.47319,11.877718 0.75106,1.349583 0.53752,2.424608 -0.65998,3.175676 l -16.68012,6.858773 c -1.41275,0.75278 -2.40869,0.36907 -3.19287,-1.12058 -3.74283,-6.93613 -6.93611,-11.49275 -12.18281,-14.806757 -5.30941,-3.299853 -10.22007,-4.865129 -18.3077,-4.865129 -8.79314,0 -12.7216,1.748734 -18.22953,5.693102 -5.46364,3.867008 -9.46901,8.732137 -11.83217,16.142614 -0.47437,1.33581 -0.9053,2.99348 -1.41104,4.94203 -0.41463,1.97991 -0.75278,4.40452 -0.9663,7.24247 -0.21544,2.83925 -0.41464,6.35308 -0.59855,10.49678 -0.12246,4.14373 -0.18403,9.17686 -0.18403,15.00788 0,5.86107 0.0616,10.8942 0.18403,15.03794 0.18402,4.12779 0.38328,7.64162 0.59855,10.48086 0.2135,2.86931 0.55167,5.27805 0.9663,7.27386 0.50616,1.91846 0.93667,3.57483 1.41104,4.92613 2.36316,7.38084 5.74037,11.41585 10.71205,14.65467 4.91068,3.28394 10.55651,5.64755 19.34965,5.64755 7.81134,0 14.96232,-2.22524 19.62634,-5.61746 4.61979,-3.39094 8.45544,-7.87108 10.17452,-13.99472 0.75281,-2.57843 1.71916,-5.78588 2.3791,-9.71393 0.59853,-3.92843 0.59853,-8.08632 0.59853,-13.82497 0,-0.9066 -0.5074,-1.36721 -1.3513,-1.36721 h -26.71631 c -1.50383,0 -2.24073,-0.73558 -2.24073,-2.23898 v -15.31466 c 0,-1.51931 0.7369,-2.25661 2.24073,-2.25661 h 49.02807 c 1.53521,0 2.25661,0.73688 2.25661,2.25661 v 13.08938 c 0,6.93614 0,13.36612 -0.7214,19.32001 -0.69131,5.95392 -1.62625,11.10951 -2.80789,14.86822 -3.74453,11.7712 -9.68254,20.14969 -18.78247,26.39405 -9.1313,6.29165 -20.90079,9.68257 -33.6838,9.68257 -13.13494,0 -24.19891,-3.02183 -33.22147,-9.0226 -9.0385,-6.07635 -15.49984,-14.99239 -19.44246,-26.91566 -0.75279,-2.25489 -1.33585,-4.57253 -1.78055,-6.99714 z"/></svg>ResearchGate</a>
+  <a class="contact-icon" href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001847885" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg>CvLAC</a>
+</div>
+
+</div>
+</div>
+
+<footer>
+  <div class="footer-socials">
+    <a href="mailto:jdurangocardona@gmail.com" title="Correo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></a>
+    <a href="https://orcid.org/0000-0003-3705-9834" target="_blank" title="ORCID"><svg viewBox="0 0 256 256" fill="currentColor"><circle cx="128" cy="128" r="124" fill="none" stroke="currentColor" stroke-width="8"/><path d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.6 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.5-56.8 53.5h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7 0-21.5-13.7-39.8-43.7-39.8h-23.7v79.5zM76.2 66.8c0 5.5-4.5 9.6-10.1 9.6-5.5 0-9.9-4.1-9.9-9.6 0-5.7 4.4-9.9 9.9-9.9 5.6 0 10.1 4.2 10.1 9.9z"/></svg></a>
+    <a href="https://scholar.google.com/citations?user=HBpjN5MAAAAJ&hl=es" target="_blank" title="Google Scholar"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M343.76 106.66V79.43L363.52 64H149.63L20.48 176.27h85.66c-.16 2.12-.22 4.05-.22 6.23 0 20.84 7.22 38.09 21.67 51.86 14.45 13.8 32.25 20.65 53.33 20.65 4.92 0 9.75-.37 14.44-1.02-2.91 6.5-4.37 12.52-4.37 18.14 0 9.88 4.5 20.43 13.47 31.64-39.23 2.67-68.06 9.73-86.44 21.16-10.53 6.5-19 14.7-25.39 24.53-6.39 9.9-9.58 20.52-9.58 31.96 0 9.65 2.06 18.34 6.22 26.06 4.16 7.73 9.58 14.07 16.31 18.98 6.72 4.97 14.47 9.1 23.22 12.47 8.73 3.34 17.41 5.72 26.06 7.06 8.63 1.34 17.2 2 25.71 2 13.47 0 26.95-1.73 40.55-5.19 13.56-3.48 26.28-8.64 38.17-15.49 11.86-6.8 21.52-16.09 28.92-27.72 7.39-11.68 11.09-24.8 11.09-39.34 0-11.02-2.25-21.04-6.75-30.14-4.47-9.07-9.94-16.54-16.45-22.34-6.5-5.81-13-11.16-19.52-15.97-6.5-4.84-12-9.75-16.47-14.81-4.48-5.05-6.73-10.05-6.73-14.98 0-4.92 1.73-9.67 5.22-14.27 3.45-4.61 7.67-9.05 12.61-13.31 4.94-4.25 9.88-8.97 14.8-14.13 4.92-5.15 9.14-11.83 12.61-20.01 3.48-8.18 5.2-17.44 5.2-27.76 0-13.45-2.55-24.46-7.55-33.31-.59-1.02-1.22-1.8-1.88-3.02l56.91-46.67v17.12c-7.39.93-6.62 5.35-6.62 10.64v128.67c0 5.96 4.88 10.83 10.83 10.83h3.99c5.96 0 10.83-4.88 10.83-10.83V117.29c0-5.28.78-9.69-6.56-10.63z M236.4 329.14c1.14.75 3.7 2.78 7.72 6.04 4.05 3.24 6.8 5.7 8.27 7.41 1.44 1.66 3.58 4.17 6.38 7.55 2.81 3.37 4.72 6.3 5.72 8.73 1 2.48 2.02 5.46 3.05 8.95.99 3.44 1.48 6.98 1.48 10.56 0 17.05-6.56 29.68-19.66 37.86-13.13 8.18-28.77 12.27-46.94 12.27-9.19 0-18.2-1.09-27.06-3.2-8.84-2.12-17.31-5.34-25.39-9.6-8.08-4.26-14.58-10.2-19.5-17.8-4.94-7.64-7.41-16.41-7.41-26.25 0-10.32 2.8-19.29 8.42-26.91 5.59-7.63 12.94-13.39 22.03-17.32 9.06-3.95 18.25-6.74 27.56-8.4 9.31-1.7 18.8-2.55 28.44-2.55 4.47 0 7.94.25 10.4.7.45.22 3.03 2.07 7.73 5.56 4.7 3.46 7.63 5.6 8.75 6.38z m-3.36-100.58c-7.41 8.86-17.73 13.29-30.95 13.29-11.86 0-22.3-4.76-31.27-14.31-9-9.52-15.42-20.33-19.34-32.43-3.94-12.11-5.91-23.98-5.91-35.65 0-13.69 3.6-25.35 10.78-34.98 7.19-9.65 17.5-14.48 30.94-14.48 11.88 0 22.37 5.04 31.44 15.16 9.09 10.08 15.61 21.41 19.52 33.97 3.92 12.54 5.87 24.53 5.87 35.98 0 13.45-3.7 24.61-11.08 33.45z"/></svg></a>
+    <a href="https://www.researchgate.net/profile/Juan-Durango" target="_blank" title="ResearchGate"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M 228.65968,408.10149 C 208.46616,386.12784 181.4422,350.83324 158.962,310.93516 c 37.13444,-8.68487 64.63318,-43.55027 64.63318,-78.38386 0,-51.3457 -39.88089,-75.17678 -92.16329,-75.17678 -27.02266,0 -48.583367,1.36546 -68.715441,1.36546 -18.369155,0 -36.722401,0 -48.154153,-0.4447 v 13.30466 l 17.401097,3.19159 c 11.968845,2.30214 18.78249,7.76579 18.78249,36.21494 v 180.59919 c 0,28.43543 -6.813222,33.92871 -18.78249,36.19953 l -17.401097,3.25258 v 13.25908 c 12.367998,-0.4447 33.912828,-1.3513 55.473533,-1.3513 20.62404,0 47.217451,0.9066 58.680561,1.3513 v -13.25908 l -23.84698,-3.25258 c -12.366696,-1.796 -18.813848,-7.7641 -18.813848,-36.19953 v -76.54225 c 11.002507,0.92078 20.624038,0.92078 35.325548,0.92078 27.95932,49.94887 54.55102,87.55896 69.65214,104.9618 13.779,16.52587 34.84949,27.05401 61.44162,27.05401 7.78128,0 16.02316,-1.36721 21.05458,-3.68315 v -11.89361 c -16.49625,0 -32.99204,-11.47725 -44.8702,-24.3213 z M 119.06392,295.34424 c -15.59093,0 -22.434257,-0.41463 -33.007939,-1.41103 V 178.91935 c 10.573682,-0.92079 24.751869,-0.92079 37.135739,-0.92079 38.53132,0 61.42745,20.19525 61.42745,56.83902 0,36.21495 -24.73641,60.50666 -65.55525,60.50666 z m 139.93416,-115.7035 c -0.4606,-2.4087 -0.87524,-5.21701 -1.24303,-8.45544 -0.38328,-3.26846 -0.63033,-7.10411 -0.78243,-11.63108 -0.15386,-4.49562 -0.21509,-9.98891 -0.21509,-16.28098 0,-6.32297 0.0616,-11.7398 0.21509,-16.25087 0.15258,-4.52698 0.39915,-8.4099 0.78243,-11.64703 0.36778,-3.22291 0.78243,-6.0467 1.24303,-8.45541 0.4447,-2.4246 1.02776,-4.72679 1.78055,-6.981678 3.94262,-11.923264 10.40396,-20.884861 19.44246,-26.901503 9.0226,-6.015342 20.08653,-9.036752 33.22147,-9.036752 6.75224,0 12.87587,0.782429 18.30773,2.377345 5.37082,1.580761 10.1887,3.760457 14.43897,6.552435 4.18926,2.762339 7.81137,6.015349 10.80317,9.698476 3.06868,3.697285 5.53882,7.641624 7.47319,11.877718 0.75106,1.349583 0.53752,2.424608 -0.65998,3.175676 l -16.68012,6.858773 c -1.41275,0.75278 -2.40869,0.36907 -3.19287,-1.12058 -3.74283,-6.93613 -6.93611,-11.49275 -12.18281,-14.806757 -5.30941,-3.299853 -10.22007,-4.865129 -18.3077,-4.865129 -8.79314,0 -12.7216,1.748734 -18.22953,5.693102 -5.46364,3.867008 -9.46901,8.732137 -11.83217,16.142614 -0.47437,1.33581 -0.9053,2.99348 -1.41104,4.94203 -0.41463,1.97991 -0.75278,4.40452 -0.9663,7.24247 -0.21544,2.83925 -0.41464,6.35308 -0.59855,10.49678 -0.12246,4.14373 -0.18403,9.17686 -0.18403,15.00788 0,5.86107 0.0616,10.8942 0.18403,15.03794 0.18402,4.12779 0.38328,7.64162 0.59855,10.48086 0.2135,2.86931 0.55167,5.27805 0.9663,7.27386 0.50616,1.91846 0.93667,3.57483 1.41104,4.92613 2.36316,7.38084 5.74037,11.41585 10.71205,14.65467 4.91068,3.28394 10.55651,5.64755 19.34965,5.64755 7.81134,0 14.96232,-2.22524 19.62634,-5.61746 4.61979,-3.39094 8.45544,-7.87108 10.17452,-13.99472 0.75281,-2.57843 1.71916,-5.78588 2.3791,-9.71393 0.59853,-3.92843 0.59853,-8.08632 0.59853,-13.82497 0,-0.9066 -0.5074,-1.36721 -1.3513,-1.36721 h -26.71631 c -1.50383,0 -2.24073,-0.73558 -2.24073,-2.23898 v -15.31466 c 0,-1.51931 0.7369,-2.25661 2.24073,-2.25661 h 49.02807 c 1.53521,0 2.25661,0.73688 2.25661,2.25661 v 13.08938 c 0,6.93614 0,13.36612 -0.7214,19.32001 -0.69131,5.95392 -1.62625,11.10951 -2.80789,14.86822 -3.74453,11.7712 -9.68254,20.14969 -18.78247,26.39405 -9.1313,6.29165 -20.90079,9.68257 -33.6838,9.68257 -13.13494,0 -24.19891,-3.02183 -33.22147,-9.0226 -9.0385,-6.07635 -15.49984,-14.99239 -19.44246,-26.91566 -0.75279,-2.25489 -1.33585,-4.57253 -1.78055,-6.99714 z"/></svg></a>
+    <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001847885" target="_blank" title="CvLAC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></a>
+  </div>
+  <p>© 2026 Juan Pablo Durango Cardona</p>
+</footer>
+
+<script>
+function switchPage(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>{a.classList.remove('active');a.removeAttribute('aria-current');});
+  const el = document.getElementById('page-'+page);
+  if(el){
+    el.classList.add('active');
+    el.querySelectorAll('.reveal').forEach(r=>r.classList.remove('visible'));
+    setTimeout(()=>{
+      el.querySelectorAll('.reveal').forEach((r,i)=>setTimeout(()=>r.classList.add('visible'),i*100));
+    },50);
+  }
+  const link = document.querySelector(`.nav-links a[data-page="${page}"]`);
+  if(link){link.classList.add('active');link.setAttribute('aria-current','page');}
+  document.getElementById('navLinks').classList.remove('open');
+  const burger = document.querySelector('.hamburger');
+  if(burger) burger.setAttribute('aria-expanded','false');
+  history.replaceState(null,'',window.location.pathname+'#'+page);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function scrollToSection(id){
+  setTimeout(()=>{
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  },450);
+}
+
+function toggleMobileNav(btn){
+  const open = document.getElementById('navLinks').classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+document.querySelectorAll('nav a[role="button"]').forEach(a=>{
+  a.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){
+      e.preventDefault();a.click();
+    }
+  });
+});
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+
+const revealObserver = new IntersectionObserver(entries=>{
+  entries.forEach((entry,i)=>{
+    if(entry.isIntersecting){
+      setTimeout(()=>entry.target.classList.add('visible'),i*80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+const searchInput = document.getElementById('searchInput');
+const yearFilter = document.getElementById('yearFilter');
+const filterCount = document.getElementById('filterCount');
+const noResults = document.getElementById('noResults');
+
+function applyFilters(){
+  const query = searchInput.value.toLowerCase().trim();
+  const year = yearFilter.value;
+  let visiblePublished = 0;
+  let visibleTotal = 0;
+  document.querySelectorAll('.pub-item').forEach(item=>{
+    const itemYear = item.dataset.year;
+    const text = item.textContent.toLowerCase();
+    item.querySelectorAll('mark').forEach(m=>m.replaceWith(document.createTextNode(m.textContent)));
+    let show = true;
+    if(year && itemYear !== year) show = false;
+    if(query && !text.includes(query)) show = false;
+    item.classList.toggle('hidden',!show);
+    if(show){
+      visibleTotal++;
+      if(item.hasAttribute('data-access')) visiblePublished++;
+    }
+  });
+  document.querySelectorAll('.pub-category').forEach(cat=>{
+    const hasVisible = cat.querySelectorAll('.pub-item:not(.hidden)').length > 0;
+    cat.classList.toggle('hidden',!hasVisible);
+  });
+  filterCount.textContent = visiblePublished + ' publicación' + (visiblePublished !== 1 ? 'es' : '');
+  noResults.style.display = visibleTotal === 0 ? 'block' : 'none';
+}
+
+function initPublications(){
+  document.querySelectorAll('.pub-category').forEach(cat=>{
+    const count = cat.querySelectorAll('.pub-item').length;
+    const badge = cat.querySelector('.pub-count');
+    if(badge) badge.textContent = count;
+  });
+  const total = document.querySelectorAll('.pub-item[data-access]').length;
+  filterCount.textContent = total + ' publicaciones';
+  const years = new Set();
+  document.querySelectorAll('.pub-item[data-access]').forEach(item=>{
+    if(item.dataset.year) years.add(item.dataset.year);
+  });
+  yearFilter.innerHTML = '<option value="">Todos los años</option>';
+  [...years].sort((a,b)=>b-a).forEach(y=>{
+    const opt = document.createElement('option');
+    opt.value = y; opt.textContent = y;
+    yearFilter.appendChild(opt);
+  });
+}
+
+searchInput.addEventListener('input', applyFilters);
+yearFilter.addEventListener('change', applyFilters);
+initPublications();
+
+const REPO_OWNER = 'JPDCjp';
+const REPO_NAME = 'jpdcjp.github.io';
+const DIR_ILLU = 'assets/images/illustrations';
+const DIR_PHOTO = 'assets/images/photos';
+
+async function getImagesFromGitHub(dirPath){
+  const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${dirPath}`;
+  try{
+    const response = await fetch(url);
+    if(!response.ok) return [];
+    const files = await response.json();
+    return files.filter(file => file.type === 'file' && /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name));
+  }catch(e){return [];}
+}
+
+async function loadCarousel(containerId,dirPath,captionId,carouselKey){
+  const container = document.getElementById(containerId);
+  if(!container) return;
+  const images = await getImagesFromGitHub(dirPath);
+  if(images.length === 0) return;
+  container.innerHTML = '';
+  images.forEach(img=>{
+    const imgEl = document.createElement('img');
+    imgEl.src = img.download_url;
+    imgEl.alt = img.name.replace(/\.[^/.]+$/,'');
+    container.appendChild(imgEl);
+  });
+  initCarousel(containerId,captionId,carouselKey);
+}
+
+function initCarousel(slidesId,captionId,carouselKey){
+  const slidesContainer = document.getElementById(slidesId);
+  const prevBtn = document.querySelector(`.prev[data-carousel="${carouselKey}"]`);
+  const nextBtn = document.querySelector(`.next[data-carousel="${carouselKey}"]`);
+  const caption = document.getElementById(captionId);
+  if(!slidesContainer || !prevBtn || !nextBtn) return;
+  const images = slidesContainer.querySelectorAll('img');
+  if(images.length === 0) return;
+  let currentIndex = 0;
+  function update(){
+    if(images[currentIndex]){
+      images[currentIndex].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+      if(caption) caption.innerText = images[currentIndex].alt;
+    }
+  }
+  prevBtn.onclick = ()=>{ currentIndex = (currentIndex - 1 + images.length) % images.length; update(); };
+  nextBtn.onclick = ()=>{ currentIndex = (currentIndex + 1) % images.length; update(); };
+  window.addEventListener('resize',update);
+  setTimeout(update,100);
+}
+
+loadCarousel('carousel-illu',DIR_ILLU,'caption-illu','illu');
+loadCarousel('carousel-photo',DIR_PHOTO,'caption-photo','photo');
+
+document.querySelectorAll('.pub-item[data-access]').forEach(item=>{
+  const isOpen = item.dataset.access === 'open';
+  const title = item.querySelector('.pub-title-text');
+  if(!title) return;
+  const svg = isOpen
+    ? '<svg viewBox="0 0 256 512"><path d="m 128.23305,64 c -56.46,0 -102.67,46.21 -102.67,102.67 v 14.02 h 41.12 v -14.02 c 0,-34.24 27.31,-61.55 61.55,-61.55 34.24,0 61.55,27.32 61.55,61.55 v 56.25 c -18.11,-10.82 -39.25,-17.06 -61.79,-17.06 -66.62,0 -121.07,54.45 -121.07,121.07 0,66.62 54.45,121.07 121.07,121.07 66.62,0 121.07,-54.45 121.07,-121.07 0,-23.29 -6.66,-45.09 -18.16,-63.6 V 166.68 C 230.9,110.22 184.69,64 128.23,64 Z m -0.23,182.98 c 44.4,0 79.95,35.55 79.95,79.95 0,44.4 -35.55,79.95 -79.95,79.95 -44.4,0 -79.95,-35.55 -79.95,-79.95 0,-44.4 35.55,-79.95 79.95,-79.95 z m 0.39,46.39 c -18.73,0 -33.92,15.19 -33.92,33.92 0,18.73 15.19,33.92 33.92,33.92 18.73,0 33.92,-15.19 33.92,-33.92 0,-18.73 -15.19,-33.92 -33.92,-33.92 z"/></svg>'
+    : '<svg viewBox="0 0 256 512"><path d="m 128.23,64 c -56.61,0 -102.67,46.06 -102.67,102.67 v 95.8 C 13.77,281.15 6.93,303.26 6.93,326.93 6.93,393.68 61.25,448 128,448 c 66.75,0 121.07,-54.32 121.07,-121.07 0,-23.36 -6.66,-45.19 -18.16,-63.71 v -96.55 C 230.9,110.06 184.84,64 128.23,64 Z m 0,41.12 c 33.94,0 61.55,27.61 61.55,61.56 v 56.18 c -18.1,-10.79 -39.23,-16.99 -61.79,-16.99 -22.36,0 -43.32,6.1 -61.32,16.72 v -55.91 c 0,-33.94 27.62,-61.56 61.55,-61.56 z m -0.23,141.86 c 44.08,0 79.95,35.86 79.95,79.95 0,44.08 -35.86,79.95 -79.95,79.95 -44.08,0 -79.95,-35.87 -79.95,-79.95 0,-44.09 35.87,-79.95 79.95,-79.95 z m 0.39,46.39 c -18.73,0 -33.92,15.19 -33.92,33.93 0,18.73 15.19,33.92 33.92,33.92 18.74,0 33.92,-15.19 33.92,-33.92 0,-18.74 -15.19,-33.93 -33.92,-33.93 z"/></svg>';
+  const span = document.createElement('span');
+  span.className = 'access-icon ' + (isOpen ? 'open' : 'closed');
+  span.innerHTML = svg;
+  title.insertBefore(span, title.firstChild);
+});
+
+(function(){
+  const a = document.getElementById('audioPlayer');
+  const bar = document.getElementById('audioProgressBar');
+  if(!a || !bar) return;
+  a.addEventListener('timeupdate',()=>{
+    if(a.duration) bar.style.width = (a.currentTime/a.duration*100)+'%';
+  });
+  a.addEventListener('ended',()=>{
+    document.getElementById('audioIconPlay').style.display='';
+    document.getElementById('audioIconPause').style.display='none';
+    bar.style.width='0';
+  });
+})();
+
+function toggleAudio(){
+  const a = document.getElementById('audioPlayer');
+  if(!a) return;
+  const p = document.getElementById('audioIconPlay');
+  const pa = document.getElementById('audioIconPause');
+  if(a.paused){ a.play(); p.style.display='none'; pa.style.display=''; }
+  else { a.pause(); p.style.display=''; pa.style.display='none'; }
+}
+
+// Tooltips del mapa de Colombia
+(function(){
+  const tooltip = document.getElementById('mapTooltip');
+  if(!tooltip) return;
+  const wrap = document.querySelector('.field-map-wrap');
+  document.querySelectorAll('.map-pin').forEach(pin=>{
+    pin.addEventListener('mouseenter', ()=>{
+      tooltip.innerHTML = `<div class="tt-site">${pin.dataset.site}</div>`;
+      tooltip.classList.add('visible');
+      const svg = pin.closest('svg');
+      const svgRect = svg.getBoundingClientRect();
+      const wrapRect = wrap.getBoundingClientRect();
+      const vb = svg.viewBox.baseVal;
+      const sx = svgRect.width / vb.width;
+      const sy = svgRect.height / vb.height;
+      const m = pin.getAttribute('transform').match(/translate\(([\d.]+)[,\s]+([\d.]+)\)/);
+      const px = parseFloat(m[1]);
+      const py = parseFloat(m[2]);
+      let left = (svgRect.left - wrapRect.left) + px * sx + 40;
+      let top = (svgRect.top - wrapRect.top) + py * sy - 20;
+      if(left + 200 > wrapRect.width) left -= 220;
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    });
+    pin.addEventListener('mouseleave', ()=>{
+      tooltip.classList.remove('visible');
+    });
+  });
+})();
+
+// Interacciones de la línea de tiempo
+(function(){
+  const panel = document.getElementById('tlPanel');
+  if(!panel) return;
+  const img = document.getElementById('tlPanelImg');
+  const year = document.getElementById('tlPanelYear');
+  const title = document.getElementById('tlPanelTitle');
+  const body = document.getElementById('tlPanelBody');
+  const wrap = document.querySelector('.timeline-wrap');
+  let current = null;
+
+  function openPanel(item){
+    if(current === item) return;
+    if(current) current.classList.remove('active');
+    current = item;
+    item.classList.add('active');
+    year.textContent = item.dataset.year;
+    title.textContent = item.dataset.title;
+    body.textContent = item.dataset.body;
+    if(item.dataset.photo){
+      img.src = item.dataset.photo;
+      img.style.display = '';
+    } else {
+      img.removeAttribute('src');
+      img.style.display = 'none';
+    }
+    panel.classList.add('open');
+  }
+
+  document.querySelectorAll('.timeline-item').forEach(item=>{
+    item.addEventListener('mouseenter', ()=>openPanel(item));
+    item.addEventListener('click', ()=>openPanel(item));
+  });
+
+  wrap.addEventListener('mouseleave', ()=>{
+    panel.classList.remove('open');
+    if(current){ current.classList.remove('active'); current = null; }
+  });
+})();
+
+function scrollInfluence(key, dir){
+  const track = document.getElementById('track-'+key);
+  if(!track) return;
+  const card = track.querySelector('.influence-card');
+  const amount = card.offsetWidth + 19;
+  track.scrollBy({left: dir*amount, behavior:'smooth'});
+}
+
+(function routeFromHash(){
+  const raw = window.location.hash.replace(/^#/,'');
+  if(!raw) return;
+  const validPages = ['home','about','pubs','research','gallery','contact'];
+  if(validPages.includes(raw)) switchPage(raw);
+})();
+</script>
+
+</body>
+</html>
