@@ -630,7 +630,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
       <div class="tl-label">Pacific internship</div>
     </div>
 
-    <div class="timeline-item" data-year="2024" data-title="B.Sc. Biology" data-photo="assets/images/timeline/7.jpg" data-body="For me, the final step of my university years was defending my thesis. I can say with 
+    <div class="timeline-item" data-year="2024" data-title="B.Sc. Biology" data-photo="assets/images/timeline/7.jpg" data-body="For me, the final step of my undergraduate years was defending my thesis. I can say with 
 	great pride that I deeply enjoyed the entire process—the fieldwork and the experiences shared with friends. The sleepless nights, getting soaked in the rain, the hugs, the arguments, and the debates. Sitting for 
 	hours analyzing data in R to spot patterns; writing, rewriting, and rewriting again. Talking to everyone about the project that consumed my days and nights. And in the end, there I was, telling that story.">
       <div class="tl-year">2024</div>
@@ -641,10 +641,63 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
 </div>
     </div>
 	<div class="influences-wrap reveal" id="about-influences">
-	<div class="section-label" style="text-align:left">Influences</div>
-	<p class="influence-intro"style="text-align:justify">A scientist is, first and foremost, a human being. They are influenced by the world around them. 
-	A scientist must therefore view themselves as a political, cultural, and revolutionary being. This section presents many of my thoughts and feelings 
-	regarding political, social, and cultural issues.</p>
+	<div class="section-label" style="text-align:left">Influences & Affinities</div>
+	<p class="influence-intro"style="text-align:justify">A scientist is, first and foremost, a human being. Science is often presented as neutral, but the people who do it never are. 
+	Scientists are cultural and political subjects whether we admit it or not. I am shaped by the world around me like anyone else, and science is never practiced in a vacuum. 
+	We carry our histories, values, and convictions into the lab and the classroom.  Rather than hide that, I prefer to be open about it. Below are the teachers, films, books, and m
+	usic that have shaped how I think about culture, politics, and society. Some changed my mind; others simply put words to what I already felt. I honestly can't always tell which 
+	is which, and that is part of the point.</p>
+	
+<!-- TEACHERS -->
+
+ <section class="influence-section">
+    <div class="section-label">Teachers</div>
+	<p class="influence-intro"style="text-align:justify">Long before I knew what kind of scientist I wanted to be, I met people who showed me what a scientist could be. Some taught me methods and techniques. 
+	Others taught me, without meaning to, how to treat students, how to disagree, and how to care about what happens outside the lab. I don't think I would think the way I do without them. Whatever I do well, 
+	part of it started in their classrooms. Whatever I get wrong is mine.</p>
+    <div class="influence-carousel">
+      <button class="carousel-btn prev" onclick="scrollInfluence('teachers',-1)">&#10094;</button>
+      <div class="influence-track" id="track-teachers">
+        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/teachers/1.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Juan Camilo Arredondo</div>
+            <div class="influence-author">Vertebrate zoology</div>
+            <div class="influence-note"style="text-align:justify">I met Juan Camilo when I took the vertebrate zoology course. To be honest, I was an average—almost mediocre—student. I hadn't done well in the prerequisite course, 
+			invertebrate zoology; I barely passed it. I must also confess that I didn't feel an instant connection with the subject matter or the professor. It took time, and I don't know exactly when it 
+			happened, but at some point a bond formed that would become one of the most important friendships of my life.
+									
+			He made zoology feel like something worth wanting. He talks about the people who came before him, and the ones he worked next to, with the pasion of the first moment. He is as curious about 
+			where an idea came from, its detours and forgotten corners, as about the idea itself. For him, doing things well is not about compliance. It is a way of respecting the work and 
+			everyone who built it, and I hold my own work to a standard I first saw in him.
+			
+			He notices what the people around him need before they say it, and he acts without turning it into a moment. He never made me feel I owed him anything. He has never asked me for anything in 
+			return and maybe that is why I take it so seriously. There is a pact between us that no one ever spoke out loud, and I intend to keep it: to work well, to be honest, and to become someone 
+			worth the time he put into me. I've come to think that is the rarest kind of friendship. Being seen like that, in times when I couldn't have asked, changed what I believed I could expect from 
+			other people, and from myself. 
+			
+			There is a story about Carl Sagan and a young Neil deGrasse Tyson: a scientist who could have kept his distance and chose to reach back instead. I will never forget the moment he saw me with 
+			an old, torn bag and gave me the backpack he was carrying that day—my first Quechua bag, brought from Brazil. Only later I understood the lesson that he taught me that day: he showed me the 
+			kind of approachable, helpful teacher I wanna be.
+			He is also the kind of person who tells the truth directly, without cushioning, and without ever making you feel smaller. It's the honesty of someone who respects you enough to expect more, 
+			which is why it lands as care and not as criticism. But at the same time he taught me—by example—something about adulthood that I hadn't known before meeting him: how to apologize and own up to one's errors.
+			
+			Words fail me when trying to list everything I have learned from him and how much our frienships mean to me.</div>
+          </div>
+        </div> 
+		        <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/teachers/2.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">Danny Zurc</div>
+            <div class="influence-author">Research incubator "<em>Reinventando</em>"</div>
+            <div class="influence-note"style="text-align:justify">In process...</div>
+          </div>
+        </div> 
+		 </div>
+      <button class="carousel-btn next" onclick="scrollInfluence('teachers',1)">&#10095;</button>
+    </div>
+  </section>
+  
   <!-- BOOKS -->
   <section class="influence-section">
     <div class="section-label">Books</div>
@@ -660,7 +713,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">The Demon-Haunted World: Science as a Candle in the Dark </div>
             <div class="influence-author">Carl Sagan</div>
-            <div class="influence-note">I first discovered Carl Sagan when I started a degree in Engineering Physics –in reality, I had already seen him in school—coincidentally, 
+            <div class="influence-note"style="text-align:justify">I first discovered Carl Sagan when I started a degree in Engineering Physics –in reality, I had already seen him in school—coincidentally, 
 			during a math class but I wasn't ready for it back then. During my first semester of university, I was very bad at math —still am—, and to be honest, I wasn't doing well 
 			in my degree program. But while in it I started to get consumed by a sense of snobbery. I loved the way my classmates talked about science and all the wild and crazy 
 			interesting facts they knew. A recurring theme was how everyone began to love science —and physics in particular— and Carl was always a fundamental part of that. 
@@ -673,9 +726,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Billions & Billions</div>
             <div class="influence-author">Carl Sagan</div>
-            <div class="influence-note">"La Vorágine"—what a name! To me, the word <em>vorágine</em>—maelstrom—is powerful in itself; long before I even knew its meaning, it stirred up whirlpools within me. 
-			And perhaps that is what I like about this book: even before reading it, I could sense the gale-force reality it portrays. This book made me want to get to know the Llanos and their culture. 
-			I already enjoyed <em>joropo</em>—a genre that stirs up a whirlwind of emotion within me—but I will always harbor a longing to live another life as a <em>llanero</em>. </div>
+            <div class="influence-note"style="text-align:justify">In process...</div>
           </div>
         </div>
 		<div class="influence-card">
@@ -683,7 +734,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">La Vorágine</div>
             <div class="influence-author">José Eustasio Rivera</div>
-            <div class="influence-note">"La Vorágine"—what a name! To me, the word <em>vorágine</em>—maelstrom—is powerful in itself; long before I even knew its meaning, it stirred up whirlpools within me. 
+            <div class="influence-note"style="text-align:justify">"La Vorágine"—what a name! To me, the word <em>vorágine</em>—maelstrom—is powerful in itself; long before I even knew its meaning, it stirred up whirlpools within me. 
 			And perhaps that is what I like about this book: even before reading it, I could sense the gale-force reality it portrays. This book made me want to get to know the Llanos and their culture. 
 			I already enjoyed <em>joropo</em>—a genre that stirs up a whirlwind of emotion within me—but I will always harbor a longing to live another life as a <em>llanero</em>. </div>
           </div>
@@ -693,7 +744,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Cien Años de Soledad</div>
             <div class="influence-author">Gabriel García Márquez</div>
-            <div class="influence-note">Macondo—that name we use to refer to Colombia when the country feels unreal to us, something that happens often these days. 
+            <div class="influence-note"style="text-align:justify">Macondo—that name we use to refer to Colombia when the country feels unreal to us, something that happens often these days. 
 			Márquez gave us more than just a book; he gave us ways to understand and heal our wounds. He lifted us out of our ordinary state as Colombians and placed us as guards in a panopticon. 
 			From that vantage point, we recognize the people around us as his characters. This allows us to grasp, to some extent, the complexity of our history and our current reality.
 			For me, the book’s ending is revelatory. It is bleak—an absolute fatality, marking the impossibility of a fresh start for Colombians. 
@@ -706,7 +757,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">El Extranjero</div>
             <div class="influence-author">Albert Camus</div>
-            <div class="influence-note">This book came into my life at a very special moment. It happened after I had been struggling emotionally and following the persistent urging of Esteban—a great friend 
+            <div class="influence-note"style="text-align:justify">This book came into my life at a very special moment. It happened after I had been struggling emotionally and following the persistent urging of Esteban—a great friend 
 			I made during my biology studies. Seeing the state I was in, Esteban recommended Camus to me on several occasions; however, I have always been a poor reader—I get distracted easily and fail to retain 
 			important details—so my response was always that it wasn't the kind of reading for me, or that I wouldn't understand any of it. For some reason—and it wasn't intentional—when I finally read <em>El Extranjero</em>, 
 			I understood everything. Meursault’s behavior was so revelatory to me that there wasn't a single line that didn't resonate with me. This book set in motion an endless process of emotional healing for me.</div>
@@ -732,7 +783,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Contact</div>
             <div class="influence-author">Robert Zemeckis</div>
-            <div class="influence-note">For me, this film is one of the best portrayals of the passion for science. 
+            <div class="influence-note"style="text-align:justify">For me, this film is one of the best portrayals of the passion for science. 
 			How often—just like Dr. Arroway—have I spent hours on end in front of computers or stereoscopes, never wanting to stop? 
 			Furthermore, it offers a firsthand look at some of society's greatest dilemmas: the existence of other life forms in the 
 			universe and the tension between science and faith.</div>
@@ -743,7 +794,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Interstellar</div>
             <div class="influence-author">Christopher Nolan</div>
-            <div class="influence-note">To me, this film is the ultimate example of how science serves as a profound source of spirituality—in a 
+            <div class="influence-note"style="text-align:justify">To me, this film is the ultimate example of how science serves as a profound source of spirituality—in a 
 			sense less esoteric and more about personal well-being—as well as a source of hope and the strength to move forward as a species. 
 			Yet, it also stands as a testament to everything that can go wrong if we surrender to our superstitions and fears: the collapse of civilization. 
 			From a scientific standpoint, it is flawless—a masterpiece. It ought to be shown in science classes in schools.</div>
@@ -754,7 +805,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">The Man Who Knew Infinity</div>
             <div class="influence-author">Matt Brown</div>
-            <div class="influence-note">In process...</div>
+            <div class="influence-note"style="text-align:justify">In process...</div>
           </div>
         </div>
         <div class="influence-card">
@@ -762,7 +813,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Ágora</div>
             <div class="influence-author">Alejandro Amenábar</div>
-            <div class="influence-note">In process...</div>
+            <div class="influence-note"style="text-align:justify">In process...</div>
           </div>
 		 </div>
         <div class="influence-card">
@@ -770,7 +821,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">The Aeronauts</div>
             <div class="influence-author">Tom Harper</div>
-            <div class="influence-note">In process...</div>
+            <div class="influence-note"style="text-align:justify">In process...</div>
           </div>
         </div>
         <div class="influence-card">
@@ -778,7 +829,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Radioactive</div>
             <div class="influence-author">Marjane Satrapi</div>
-            <div class="influence-note">In process...</div>
+            <div class="influence-note"style="text-align:justify">In process...</div>
           </div>
 		</div> 	
         <div class="influence-card">
@@ -786,7 +837,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">The Imitation Game</div>
             <div class="influence-author">Morten Tyldum</div>
-            <div class="influence-note">In process...</div>
+            <div class="influence-note"style="text-align:justify">In process...</div>
           </div>
 	    </div>
       </div>
@@ -805,7 +856,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Cosmos: A Personal Voyage</div>
             <div class="influence-author">Carl Sagan, Ann Druyan, Steven Soter, Adrian Malone</div>
-            <div class="influence-note"><em>Cosmosv</em> needs no general introduction. Personally, this is the documentary that helped me get through eight years of university studies. 
+            <div class="influence-note"style="text-align:justify"><em>Cosmosv</em> needs no general introduction. Personally, this is the documentary that helped me get through eight years of university studies. 
 			Its soundtrack evokes a sense of hope and a desire to explore, yet also a feeling of peace. Carl’s words on what it means to be both a scientist and a human being have deeply 
 			moved me and stand as a testament to the power of his message; even after his death, it continues to captivate minds and inspire a passion for science.</div>
           </div>
@@ -815,7 +866,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Cosmos: A Personal Voyage</div>
             <div class="influence-author">	Ann Druyan, Steven Sotere, Brannon Braga, Bill Pope</div>
-            <div class="influence-note">The reason for distinguishing between the <em>Cosmos</em> series is clear: the message conveyed by the subsequent saga. As many know, Neil met Carl, 
+            <div class="influence-note"style="text-align:justify">The reason for distinguishing between the <em>Cosmos</em> series is clear: the message conveyed by the subsequent saga. As many know, Neil met Carl, 
 			and that encounter left a lasting mark on him. As Neil said in a segment of the series—one that never fails to give me goosebumps and make me emotional—it represents a passing 
 			of the torch from teacher to student in an unending chain. To me, that fact is a marvel in itself. Furthermore, while I certainly hold the new sagas dear, Carl’s version will always 
 			remain the pioneer in my heart.</div>
@@ -826,7 +877,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Genius: Einstein</div>
             <div class="influence-author">Kenneth Biller, Noah Pink</div>
-            <div class="influence-note">In process...</div>
+            <div class="influence-note"style="text-align:justify">In process...</div>
           </div>
         </div>
 		<div class="influence-card">
@@ -834,7 +885,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Chernobyl</div>
             <div class="influence-author">Craig Mazin </div>
-            <div class="influence-note">In process...</div>
+            <div class="influence-note"style="text-align:justify">In process...</div>
           </div>
         </div>
       </div>
@@ -856,7 +907,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Yo me llamo cumbia</div>
             <div class="influence-author">Totó la Momposina</div>
-            <div class="influence-note">To me, this song represents that feeling of wanting to be one with the world around us—which, in a way, we are. 
+            <div class="influence-note"style="text-align:justify">To me, this song represents that feeling of wanting to be one with the world around us—which, in a way, we are. 
 			Beyond that, it is exquisite; it is clever in its play on the similarities between a woman and a <em>Cumbia</em>. To me, women are, in a way, a <em>Cumbia</em>.</div>
           </div>
         </div>
@@ -865,7 +916,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">El Mochuelo</div>
             <div class="influence-author">Otto Serge and Rafael Ricardo</div>
-            <div class="influence-note">Vallenato has been part of my life since I was little—back when my aunts would listen to it non-stop on weekends. 
+            <div class="influence-note"style="text-align:justify">Vallenato has been part of my life since I was little—back when my aunts would listen to it non-stop on weekends. 
 			Yet, at some point, Colombians went through a phase where we felt ashamed of this music; to me, it stems from regionalism—a kind of chauvinism 
 			that makes us embarrassed by what is truly our own, by our roots and our native culture. Rediscovering vallenato has been a deeply moving and 
 			beautiful journey for me. This particular song conjures up places I have never actually seen, yet somehow revisit in my mind—as if a natural 
@@ -877,7 +928,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">La Noche De Los Cocuyos</div>
             <div class="influence-author">Juan Harvey Caicedo</div>
-            <div class="influence-note">Even though the Colombian Llanos constitute a vast region with immense cultural and environmental diversity, 
+            <div class="influence-note"style="text-align:justify">Even though the Colombian Llanos constitute a vast region with immense cultural and environmental diversity, 
 			most of us Colombians from the center of the country are largely unfamiliar with its culture. I was fortunate enough to have an uncle who 
 			loved the poems of Juan Harvey Caicedo, which kept this region constantly on my mind. More recently, having studied biology, 
 			my fascination—and perhaps even a touch of snobbery—regarding this and the country's other regions has only grown. And really, how 
