@@ -47,6 +47,7 @@
   /* ===== NAVBAR ===== */
   nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,4rem);height:64px;background:var(--nav-bg);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border-bottom:1px solid var(--border);transition:background .4s}
   nav.scrolled{background:var(--nav-bg-scrolled)}
+.nav-role{display:none}
   .nav-name{font-family:var(--sans);font-size:1.15rem;font-weight:500;color:var(--white);letter-spacing:-.02em;text-decoration:none;cursor:pointer;white-space:nowrap}
   .nav-links{display:flex;gap:2rem;align-items:center;margin-left:auto;margin-right:1.5rem;white-space:nowrap;flex-shrink:0}
   .nav-links > a,.nav-item > a{font-size:.82rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--text-secondary);text-decoration:none;position:relative;transition:color .3s;cursor:pointer}
@@ -384,7 +385,7 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
 <nav id="navbar">
 <a class="nav-name" role="button" tabindex="0" onclick="switchPage('home')" style="display:flex;align-items:center;gap:.5rem">
   <img src="assets/images/icon/1.png" alt="" style="height:50px;width:auto;display:block">
-  <span>Juan-P. Durango <span style="font-weight:400;color:var(--text-muted);font-size:.82rem">· Science Education, Museo de Ciencias Naturales de La Salle</span></span>
+  <span>Juan-P. Durango <span class="nav-role">· Educación científica, Museo de Ciencias Naturales de La Salle</span></span>
 </a>
   <div class="nav-links" id="navLinks">
     <a role="button" tabindex="0" onclick="switchPage('home')" class="active" data-page="home">Home</a>
