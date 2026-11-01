@@ -444,20 +444,22 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
       <h1>“La <span class="hero-hl">ciencia</span> no solo es compatible con la <span class="hero-hl">espiritualidad</span>; es una fuente profunda de espiritualidad.”</h1>
       <p><strong style="color:var(--accent-bright);font-weight:500">Carl Sagan</strong> – El mundo y sus demonios: la ciencia como una luz en la oscuridad.</p>
     </div>
-    <div class="hero-audio">
-      <div class="audio-player">
-        <button class="audio-play" id="audioPlayBtn" onclick="toggleAudio()" aria-label="Reproducir">
-          <svg id="audioIconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          <svg id="audioIconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-        </button>
-        <div class="audio-info">
-          <div class="audio-title"><em>Cochranella granulosa</em></div>
-          <div class="audio-species">Huina, Bahía Solano</div>
-          <div class="audio-progress"><div class="audio-progress-bar" id="audioProgressBar"></div></div>
-        </div>
-        <audio id="audioPlayer" src="assets/audio/Cochranella_granulosa.mp3" preload="metadata"></audio>
-      </div>
-    </div>
+	
+	<div class="hero-audio">
+	  <div class="audio-player">
+		<button class="audio-play" onclick="toggleAudio(this)" aria-label="Play">
+		  <svg class="audio-icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+		  <svg class="audio-icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+		</button>
+		<div class="audio-info">
+		  <div class="audio-title"><em>Cochranella granulosa</em></div>
+		  <div class="audio-species">Huina, Bahía Solano</div>
+		  <div class="audio-progress"><div class="audio-progress-bar"></div></div>
+		</div>
+		<audio class="audio-element" src="assets/audio/Cochranella_granulosa.mp3" preload="metadata"></audio>
+	  </div>
+	</div>
+	
   </section>
 
   <div class="about-intro">
@@ -854,6 +856,14 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
 				Constituye una lección sobre los peligros de la fe ciega y el fanatismo religioso.</div>
           </div>
 		 </div>
+		 <div class="influence-card">
+          <div class="influence-cover"><img src="assets/images/influences/films/8.jpg" alt=""></div>
+          <div class="influence-info">
+            <div class="influence-title">23 000 vidas</div>
+            <div class="influence-author">Markus Goller</div>
+            <div class="influence-note"style="text-align:justify">En proceso...</div>
+          </div>
+	    </div>
         <div class="influence-card">
           <div class="influence-cover"><img src="assets/images/influences/films/5.jpg" alt=""></div>
           <div class="influence-info">
@@ -938,7 +948,12 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
           <div class="influence-info">
             <div class="influence-title">Chernobyl</div>
             <div class="influence-author">Craig Mazin</div>
-            <div class="influence-note"style="text-align:justify">En proceso...</div>
+            <div class="influence-note"style="text-align:justify">Esta serie debe ser una obligatoriedad si no en los colegios, para cualquier persona formandoce como cientifico. Es un recordatorio 
+			de lo que pasa cuando la verdad se subordina a la ideología, al orgullo y al miedo. La ciencia es una herramienta extraordinaria: nos da luz, medicina, la capacidad de entender el universo. 
+			Pero es una herramienta, y como toda herramienta, depende de quién la sostiene. En manos de personas preparadas, humildes ante los datos y dispuestas a admitir errores, construye. En manos
+			de fanáticos, burócratas o gente que decide qué es verdad según le conviene, destruye. Carl Sagan advertía que vivimos en una sociedad profundamente dependiente de la ciencia y la tecnología,
+			y en la que casi nadie sabe algo sobre ellas. Esa mezcla es peligrosa. Cuando el poder se concentra en quienes no entienden lo que manejan, y el pensamiento crítico se castiga, el desastre 
+			es cuestión de tiempo. La ciencia exige honestidad, preparación y respeto por la evidencia. Cuando le fallamos, la realidad tarde o temprano cobra la cuenta.</div>
           </div>
         </div>
       </div>
@@ -1171,6 +1186,20 @@ a.contact-val:hover{color:var(--accent-bright);border-bottom-color:var(--accent-
     <div class="hero-content">
       <h1>Investi<span class="hero-hl">gación</span></h1>
     </div>
+	<div class="hero-audio">
+	  <div class="audio-player">
+		<button class="audio-play" onclick="toggleAudio(this)" aria-label="Play">
+		  <svg class="audio-icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+		  <svg class="audio-icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+		</button>
+		<div class="audio-info">
+		  <div class="audio-title"><em>Andinobates opisthomelas</em></div>
+		  <div class="audio-species">Santa inés, Valdivia</div>
+		  <div class="audio-progress"><div class="audio-progress-bar"></div></div>
+		</div>
+		<audio class="audio-element" src="assets/audio/Andinobates_opisthomelas.mp3" preload="metadata"></audio>
+	  </div>
+	</div>
   </section>
 
   <div class="research-content">
@@ -1790,14 +1819,50 @@ document.querySelectorAll('.pub-item[data-access]').forEach(item=>{
   });
 })();
 
-function toggleAudio(){
-  const a = document.getElementById('audioPlayer');
-  if(!a) return;
-  const p = document.getElementById('audioIconPlay');
-  const pa = document.getElementById('audioIconPause');
-  if(a.paused){ a.play(); p.style.display='none'; pa.style.display=''; }
-  else { a.pause(); p.style.display=''; pa.style.display='none'; }
+function toggleAudio(btn){
+  const player = btn.closest('.audio-player');
+  const audio  = player.querySelector('.audio-element');
+  const iconPlay  = player.querySelector('.audio-icon-play');
+  const iconPause = player.querySelector('.audio-icon-pause');
+
+  // Pausar el otro reproductor si está sonando
+  document.querySelectorAll('.audio-element').forEach(other => {
+    if (other !== audio && !other.paused) {
+      other.pause();
+      const otherPlayer = other.closest('.audio-player');
+      otherPlayer.querySelector('.audio-icon-play').style.display = '';
+      otherPlayer.querySelector('.audio-icon-pause').style.display = 'none';
+    }
+  });
+
+  if (audio.paused) {
+    audio.play();
+    iconPlay.style.display = 'none';
+    iconPause.style.display = '';
+  } else {
+    audio.pause();
+    iconPlay.style.display = '';
+    iconPause.style.display = 'none';
+  }
 }
+
+// Inicializar cada reproductor de forma independiente
+document.querySelectorAll('.audio-player').forEach(player => {
+  const audio = player.querySelector('.audio-element');
+  const bar   = player.querySelector('.audio-progress-bar');
+  const iconPlay  = player.querySelector('.audio-icon-play');
+  const iconPause = player.querySelector('.audio-icon-pause');
+
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+  });
+
+  audio.addEventListener('ended', () => {
+    iconPlay.style.display = '';
+    iconPause.style.display = 'none';
+    bar.style.width = '0';
+  });
+});
 
 // Tooltips del mapa de Colombia
 (function(){
